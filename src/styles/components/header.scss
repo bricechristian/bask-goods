@@ -1,0 +1,56 @@
+.header {
+  @apply transition;
+  #hamburger,
+  #hamburger-close {
+    @apply invisible transition;
+      &.active {
+          @apply visible;
+      }
+  }
+  #hamburger {
+      g {
+        @apply transition;
+        stroke: theme("colors.cream");
+      }
+      &:hover g {
+        stroke: theme("colors.orange");
+        }
+  }
+  nav {
+    @apply transition;
+    &.min {
+      @apply py-2;
+    }
+  }
+  &.dropdown-open {
+    @apply bg-cream;
+    .header__link {
+      @apply text-black;
+      &:hover {
+        @apply text-orange;
+      } 
+    }
+    #header-shop-link.active {
+        @apply text-orange;
+    }
+    #hamburger {
+        g {
+          stroke: theme("colors.black");
+        }
+        &:hover g {
+            stroke: theme("colors.orange");
+        }
+    }
+  }
+  &.slide-up {
+    transform: translateY(-100%);
+  }
+  &__categories,
+  &__menu {
+    @apply transition;
+    @apply invisible;
+    &.active {
+        @apply visible;
+    }
+  }
+}

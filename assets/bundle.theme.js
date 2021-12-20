@@ -7,8 +7,17 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/scripts/components/header.js":
+/*!******************************************!*\
+  !*** ./src/scripts/components/header.js ***!
+  \******************************************/
+/***/ (() => {
+
+eval("const $header = document.querySelector('header');\nconst $nav = document.querySelector('nav'); // FLY AWAY HEADER\n\nlet lastScrollTop = 0;\nlet scrollSpeed = 0;\n\nconst checkScrollSpeed = (settings => {\n  settings = settings || {};\n  let lastPos,\n      newPos,\n      timer,\n      delta,\n      delay = settings.delay || 50; // in \"ms\" (higher means lower fidelity )\n\n  function clear() {\n    lastPos = null;\n    delta = 0;\n  }\n\n  clear();\n  return function () {\n    newPos = window.scrollY;\n\n    if (lastPos != null) {\n      // && newPos < maxScroll \n      delta = newPos - lastPos;\n    }\n\n    lastPos = newPos;\n    clearTimeout(timer);\n    timer = setTimeout(clear, delay);\n    scrollSpeed = delta;\n  };\n})();\n\nwindow.addEventListener(\"scroll\", () => {\n  checkScrollSpeed();\n  let st = window.pageYOffset || document.documentElement.scrollTop;\n\n  if (st > lastScrollTop) {\n    $header.classList.add('slide-up');\n  } else {\n    if (Math.abs(scrollSpeed) > 25) {\n      $header.classList.remove('slide-up');\n    }\n  }\n\n  if (st > 200) {\n    $nav.classList.add('min');\n  } else {\n    $nav.classList.remove('min');\n    $header.classList.remove('slide-up');\n  }\n\n  if (st == 0) {\n    $header.classList.remove('slide-up');\n  }\n\n  lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling\n}, false); //DROPDOWNS\n\nconst $headerNav = $header.querySelector('.header nav').children;\nconst $shopLink = document.getElementById('header-shop-link');\nconst $headerShopCats = $header.querySelector('.header__categories');\nconst $headerMenu = $header.querySelector('.header__menu');\n\nconst openDropdown = (a, b) => {\n  const navChildren = [...$headerNav];\n  navChildren.forEach((el, i) => {\n    if (i !== 0) {\n      el.style.display = \"none\";\n    }\n  });\n\n  if (a !== null) {\n    a.classList.add(\"active\");\n  }\n\n  if (b !== null) {\n    b.style.display = \"block\";\n    b.classList.add(\"active\");\n  }\n\n  $header.classList.add(\"dropdown-open\");\n};\n\nconst closeDropdown = (a, b) => {\n  if (a !== null) {\n    a.classList.remove(\"active\");\n  }\n\n  if (b !== null) {\n    b.classList.remove(\"active\");\n    setTimeout(() => {\n      b.style.display = \"none\";\n    }, 300);\n  }\n\n  $header.classList.remove(\"dropdown-open\");\n};\n\nif ($shopLink !== null && $headerShopCats !== null) {\n  $shopLink.addEventListener(\"mouseover\", () => {\n    openDropdown($shopLink, $headerShopCats);\n  }, false); // $headerShopCats.querySelector(\".grid\").addEventListener(\"mouseleave\", () => {\n  //     closeDropdown($shopLink, $headerShopCats)\n  // }, false)\n\n  $header.addEventListener(\"mouseleave\", () => {\n    closeDropdown($shopLink, $headerShopCats);\n  }, false);\n} // HAMBURGER\n\n\nconst $hamburger = document.getElementById('hamburger');\nconst $hamburgerClose = document.getElementById('hamburger-close');\n\nconst openMenu = () => {\n  $hamburger.classList.remove(\"active\");\n  openDropdown($hamburgerClose, $headerMenu);\n};\n\nconst closeMenu = () => {\n  $hamburger.classList.add(\"active\");\n\n  if ($shopLink !== null) {\n    $shopLink.classList.remove(\"active\");\n  }\n\n  if ($headerShopCats !== null) {\n    $headerShopCats.classList.remove(\"active\");\n  }\n\n  closeDropdown($hamburgerClose, $headerMenu);\n};\n\n$hamburger.addEventListener(\"click\", openMenu);\n$hamburgerClose.addEventListener(\"click\", closeMenu);\n$header.addEventListener(\"mouseleave\", closeMenu);\n\n//# sourceURL=webpack://bask-goods/./src/scripts/components/header.js?");
+
+/***/ }),
 
 /***/ "./src/scripts/theme.js":
 /*!******************************!*\
@@ -16,7 +25,8 @@
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_theme_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/theme.scss */ \"./src/styles/theme.scss\");\n\n\n//# sourceURL=webpack://bask-goods/./src/scripts/theme.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_theme_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/theme.scss */ \"./src/styles/theme.scss\");\n/* harmony import */ var _components_header_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/header.js */ \"./src/scripts/components/header.js\");\n/* harmony import */ var _components_header_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_header_js__WEBPACK_IMPORTED_MODULE_1__);\n//SCSS\n //JS\n\n\n\n//# sourceURL=webpack://bask-goods/./src/scripts/theme.js?");
 
 /***/ }),
 
@@ -26,6 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://bask-goods/./src/styles/theme.scss?");
 
 /***/ })
@@ -57,6 +68,35 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports

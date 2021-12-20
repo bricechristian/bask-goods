@@ -6,5 +6,32 @@
     "theme_author": "Shopify",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes/os20/themes-by-shopify/dawn",
     "theme_support_url": "https://support.shopify.com/"
-  }
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Announcement Bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_announcement_bar",
+        "label": "Enable?",
+        "default": true
+      },
+      {
+        "type": "richtext",
+        "id": "announcement_bar_text",
+        "label": "Content",
+        "default": "<p>FREE SHIPPING ON ORDERS OVER $100. <a href='#'>SHOP NOW</a></p>"
+      }
+    ]
+  }  
 ]

@@ -14,7 +14,8 @@ module.exports = {
       body: ['GT Super Super Text Book', 'sans-serif'],
       heading: ['GT Super Display Light', 'serif'],
       italic: ['GT Super Display Light Italic', 'serif'],
-      matter: ['Matter Light', 'sans-serif']
+      matter: ['Matter Regular', 'sans-serif'],
+      matterlight: ['Matter Light', 'sans-serif']
     },
     colors: {
       'transparent': 'transparent',
@@ -35,6 +36,9 @@ module.exports = {
       24: '24px',
       38: '38px',
       75: '75px'
+    },
+    letterSpacing: {
+      wider: '.063em'
     },
     screens: {
       '2xl': { max: '1440px'},
