@@ -48,9 +48,39 @@
   &__categories,
   &__menu {
     @apply transition;
-    @apply invisible;
+    @apply invisible; 
+    ul {
+      opacity: 0;
+      transition: .5s;
+    }
+    a.has-submenu {
+      @apply border-b border-transparent pb-1;
+    }
     &.active {
         @apply visible;
+        ul {
+          opacity: 1;  
+        }
+        a.has-submenu.active {
+          @apply text-orange border-orange;
+        }
+    }
+  }
+  &__submenu {
+    @apply transition;
+    @apply invisible; 
+    min-width: calc(100vw - 3rem);
+    
+    li {
+      opacity: 0;
+      transition: .5s;
+    }
+    &.active {
+        @apply visible;
+        li {
+          transition-delay: .3s;
+          opacity: 1;  
+        }
     }
   }
 }

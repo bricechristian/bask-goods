@@ -409,6 +409,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .richtext > p > a:hover {
     opacity: 0.6;
   }
+.invisible {
+  visibility: hidden;
+}
 .fixed {
   position: fixed;
 }
@@ -443,6 +446,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .-mt-8 {
   margin-top: -2rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
 }
 .block {
   display: block;
@@ -489,6 +498,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
 .grid-rows-3 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
 }
@@ -503,6 +515,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .gap-6 {
   gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
 }
 .gap-x-16 {
   -moz-column-gap: 4rem;
@@ -551,6 +566,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-matter {
   font-family: Matter Regular, sans-serif;
 }
+.font-italic {
+  font-family: GT Super Display Light Italic, serif;
+}
 .text-13 {
   font-size: 0.8125rem;
 }
@@ -582,12 +600,24 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-right: auto;
     max-width: 90rem;
 }
+.container-full {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
 .absolute-center {
   position: absolute;
   top: 50%;
   --tw-translate-y: -50%;
   transform: var(--tw-transform);
 }
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+  }
 /*! Flickity v2.2.2
 https://flickity.metafizzy.co
 ---------------------------------------------- */
@@ -812,9 +842,50 @@ https://flickity.metafizzy.co
     opacity: 0;
     visibility: hidden;
 }
+.header__categories ul, .header__menu ul {
+  opacity: 0;
+  transition: 0.5s;
+}
+.header__categories a.has-submenu, .header__menu a.has-submenu {
+  border-bottom-width: 0.0625rem;
+  border-color: transparent;
+  padding-bottom: 0.25rem;
+}
 .header__categories.active, .header__menu.active {
     opacity: 1;
     visibility: visible;
+}
+.header__categories.active ul, .header__menu.active ul {
+  opacity: 1;
+}
+.header__categories.active a.has-submenu.active, .header__menu.active a.has-submenu.active {
+  --tw-border-opacity: 1;
+  border-color: rgb(221 155 0 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(221 155 0 / var(--tw-text-opacity));
+}
+.header__submenu {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+  min-width: calc(100vw - 3rem);
+}
+.header__submenu li {
+  opacity: 0;
+  transition: 0.5s;
+}
+.header__submenu.active {
+    opacity: 1;
+    visibility: visible;
+}
+.header__submenu.active li {
+  transition-delay: 0.3s;
+  opacity: 1;
 }
 body.frozen {
   overflow: hidden;

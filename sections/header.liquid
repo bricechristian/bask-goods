@@ -4,7 +4,7 @@
 
     <nav>
         <div class="header__main py-6 text-cream">
-            <div class="container grid grid-cols-[1fr_55px_1fr] gap-6 items-center">
+            <div class="container-full grid grid-cols-[1fr_55px_1fr] gap-6 items-center">
                 <div>
                     <ul class="flex items-center space-x-8">
                         <li class="relative">
@@ -28,23 +28,47 @@
                 </div>
             </div>
         </div>
-        {% if linklists.shop-categories.links != blank %}
-            <div class="header__categories -mt-8 pb-6">
-                <div class="container flex">
-                    <ul class="grid grid-cols-2 grid-rows-3 grid-flow-col-dense gap-x-16 pl-[62px]">
-                        {% for link in linklists.shop-categories.links %}
-                            <li><a href="{{ link.url }}" class="header__link font-matter text-13">{{ link.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        {% endif %}
-        {% if linklists.main-menu.links != blank %}
-            <div class="header__menu -mt-8">
-                <div class="container flex">
-                    <ul class="flex flex-wrap gap-x-16 pl-[62px] py-6 border-t border-t-black w-full">
+        {% if linklists.main-menu.links != blank %} 
+            {% assign has_shop_links = false %}
+            {% for link in linklists.main-menu.links %}
+                {% if link.title == 'Shop' and link.links != blank %}
+                    {% assign has_shop_links = true %}
+                {% endif %}
+            {% endfor%}
+            {% if has_shop_links %}
+                <div class="header__categories -mt-8 pb-6 w-full absolute left-0">
+                    <div class="container-full flex">
+                        <ul class="grid grid-cols-2 grid-rows-3 grid-flow-col-dense gap-x-16 pl-[62px]">
+                            {% for link in linklists.main-menu.links %}
+                                {% if link.title == 'Shop' %}
+                                    {% for child_link in link.links %}
+                                        <li><a href="{{ child_link.url }}" class="header__link font-matter text-13">{{ child_link.title }}</a></li>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul> 
+                    </div>
+                </div>      
+            {% endif %}
+            <div class="header__menu -mt-8 w-full absolute left-0">
+                <div class="container-full flex">
+                    <ul class="flex flex-wrap gap-x-16 py-6 border-t border-t-black w-full">
                         {% for link in linklists.main-menu.links %}
-                            <li><a href="{{ link.url }}" class="header__link font-matter text-13">{{ link.title }}</a></li>
+                            <li class="relative">
+                                <a href="{{ link.url }}" class="header__link font-matter text-13{% if link.links != blank %} has-submenu{% endif %}">{{ link.title }}</a>
+                                {% if link.links != blank %}
+                                    <ul class="header__submenu absolute left-0 grid grid-cols-5 gap-8 mt-6 pb-6">
+                                        {% for child_link in link.links %}
+                                            <li>
+                                                <a href="#">
+                                                    <img src="https://via.placeholder.com/400x460" class="w-full mb-2" />
+                                                    <div><span class="font-italic">{{ child_link.title }} </span>—</div>
+                                                </a> 
+                                            </li>    
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
                         {% endfor %}
                     </ul>
                 </div>
