@@ -137,14 +137,12 @@ $headerMenuLinks.forEach($link => {
 if ($headerLinksWithSubmenu !== null) {
     $headerLinksWithSubmenu.forEach($link => {
         const $subMenu = $link.nextElementSibling;
-        const subMenuHeight = $subMenu.clientHeight;
+        const subMenuHeight = $subMenu.offsetHeight;
         let currentHeaderHeight;
         $link.addEventListener("mouseover", () => {
             currentHeaderHeight = $header.clientHeight;
             if (!$subMenu.classList.contains("active")) {
-                setTimeout(() => {
-                    $header.style.height = currentHeaderHeight + subMenuHeight + "px";
-                }, 25);
+                $header.style.height = currentHeaderHeight + subMenuHeight + "px";
             } else {
                 $header.style.height = currentHeaderHeight + "px";
             }
