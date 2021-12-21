@@ -142,9 +142,13 @@ if ($headerLinksWithSubmenu !== null) {
         $link.addEventListener("mouseover", () => {
             currentHeaderHeight = $header.clientHeight;
             if (!$subMenu.classList.contains("active")) {
-                $header.style.height = currentHeaderHeight + subMenuHeight + "px";
+                setTimeout(() => {
+                    $header.style.height = currentHeaderHeight + subMenuHeight + "px";
+                }, 100);
             } else {
-                $header.style.height = currentHeaderHeight + "px";
+                setTimeout(() => {
+                    $header.style.height = currentHeaderHeight + "px";
+                }, 100);
             }
             $link.classList.add("active")
             $subMenu.classList.add("active")
