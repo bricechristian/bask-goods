@@ -82,7 +82,7 @@ const openDropdown = (a, b) => {
         }, 50);
         setTimeout(() => {
             b.classList.add("active")
-        }, 300);
+        }, 75);
     }
     setTimeout(() => {
         $header.style.height = headerHeight + b.clientHeight + "px";
