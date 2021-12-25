@@ -1,16 +1,23 @@
 {
-    "sections": {
-      "hero": {
-        "type": "home-hero",
-        "settings": {
-        } 
-      },
-      "shop_all": {
-        "type": "home-shop-all"
+  "sections": {
+    "hero": {
+      "type": "home-hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/home-hero.jpg"
       }
     },
-    "order": [
-      "hero",
-      "shop_all"
-    ]
+    "shop_all": {
+      "type": "home-shop-all",
+      "settings": {
+        "bodycopy": "In a world that exalts beauty over everything yet at the cost of our planet itself, we're driven by a mission to have our cake and eat it, too. Bask creates beautiful products for a beautiful life with transparency and sustainability in the foreground, proving that luxury can exist without excess.",
+        "link_text": "Shop All",
+        "link_url": "\/",
+        "link_new_tab": false
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "shop_all"
+  ]
 }
