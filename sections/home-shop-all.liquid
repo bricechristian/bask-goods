@@ -1,7 +1,7 @@
 <section class="shop-all relative bg-cream py-24 mt-[100vh]">
     <div class="container-full">
         <div class="grid grid-cols-3 gap-24">
-            <div class="">
+            <div class="flex flex-col">
                 {% if section.settings.bodycopy != blank %}
                     <p class="font-heading text-24">{{ section.settings.bodycopy }}</p>
                 {% endif %}
@@ -20,13 +20,17 @@
                             </svg>
                         </a>
                     </div>
-                {% endif %}                   
+                {% endif %}   
+                <div class="flex-grow flex items-center justify-center">                
+                    <div class="glow-bubble w-[50px] h-[50px]"></div>
+                </div>
             </div>
             <div class="col-span-2 -mr-6">
-                <div class="flex">
-                    {% render 'product-card' %}
-                    {% render 'product-card' %}
-                    {% render 'product-card' %}
+                <div class="carousel" data-flickity='{ "freeScroll": true, "wrapAround": true, "prevNextButtons": false, "pageDots": false }'>
+                    <div class="w-3/5 mr-8 -translate-x-[30%]">{% render 'product-card' %}</div>
+                    <div class="w-3/5 mr-8 -translate-x-[30%]">{% render 'product-card' %}</div>
+                    <div class="w-3/5 mr-8 -translate-x-[30%]">{% render 'product-card' %}</div>
+                    <div class="w-3/5 mr-8 -translate-x-[30%]">{% render 'product-card' %}</div>
                 </div>
             </div>
         </div>

@@ -149,11 +149,11 @@ $headerMenuLinks.forEach($link => {
 if ($headerLinksWithSubmenu !== null) {
     $headerLinksWithSubmenu.forEach($link => {
         const $subMenu = $link.nextElementSibling;
-        const subMenuHeight = $subMenu.offsetHeight;
         let currentHeaderHeight;
         $link.addEventListener("mouseover", () => {
             currentHeaderHeight = $header.offsetHeight;
             $headerTopMenu.style.height = "auto";
+            const subMenuHeight = $subMenu.offsetHeight;
             if (!$subMenu.classList.contains("active")) {
                 setTimeout(() => {
                     $headerTopMenu.style.height = subMenuHeight + "px";
@@ -202,6 +202,7 @@ const closeMenu = () => {
 $hamburger.addEventListener("click", openMenu)
 $hamburgerClose.addEventListener("click", closeMenu)
 $header.addEventListener("mouseleave", closeMenu)
+$headerOverlay.addEventListener("mouseenter", closeMenu)
 
 const resizeWindow = () => {
     headerHeight = $headerMain.offsetHeight;

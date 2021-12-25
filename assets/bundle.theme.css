@@ -408,7 +408,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-    transition: 0.3s;
 }
   .arrow-link-wrap:hover svg {
   --tw-translate-x: 0.5rem;
@@ -424,6 +423,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-scale-y: 1;
   --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   border-color: currentColor;
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .richtext > p > a {
     display: inline-block;
@@ -433,6 +442,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 .richtext > p > a:hover {
     opacity: 0.6;
   }
+.glow-bubble {
+  border-radius: 624.9375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(221 155 0 / var(--tw-bg-opacity));
+  --tw-blur: blur(0.5rem);
+  filter: var(--tw-filter);
+}
 .fixed {
   position: fixed;
 }
@@ -483,23 +499,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-\[100vh\] {
   margin-top: 100vh;
 }
+.-mr-6 {
+  margin-right: -1.5rem;
+}
+.mr-8 {
+  margin-right: 2rem;
+}
 .mb-4 {
   margin-bottom: 1rem;
-}
-.-mb-1 {
-  margin-bottom: -0.25rem;
 }
 .-mb-2 {
   margin-bottom: -0.5rem;
 }
-.-mr-6 {
-  margin-right: -1.5rem;
-}
 .block {
   display: block;
-}
-.inline-block {
-  display: inline-block;
 }
 .flex {
   display: flex;
@@ -519,6 +532,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-screen {
   height: 100vh;
 }
+.h-\[50px\] {
+  height: 3.125rem;
+}
 .min-h-\[700px\] {
   min-height: 43.75rem;
 }
@@ -530,6 +546,19 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-\[99\%\] {
   width: 99%;
+}
+.w-\[50px\] {
+  width: 3.125rem;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.-translate-x-\[30\%\] {
+  --tw-translate-x: -30%;
+  transform: var(--tw-transform);
 }
 .transform {
   transform: var(--tw-transform);
@@ -555,6 +584,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-rows-3 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
 }
+.flex-col {
+  flex-direction: column;
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -563,6 +595,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .justify-end {
   justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
 }
 .gap-6 {
   gap: 1.5rem;
@@ -837,22 +872,26 @@ https://flickity.metafizzy.co
 
 .header {
   transform: translateY(0);
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+}
+.header:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
+  top: -1.25rem;
+  left: -0.6875rem;
+  background: linear-gradient(0deg, rgba(251, 241, 220, 0) 0%, rgba(251, 241, 220, 0.6637692577) 17%, rgba(251, 241, 220, 0.8637692577) 24%, #fbf1dc 34%);
+  height: 12.5rem;
+  width: calc(100% + 1.875rem);
+  filter: blur(0.4375rem);
+  opacity: 0;
+  visibility: visible;
     transition: 0.3s;
 }
 .header__overlay {
   background: rgba(166, 124, 82, 0.7);
   opacity: 0;
   visibility: hidden;
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
     transition: 0.3s;
 }
 .header__overlay.active {
@@ -868,63 +907,62 @@ https://flickity.metafizzy.co
   transition-duration: 150ms;
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
 }
 .header #hamburger.active, .header #hamburger-close.active {
     opacity: 1;
     visibility: visible;
 }
 .header #hamburger g {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
     transition: 0.3s;
   stroke: #FBF1DC;
-}
+  }
 .header #hamburger:hover g {
   stroke: #DD9B00;
 }
 .header nav {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
     transition: 0.3s;
-}
+  }
 .header nav.min {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.header.dropdown-open {
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 241 220 / var(--tw-bg-opacity));
-}
-.header.dropdown-open .header__link {
+.header__logo path {
+    transition: 0.3s;
+  fill: #FBF1DC;
+  }
+.header.dropdown-open .header__link, .header.active .header__link {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
-.header.dropdown-open .header__link:hover {
+.header.dropdown-open .header__link:hover, .header.active .header__link:hover {
   --tw-text-opacity: 1;
   color: rgb(221 155 0 / var(--tw-text-opacity));
 }
-.header.dropdown-open #header-shop-link.active {
+.header.dropdown-open #header-shop-link.active, .header.active #header-shop-link.active {
   --tw-text-opacity: 1;
   color: rgb(221 155 0 / var(--tw-text-opacity));
 }
-.header.dropdown-open #hamburger g {
+.header.dropdown-open #hamburger g, .header.active #hamburger g {
   stroke: #000000;
 }
-.header.dropdown-open #hamburger:hover g {
+.header.dropdown-open #hamburger:hover g, .header.active #hamburger:hover g {
   stroke: #DD9B00;
 }
-.header.dropdown-open #bag-count {
+.header.dropdown-open #bag-count, .header.active #bag-count {
   background: url(./bag.svg) 50% 70%/95% no-repeat;
 }
+.header.active {
+    transition: 0.3s;
+  }
+.header.active:after {
+  opacity: 1;
+  visibility: visible;
+}
+.header.active .header__logo path {
+  fill: #000000;
+}
 .header.swiped-up {
-  transform: translateY(-100%) !important;
+  transform: translateY(calc(-100% - 4.6875rem)) !important;
 }
 .header.swiped-down {
   transform: translateY(0) !important;
@@ -957,16 +995,11 @@ https://flickity.metafizzy.co
   color: rgb(221 155 0 / var(--tw-text-opacity));
 }
 .header__submenu {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
     transition: 0.3s;
     opacity: 0;
     visibility: hidden;
   min-width: calc(100vw - 3rem);
-}
+  }
 .header__submenu li {
   opacity: 0;
   transition: 0.5s;

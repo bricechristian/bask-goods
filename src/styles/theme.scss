@@ -80,7 +80,7 @@
     opacity: 1;
     visibility: visible;
   }
-  .transition {
+  .transition-smooth {
     transition: .3s;
   }
 }
@@ -153,6 +153,10 @@
     &:hover {
         opacity: .6;
     }
+  } 
+  //GLOW BUBBLE
+  .glow-bubble {
+    @apply blur bg-orange rounded-full;
   }
 }
 
