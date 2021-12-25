@@ -483,8 +483,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-\[100vh\] {
   margin-top: 100vh;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.-mb-1 {
+  margin-bottom: -0.25rem;
+}
+.-mb-2 {
+  margin-bottom: -0.5rem;
+}
+.-mr-6 {
+  margin-right: -1.5rem;
+}
 .block {
   display: block;
+}
+.inline-block {
+  display: inline-block;
 }
 .flex {
   display: flex;
@@ -619,11 +634,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-heading {
   font-family: GT Super Display Light, serif;
 }
+.font-matterlight {
+  font-family: Matter Light, sans-serif;
+}
 .text-13 {
   font-size: 0.8125rem;
 }
 .text-24 {
   font-size: 1.5rem;
+}
+.text-18 {
+  font-size: 1.125rem;
 }
 .capitalize {
   text-transform: capitalize;
@@ -644,6 +665,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-brown {
+  --tw-text-opacity: 1;
+  color: rgb(166 124 82 / var(--tw-text-opacity));
 }
 .container {
   padding-left: 1.5rem;
