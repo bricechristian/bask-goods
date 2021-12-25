@@ -1,10 +1,16 @@
 {
     "sections": {
       "hero": {
-        "type": "home-hero"
+        "type": "home-hero",
+        "settings": {
+        } 
+      },
+      "shop_all": {
+        "type": "home-shop-all"
       }
     },
     "order": [
-      "hero"
+      "hero",
+      "shop_all"
     ]
 }

@@ -390,6 +390,30 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-matterlight {
     text-transform: uppercase;
   }
+
+  .arrow-link {
+  font-family: GT Super Display Light Italic, serif;
+  font-size: 1.5rem;
+}
+  .arrow-link-wrap {
+  display: inline-flex;
+  align-items: center;
+  --tw-text-opacity: 1;
+  color: rgb(166 124 82 / var(--tw-text-opacity));
+}
+  .arrow-link-wrap svg {
+  margin-left: 0.5rem;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+    transition: 0.3s;
+}
+  .arrow-link-wrap:hover svg {
+  --tw-translate-x: 0.5rem;
+  transform: var(--tw-transform);
+}
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -409,9 +433,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .richtext > p > a:hover {
     opacity: 0.6;
   }
-.invisible {
-  visibility: hidden;
-}
 .fixed {
   position: fixed;
 }
@@ -440,6 +461,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .z-50 {
   z-index: 50;
 }
+.z-40 {
+  z-index: 40;
+}
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -447,11 +474,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-mt-8 {
   margin-top: -2rem;
 }
+.mt-6 {
+  margin-top: 1.5rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-.mt-6 {
-  margin-top: 1.5rem;
+.mt-\[100vh\] {
+  margin-top: 100vh;
 }
 .block {
   display: block;
@@ -467,6 +497,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .hidden {
   display: none;
+}
+.h-full {
+  height: 100%;
 }
 .h-screen {
   height: 100vh;
@@ -501,6 +534,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 .grid-rows-3 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
 }
@@ -518,6 +554,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .gap-8 {
   gap: 2rem;
+}
+.gap-24 {
+  gap: 6rem;
 }
 .gap-x-16 {
   -moz-column-gap: 4rem;
@@ -538,6 +577,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-top-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+.bg-cream {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 241 220 / var(--tw-bg-opacity));
+}
 .bg-orange {
   --tw-bg-opacity: 1;
   background-color: rgb(221 155 0 / var(--tw-bg-opacity));
@@ -545,6 +588,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 .py-2 {
   padding-top: 0.5rem;
@@ -569,8 +616,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-italic {
   font-family: GT Super Display Light Italic, serif;
 }
+.font-heading {
+  font-family: GT Super Display Light, serif;
+}
 .text-13 {
   font-size: 0.8125rem;
+}
+.text-24 {
+  font-size: 1.5rem;
 }
 .capitalize {
   text-transform: capitalize;
@@ -614,10 +667,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-translate-y: -50%;
   transform: var(--tw-transform);
 }
-.invisible {
-    opacity: 0;
-    visibility: hidden;
-  }
 /*! Flickity v2.2.2
 https://flickity.metafizzy.co
 ---------------------------------------------- */
@@ -762,6 +811,7 @@ https://flickity.metafizzy.co
 }
 
 .header {
+  transform: translateY(0);
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -769,7 +819,23 @@ https://flickity.metafizzy.co
   transition-duration: 150ms;
     transition: 0.3s;
 }
+.header__overlay {
+  background: rgba(166, 124, 82, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+    transition: 0.3s;
+}
+.header__overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 .header #hamburger, .header #hamburger-close {
+  cursor: pointer;
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -829,16 +895,17 @@ https://flickity.metafizzy.co
 .header.dropdown-open #hamburger:hover g {
   stroke: #DD9B00;
 }
-.header.slide-up {
-  transform: translateY(-100%);
+.header.dropdown-open #bag-count {
+  background: url(./bag.svg) 50% 70%/95% no-repeat;
+}
+.header.swiped-up {
+  transform: translateY(-100%) !important;
+}
+.header.swiped-down {
+  transform: translateY(0) !important;
 }
 .header__categories, .header__menu {
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-    transition: 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background-color 0.3s;
     opacity: 0;
     visibility: hidden;
 }
@@ -886,6 +953,12 @@ https://flickity.metafizzy.co
 .header__submenu.active li {
   transition-delay: 0.3s;
   opacity: 1;
+}
+.header #bag-count {
+  background: url(./bag-cream.svg) 50% 70%/93% no-repeat;
+  padding: 0.8125rem 0.39063rem 0.375rem;
+  position: relative;
+  top: 0;
 }
 body.frozen {
   overflow: hidden;

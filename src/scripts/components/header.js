@@ -29,37 +29,46 @@ const checkScrollSpeed = ((settings) => {
     };
 })();
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", () => { 
     checkScrollSpeed();
+    const $header = document.querySelector('header')
     let st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > lastScrollTop) {
-        $header.classList.add('slide-up');
-    } else {
-        if (Math.abs(scrollSpeed) > 25) {
-            $header.classList.remove('slide-up');
+
+    if (st > lastScrollTop){
+        //downscroll
+        $header.classList.remove('swiped-down');
+        if(st > $header.offsetHeight){
+            $header.classList.add('swiped-up');
+        } else {
+            $header.classList.remove('swiped-up');
         }
+    }  else {
+        //upscroll
+        if(Math.abs(scrollSpeed) > 12){
+            $header.classList.remove('swiped-up');
+            $header.classList.add('swiped-down');
+        } 
     }
-    if (st > 200) {
-        $nav.classList.add('min');
+    if (st < $header.offsetHeight) {
+        $header.classList.remove('swiped-up');
+        $header.classList.remove('active');
     } else {
-        $nav.classList.remove('min');
-        $header.classList.remove('slide-up');
-    }
-    if (st == 0) {
-        $header.classList.remove('slide-up');
-    }
+        $header.classList.add('active');
+    }        
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-}, false);
+}, false);  
 
 
 //DROPDOWNS
+const $headerOverlay = document.querySelector('.header__overlay');
 const $headerNav = $header.querySelector('.header nav').children;
 const navChildren = [...$headerNav]
 const $shopLink = document.getElementById('header-shop-link');
 const $headerMain = $header.querySelector('.header__main');
-let headerHeight = $headerMain.clientHeight;
+let headerHeight = $headerMain.offsetHeight;
 const $headerShopCats = $header.querySelector('.header__categories');
 const $headerMenu = $header.querySelector('.header__menu');
+const $headerTopMenu = $header.querySelector('.header__menu-top');
 const $headerMenuLinks = $headerMenu.querySelectorAll(".header__link");
 const $headerSubMenus = $header.querySelectorAll('.header__submenu');
 const $headerLinksWithSubmenu = $header.querySelectorAll('a.has-submenu');
@@ -69,7 +78,7 @@ const openDropdown = (a, b) => {
         if (i !== 0) {
             el.classList.remove("active")
             setTimeout(() => {
-                el.style.display = "none";
+                el.style.left = "-9999px";
             }, 25);
         }
     });
@@ -78,14 +87,15 @@ const openDropdown = (a, b) => {
     }
     if (b !== null) {
         setTimeout(() => {
-            b.style.display = "block";
+            b.style.left = "0px";
         }, 50);
         setTimeout(() => {
             b.classList.add("active")
         }, 75);
     }
     setTimeout(() => {
-        $header.style.height = headerHeight + b.clientHeight + "px";
+        $header.style.height = headerHeight + b.offsetHeight + "px";
+        $headerOverlay.classList.add("active");
         $header.classList.add("dropdown-open");
     }, 50);
 }
@@ -96,11 +106,12 @@ const closeDropdown = (a, b) => {
     if (b !== null) {
         b.classList.remove("active")
         setTimeout(() => {
-            b.style.display = "none";
+            b.style.left = "0px";
         }, 25);
     }
     setTimeout(() => {
         $header.style.height = headerHeight + "px";
+        $headerOverlay.classList.remove("active");
         $header.classList.remove("dropdown-open");
     }, 50);
 }
@@ -121,12 +132,13 @@ if ($shopLink !== null && $headerShopCats !== null) {
 //HEADER SUBMENU LINKS
 $headerMenuLinks.forEach($link => {
     $link.addEventListener("mouseover", () => {
+        $headerTopMenu.style.height = "auto";
         $headerMenuLinks.forEach($link => {
             $link.classList.remove("active")
         });
         if (!$link.classList.contains("has-submenu")) {
             if ($headerSubMenus !== null) {
-                $header.style.height = headerHeight + $headerMenu.clientHeight + "px";
+                $header.style.height = headerHeight + $headerMenu.offsetHeight + "px";
                 $headerSubMenus.forEach($submenu => {
                     $submenu.classList.remove("active")
                 });
@@ -140,9 +152,11 @@ if ($headerLinksWithSubmenu !== null) {
         const subMenuHeight = $subMenu.offsetHeight;
         let currentHeaderHeight;
         $link.addEventListener("mouseover", () => {
-            currentHeaderHeight = $header.clientHeight;
+            currentHeaderHeight = $header.offsetHeight;
+            $headerTopMenu.style.height = "auto";
             if (!$subMenu.classList.contains("active")) {
                 setTimeout(() => {
+                    $headerTopMenu.style.height = subMenuHeight + "px";
                     $header.style.height = currentHeaderHeight + subMenuHeight + "px";
                 }, 100);
             } else {
@@ -178,6 +192,7 @@ const closeMenu = () => {
         $headerShopCats.classList.remove("active")
     }
     if ($headerSubMenus !== null) {
+        $headerTopMenu.style.height = "auto";
         $headerSubMenus.forEach($submenu => {
             $submenu.classList.remove("active")
         });
@@ -189,7 +204,7 @@ $hamburgerClose.addEventListener("click", closeMenu)
 $header.addEventListener("mouseleave", closeMenu)
 
 const resizeWindow = () => {
-    headerHeight = $headerMain.clientHeight;
+    headerHeight = $headerMain.offsetHeight;
 }
 
 window.addEventListener("resize", resizeWindow, true)

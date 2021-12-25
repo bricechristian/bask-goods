@@ -1,5 +1,6 @@
 <header class="header fixed z-50 top-0 left-0 w-full">
 
+
     {% render 'announcement-bar' %}
 
     <nav>
@@ -21,9 +22,9 @@
                 </div>
                 <div>
                     <ul class="flex items-center justify-end space-x-8">
+                        <li><a href="#" class="header__link font-matter text-13 hover:text-orange">Account</a></li>
                         <li><a href="#" class="header__link font-matter text-13 hover:text-orange">Search</a></li>
-                        <li><a href="#" class="header__link font-matter text-13 hover:text-orange">Search</a></li>
-                        <li><a href="#" class="header__link font-matter text-13 hover:text-orange">Search</a></li>
+                        <li><a href="#" id="bag-count" class="header__link font-matter text-13 hover:text-orange">0</a></li>
                     </ul>            
                 </div>
             </div>
@@ -52,7 +53,7 @@
             {% endif %}
             <div class="header__menu -mt-8 w-full absolute left-0">
                 <div class="container-full flex">
-                    <ul class="flex flex-wrap gap-x-16 py-6 border-t border-t-black w-full">
+                    <ul class="header__menu-top flex flex-wrap gap-x-16 py-6 border-t border-t-black w-full">
                         {% for link in linklists.main-menu.links %}
                             <li class="relative">
                                 <a href="{{ link.url }}" class="header__link font-matter text-13{% if link.links != blank %} has-submenu{% endif %}">{{ link.title }}</a>
@@ -76,6 +77,6 @@
         {% endif %}
     </nav>
 
-
-
 </header>
+
+<div class="header__overlay fixed z-40 top-0 left-0 h-full w-full"></div>

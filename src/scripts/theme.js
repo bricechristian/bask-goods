@@ -2,4 +2,5 @@
 import '../styles/theme.scss';
 
 //JS
-import './components/header.js';
+import './components/scrollmagic';
+import './components/header';

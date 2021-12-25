@@ -1,4 +1,23 @@
-<section class="home__hero w-full fixed left-0 top-0 h-screen min-h-[700px]" style="background: url({{ 'home-hero.jpeg' | asset_url }}) center/cover no-repeat;">
-    <div class="container">Hero</div>
+<section class="home__hero w-full fixed left-0 top-0 h-screen min-h-[700px]" style="background: url({{ section.settings.image | img_url:'2400x' }}) center/cover no-repeat;">
     <img src="{{ 'wordmark-large.svg' | asset_url }}" class="w-[99%] absolute -bottom-2 inset-x-0 mx-auto" alt="Bask Goods Wordmark">
 </section>
+
+{% schema %}
+{
+    "name": "Hero",
+    "settings": [        
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Hero Image",
+            "info": "Recommended Image Dimensions: 2400x1350"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile Hero Image",
+            "info": "Recommended Image Dimensions: 1000x1350"
+        }                                      
+    ] 
+}
+{% endschema %}

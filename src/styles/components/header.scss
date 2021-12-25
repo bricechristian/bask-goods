@@ -1,20 +1,31 @@
 .header {
+  transform: translateY(0);
   @apply transition;
+  &__overlay {
+    background: rgba(166, 124, 82, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    @apply transition;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
   #hamburger,
   #hamburger-close {
-    @apply invisible transition;
-      &.active {
-          @apply visible;
-      }
+    @apply invisible transition cursor-pointer;
+    &.active {
+      @apply visible;
+    }
   }
   #hamburger {
-      g {
-        @apply transition;
-        stroke: theme("colors.cream");
-      }
-      &:hover g {
-        stroke: theme("colors.orange");
-        }
+    g {
+      @apply transition;
+      stroke: theme("colors.cream");
+    }
+    &:hover g {
+      stroke: theme("colors.orange");
+    }
   }
   nav {
     @apply transition;
@@ -28,59 +39,72 @@
       @apply text-black;
       &:hover {
         @apply text-orange;
-      } 
+      }
     }
     #header-shop-link.active {
-        @apply text-orange;
+      @apply text-orange;
     }
     #hamburger {
-        g {
-          stroke: theme("colors.black");
-        }
-        &:hover g {
-            stroke: theme("colors.orange");
-        }
+      g {
+        stroke: theme("colors.black");
+      }
+      &:hover g {
+        stroke: theme("colors.orange");
+      }
+    }
+    #bag-count {
+      background: url(./bag.svg) 50% 70% / 95% no-repeat;
     }
   }
-  &.slide-up {
-    transform: translateY(-100%);
+  &.swiped-up {
+    transform: translateY(-100%) !important;
+  }
+  &.swiped-down {
+    transform: translateY(0px) !important;
   }
   &__categories,
   &__menu {
-    @apply transition;
-    @apply invisible; 
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s,
+      background-color 0.3s;
+    @apply invisible;
     ul {
       opacity: 0;
-      transition: .5s;
+      transition: 0.5s;
     }
     a.has-submenu {
       @apply border-b border-transparent pb-1;
     }
     &.active {
-        @apply visible;
-        ul {
-          opacity: 1;  
-        }
-        a.has-submenu.active {
-          @apply text-orange border-orange;
-        }
+      @apply visible;
+      ul {
+        opacity: 1;
+      }
+      a.has-submenu.active {
+        @apply text-orange border-orange;
+      }
     }
   }
   &__submenu {
     @apply transition;
-    @apply invisible; 
+    @apply invisible;
     min-width: calc(100vw - 3rem);
-    
+
     li {
       opacity: 0;
-      transition: .5s;
+      transition: 0.5s;
     }
     &.active {
-        @apply visible;
-        li {
-          transition-delay: .3s;
-          opacity: 1;  
-        }
+      @apply visible;
+      li {
+        transition-delay: 0.3s;
+        opacity: 1;
+      }
     }
+  }
+  #bag-count {
+    background: url(./bag-cream.svg) 50% 70% / 93% no-repeat;
+    padding: 13px 6.25px 6px;
+    position: relative;
+    top: 0px;
   }
 }
