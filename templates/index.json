@@ -8,12 +8,6 @@
     },
     "shop_all": {
       "type": "home-shop-all",
-      "settings": {
-        "bodycopy": "In a world that exalts beauty over everything yet at the cost of our planet itself, we're driven by a mission to have our cake and eat it, too. Bask creates beautiful products for a beautiful life with transparency and sustainability in the foreground, proving that luxury can exist without excess.",
-        "link_text": "Shop All",
-        "link_url": "\/",
-        "link_new_tab": false
-      },
       "blocks": {
         "37b6fc3d-d266-4cf0-b933-f040499f8091": {
           "type": "product",
@@ -25,13 +19,15 @@
         "37569e1f-4595-4062-90e4-89d0524eb4a7": {
           "type": "product",
           "settings": {
-            "prod": "damp-smoke"
+            "prod": "damp-smoke",
+            "category": ""
           }
         },
         "66495402-fcfe-41dc-8395-f97eef942239": {
           "type": "product",
           "settings": {
-            "prod": "empty-water"
+            "prod": "empty-water",
+            "category": ""
           }
         }
       },
@@ -39,16 +35,47 @@
         "37b6fc3d-d266-4cf0-b933-f040499f8091",
         "37569e1f-4595-4062-90e4-89d0524eb4a7",
         "66495402-fcfe-41dc-8395-f97eef942239"
-      ]
+      ],
+      "settings": {
+        "bodycopy": "In a world that exalts beauty over everything yet at the cost of our planet itself, we're driven by a mission to have our cake and eat it, too. Bask creates beautiful products for a beautiful life with transparency and sustainability in the foreground, proving that luxury can exist without excess.",
+        "link_text": "Shop All",
+        "link_url": "\/",
+        "link_new_tab": false
+      }
     },
     "quote": {
-      "type": "home-quote"
+      "type": "home-quote",
+      "settings": {
+        "quote": "Quote about the importance of sustainability goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel.",
+        "title": "Jenan",
+        "role": "CEO of BASK",
+        "image": "shopify:\/\/shop_images\/quote-1.jpg",
+        "image_2": "shopify:\/\/shop_images\/quote-2.jpg",
+        "image_3": "shopify:\/\/shop_images\/quote-3.jpg"
+      }
     },
     "philosophy": {
-      "type": "home-philosophy"
+      "type": "home-philosophy",
+      "settings": {
+        "quote": "Quote about the importance of sustainability goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel.",
+        "title": "Our Philosophy",
+        "bodycopy": "<p> The only way to move forward on planet Earth is to do so sustainably; we truly believe this, and so lays the foundation for our entire concept.<\/p><p>Each item’s loving purpose is both with the users’ and our environment’s best interest in mind.<\/p>",
+        "image": "shopify:\/\/shop_images\/philosophy-1.jpg",
+        "image_2": "shopify:\/\/shop_images\/philosophy-2.jpg",
+        "link_text": "Learn About Us",
+        "link_url": "\/",
+        "link_new_tab": false
+      }
     },
     "featured": {
-      "type": "home-featured"
+      "type": "home-featured",
+      "settings": {
+        "title": "Featured Collection",
+        "collection": "",
+        "link_text": "Shop Collection",
+        "image": "shopify:\/\/shop_images\/featured-1.jpg",
+        "image_2": "shopify:\/\/shop_images\/featured-2.jpg"
+      }
     },
     "bestsellers": {
       "type": "home-bestsellers",
@@ -63,13 +90,15 @@
         "37569e1f-4595-4062-90e4-89d0524eb4a1": {
           "type": "product",
           "settings": {
-            "prod": "damp-smoke"
+            "prod": "damp-smoke",
+            "category": ""
           }
         },
         "66495402-fcfe-41dc-8395-f97eef942236": {
           "type": "product",
           "settings": {
-            "prod": "empty-water"
+            "prod": "empty-water",
+            "category": ""
           }
         }
       },
@@ -77,11 +106,23 @@
         "37b6fc3d-d266-4cf0-b933-f040499f8094",
         "37569e1f-4595-4062-90e4-89d0524eb4a1",
         "66495402-fcfe-41dc-8395-f97eef942236"
-      ]      
+      ],
+      "settings": {
+        "title": "Best Sellers"
+      }
     },
     "journals": {
-      "type": "home-journals"
-    }      
+      "type": "home-journals",
+      "settings": {
+        "title": "Our Journal",
+        "article": "",
+        "link_text": "Read More",
+        "link_url": "\/",
+        "link_new_tab": false,
+        "article_2": "",
+        "article_3": ""
+      }
+    }
   },
   "order": [
     "hero",
@@ -91,5 +132,5 @@
     "featured",
     "bestsellers",
     "journals"
-  ] 
+  ]
 }
