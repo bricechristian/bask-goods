@@ -143,12 +143,12 @@
       "type": "home-journals",
       "settings": {
         "title": "Our Journal",
-        "article": "",
+        "article": "journal\/journal-1",
         "link_text": "Read More",
         "link_url": "\/",
         "link_new_tab": false,
-        "article_2": "",
-        "article_3": ""
+        "article_2": "journal\/journal-2",
+        "article_3": "journal\/journal-3"
       }
     }
   },
