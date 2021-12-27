@@ -1,0 +1,50 @@
+<section class="home__bestsellers relative bg-cream pt-10 pb-24">
+    <div class="container-full">
+        {% if section.settings.title != blank %}
+            <h2 class="font-matter text-18 mb-10 text-brown">{{ section.settings.title }}</h2>
+        {% endif %}
+        <div class="grid grid-cols-3 gap-10">
+            {% for block in section.blocks %}
+                {% assign prod = all_products[block.settings.prod] %}
+                {% assign prod_category = prod.type %}
+                {% if block.settings.category != blank %}
+                    {% assign prod_category = block.settings.category %}
+                {% endif %}
+                <div>{% render 'product-card', prod: prod, category: prod_category %}</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Bestsellers",
+    "settings": [        
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Best Sellers"
+         }         
+    ],
+    "blocks": [
+        {
+            "type": "product",
+            "name": "Product",
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "prod",
+                    "label": "Product"
+                },
+                {
+                    "type": "text",
+                    "id": "category",
+                    "label": "category",
+                    "info": "Leave blank if you'd prefer to use the Product Type."
+                }
+            ]
+        }
+    ] 
+}
+{% endschema %}

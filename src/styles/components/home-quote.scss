@@ -1,0 +1,14 @@
+.home__quote {
+    &-text {
+       &:before {
+           content: "“";
+           margin-left: -24px;
+           padding-right: 12px;
+       } 
+       &:after {
+           content: "“";
+           display: inline-block;
+           transform: scaleX(-1);
+       }
+    }
+}

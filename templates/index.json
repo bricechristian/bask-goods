@@ -13,11 +13,83 @@
         "link_text": "Shop All",
         "link_url": "\/",
         "link_new_tab": false
-      }
-    }
+      },
+      "blocks": {
+        "37b6fc3d-d266-4cf0-b933-f040499f8091": {
+          "type": "product",
+          "settings": {
+            "prod": "black-feather",
+            "category": "Product Category"
+          }
+        },
+        "37569e1f-4595-4062-90e4-89d0524eb4a7": {
+          "type": "product",
+          "settings": {
+            "prod": "damp-smoke"
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942239": {
+          "type": "product",
+          "settings": {
+            "prod": "empty-water"
+          }
+        }
+      },
+      "block_order": [
+        "37b6fc3d-d266-4cf0-b933-f040499f8091",
+        "37569e1f-4595-4062-90e4-89d0524eb4a7",
+        "66495402-fcfe-41dc-8395-f97eef942239"
+      ]
+    },
+    "quote": {
+      "type": "home-quote"
+    },
+    "philosophy": {
+      "type": "home-philosophy"
+    },
+    "featured": {
+      "type": "home-featured"
+    },
+    "bestsellers": {
+      "type": "home-bestsellers",
+      "blocks": {
+        "37b6fc3d-d266-4cf0-b933-f040499f8094": {
+          "type": "product",
+          "settings": {
+            "prod": "black-feather",
+            "category": "Product Category"
+          }
+        },
+        "37569e1f-4595-4062-90e4-89d0524eb4a1": {
+          "type": "product",
+          "settings": {
+            "prod": "damp-smoke"
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942236": {
+          "type": "product",
+          "settings": {
+            "prod": "empty-water"
+          }
+        }
+      },
+      "block_order": [
+        "37b6fc3d-d266-4cf0-b933-f040499f8094",
+        "37569e1f-4595-4062-90e4-89d0524eb4a1",
+        "66495402-fcfe-41dc-8395-f97eef942236"
+      ]      
+    },
+    "journals": {
+      "type": "home-journals"
+    }      
   },
   "order": [
     "hero",
-    "shop_all"
+    "shop_all",
+    "quote",
+    "philosophy",
+    "featured",
+    "bestsellers",
+    "journals"
   ]
 }

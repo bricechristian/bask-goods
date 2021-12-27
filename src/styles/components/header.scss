@@ -1,5 +1,6 @@
 .header {
   transform: translateY(0);
+  transition: height .3s;
   &:after {
     content: "";
     display: inline-block;
@@ -63,6 +64,7 @@
         @apply text-orange;
       }
     }
+    #header-search-link.active,
     #header-shop-link.active {
       @apply text-orange;
     }
@@ -88,14 +90,18 @@
       fill: theme("colors.black");
     }
   }
+  &.dropdown-open {
+    background-color: theme("colors.cream") !important;
+  }
   &.swiped-up {
-    transform: translateY(calc(-100% - 75px)) !important;
+    transform: translateY(-200px) !important;
   }
   &.swiped-down {
     transform: translateY(0px) !important;
   }
   &__categories,
-  &__menu {
+  &__menu,
+  &__search {
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s,
       background-color 0.3s;
     @apply invisible;

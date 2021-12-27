@@ -23,6 +23,7 @@ module.exports = {
       'white': '#ffffff',
       'cream': '#FBF1DC',
       'beige': '#F2E4C7',
+      'beige-50': 'rgba(234,217,180,.5)',
       'brown': '#A67C52',
       'orange': '#DD9B00'
     },

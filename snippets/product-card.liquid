@@ -1,8 +1,12 @@
-<div class="product__card">
-    <img src="https://via.placeholder.com/1200x1500" class="mb-4">
+<a href="{{ prod.url }}" class="product__card">
+    <img src="{{ prod.featured_image | img_url: '1200x'  }}" loading="lazy" class="mb-4">
+    <div class="product__card-hover glow-bubble"></div>
+    <div class="product__card-hover-text">Shop Now</div>
     <div>
-        <a href="#" class="product__card-category block font-italic text-24 -mb-2">Product Category —</a>
-        <a href="#" class="product__card-title block font-matterlight text-24">Product Title</a>
+        {% if category != blank %}
+            <p class="product__card-category block font-italic text-24 -mb-2">{{ category }} —</p>
+        {% endif %}
+        <p class="product__card-title block font-matterlight text-24">{{ prod.title }}</p>
     </div>
-    <p class="product__card-price font-matter text-18 text-brown">$00</p>
-</div>
+    <p class="product__card-price font-matter text-18 text-brown">{{ prod.price | money_without_trailing_zeros }}</p>
+</a>
