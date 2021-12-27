@@ -56,6 +56,34 @@
     },
     "philosophy": {
       "type": "home-philosophy",
+      "blocks": {
+        "9a008297-f7e7-434c-8394-6e9423695b56": {
+          "type": "pillar",
+          "settings": {
+            "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/reduce.svg?v=1640632536",
+            "title": "Reduce"
+          }
+        },
+        "2c420c6c-5132-4f8d-8d27-923f410819d9": {
+          "type": "pillar",
+          "settings": {
+            "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/reuse.svg?v=1640632536",
+            "title": "Reuse"
+          }
+        },
+        "6a86941e-b5d7-4eb7-91db-0b716785e3d5": {
+          "type": "pillar",
+          "settings": {
+            "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/recycle.svg?v=1640632536",
+            "title": "Recycle"
+          }
+        }
+      },
+      "block_order": [
+        "9a008297-f7e7-434c-8394-6e9423695b56",
+        "2c420c6c-5132-4f8d-8d27-923f410819d9",
+        "6a86941e-b5d7-4eb7-91db-0b716785e3d5"
+      ],
       "settings": {
         "quote": "Quote about the importance of sustainability goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel.",
         "title": "Our Philosophy",
