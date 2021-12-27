@@ -99,7 +99,7 @@
       "type": "home-featured",
       "settings": {
         "title": "Featured Collection",
-        "collection": "",
+        "collection": "frontpage",
         "link_text": "Shop Collection",
         "image": "shopify:\/\/shop_images\/featured-1.jpg",
         "image_2": "shopify:\/\/shop_images\/featured-2.jpg"
