@@ -13,18 +13,16 @@
                         {% if section.settings.headline != blank %}
                             <h4 class="font-italic text-24"><span class="font-heading">(</span>{{ section.settings.headline }}<span class="font-heading">)</span></h4>
                         {% endif %}                        
-                    </div>
-                    <img src="https://via.placeholder.com/1200x1500" loading="lazy" />             
-                    {% comment %} {% if section.settings.image != blank %}
-                        <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="" loading="lazy" />                    
-                    {% endif %}                 {% endcomment %}                    
+                    </div> 
+                    {% if section.settings.image != blank %}
+                        <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="" loading="lazy" alt="{{ section.settings.image.alt }}" />                    
+                    {% endif %}                
                 </div>
             </div>
-            <div class="col-start-3 -ml-40 space-y-12">
-                <img src="https://via.placeholder.com/1200x1500" loading="lazy" />             
-                {% comment %} {% if section.settings.image_2 != blank %}
-                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="" loading="lazy" />                    
-                {% endif %}                 {% endcomment %}
+            <div class="col-start-3 -ml-40 space-y-12">     
+                {% if section.settings.image_2 != blank %}
+                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="" loading="lazy" alt="{{ section.settings.image_2.alt }}" />                    
+                {% endif %}
                 {% if col.description %}{{ col.description }}{% endif %}
                 <div class="">
                     <a href="{{ col.url }}" class="arrow-link-wrap">
@@ -71,7 +69,7 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image 1",
-            "info": "Recommended Image Dimensions: 300x400"
+            "info": "Recommended Image Dimensions: 1200x1500"
         },             
          {
             "type": "image_picker",

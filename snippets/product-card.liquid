@@ -1,5 +1,5 @@
 <a href="{{ prod.url }}" class="product__card">
-    <img src="{{ prod.featured_image | img_url: '1200x'  }}" loading="lazy" class="mb-4">
+    <img src="{{ prod.featured_image | img_url: '1200x', crop:'center'  }}" loading="lazy" class="w-full mb-4">
     <div class="product__card-hover glow-bubble"></div>
     <div class="product__card-hover-text">Shop Now</div>
     <div>

@@ -9,11 +9,10 @@
                     {% if section.settings.bodycopy %}{{ section.settings.bodycopy }}{% endif %}
                 </div>
                 <div class="grid grid-cols-2 gap-10">
-                    <div>
-                        <img src="https://via.placeholder.com/400x450" class="" loading="lazy" />                    
-                        {% comment %} {% if section.settings.image != blank %}
-                            <img src="{{ section.settings.image | img_url: '400x450' }}" class="" loading="lazy" />                    
-                        {% endif %} {% endcomment %}
+                    <div>                
+                    {% if section.settings.image != blank %}
+                        <img src="{{ section.settings.image | img_url: '400x450' }}" class="" loading="lazy" alt="{{ section.settings.image.alt }}" />                    
+                    {% endif %}
                     </div>
                     <div class="space-y-10 pb-16">
                         {% comment %} {% for block in section.blocks %}     
@@ -57,11 +56,10 @@
                     {% endif %}                       
                 </div>
             </div>
-            <div class="col-start-3 -ml-40">
-                <img src="https://via.placeholder.com/1200x1500" loading="lazy" />             
-                {% comment %} {% if section.settings.image_2 != blank %}
-                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="" loading="lazy" />                    
-                {% endif %}                 {% endcomment %}
+            <div class="col-start-3 -ml-40">           
+                {% if section.settings.image_2 != blank %}
+                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="" loading="lazy" alt="{{ section.settings.image_2.alt }}" />                    
+                {% endif %}
             </div>
         </div>
     </div>

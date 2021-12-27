@@ -2,17 +2,15 @@
     <div class="container-full">
         <div class="grid grid-cols-3 items-center gap-24 pr-20">
             <div class="py-12 -mr-32">
-                <img src="https://via.placeholder.com/1200x1500" loading="lazy" />
-                        {% comment %} {% if section.settings.image != blank %}
-                            <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="" loading="lazy" />                    
-                        {% endif %} {% endcomment %}                
+                {% if section.settings.image != blank %}
+                    <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="" loading="lazy" alt="{{ section.settings.image.alt }}" />                    
+                {% endif %}            
             </div>
             <div class="col-span-2">
                 <div class="flex justify-end">
-                    <img src="https://via.placeholder.com/300x340" class="max-w-[163px]" loading="lazy" />
-                    {% comment %} {% if section.settings.image_2 != blank %}
-                        <img src="{{ section.settings.image_2 | img_url: '300x340' }}" class="" loading="lazy" />                    
-                    {% endif %} {% endcomment %}                        
+                    {% if section.settings.image_2 != blank %}
+                        <img src="{{ section.settings.image_2 | img_url: '300x340' }}" class="max-w-[163px]" loading="lazy" alt="{{ section.settings.image_2.alt }}" />                    
+                    {% endif %}                      
                 </div>
                 <div class="py-24 pl-40">
                     {% if section.settings.quote != blank %}
@@ -26,10 +24,9 @@
                     {% endif %}                       
                 </div>
                 <div class="flex justify-center">
-                    <img src="https://via.placeholder.com/400x450" class="max-w-[197px]" loading="lazy" />
-                    {% comment %} {% if section.settings.image_3 != blank %}
-                        <img src="{{ section.settings.image_3 | img_url: '400x450' }}" class="" loading="lazy" />                    
-                    {% endif %} {% endcomment %}                               
+                    {% if section.settings.image_3 != blank %}
+                        <img src="{{ section.settings.image_3 | img_url: '400x450' }}" class="max-w-[197px]" loading="lazy" alt="{{ section.settings.image_3.alt }}" />                    
+                    {% endif %}                               
                 </div>                
             </div> 
         </div>
