@@ -16,6 +16,9 @@
     opacity: 0;
     visibility: visible;
     @apply transition-smooth;
+    @screen md {
+      height: 165px;
+    }
   }
   
   &__overlay {
@@ -92,6 +95,9 @@
   }
   &.dropdown-open {
     background-color: theme("colors.cream") !important;
+    @screen md {
+      min-height: 100%;
+    }
   }
   &.swiped-up {
     transform: translateY(-200px) !important;
@@ -122,6 +128,11 @@
       }
     }
   }
+  &__menu {
+    @screen md {
+
+    }
+  }
   &__submenu {
     @apply transition-smooth;
     @apply invisible;
@@ -141,7 +152,7 @@
   }
   #bag-count {
     background: url(./bag-cream.svg) 50% 70% / 93% no-repeat;
-    padding: 13px 6.25px 6px;
+    padding: 13px clamp(6.25px, .5vw, 25%) 6px clamp(7px, .5vw, 50%);
     position: relative;
     top: 0px;
   }

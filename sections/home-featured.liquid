@@ -1,15 +1,26 @@
 {% assign col = collections[section.settings.collection] %}
 
-<section class="home__featured relative bg-cream pt-32">
+<section class="home__featured relative bg-cream pt-32 md:pt-7">
     <div class="container-full">
-        <div class="grid grid-cols-3 gap-24 pb-32 border-b border-brown">
-            <div class="col-span-2 pr-36">
-                <div class="text-17 space-y-8">
+        <div class="grid grid-cols-3 gap-24 pb-32 border-b border-brown lg:gap-10 md:pb-7 sm:grid-cols-1 sm:gap-8">
+            <div class="md_min:hidden col-span-3 sm:col-span-1">
+                {% if section.settings.title != blank %}
+                    <h2 class="font-matter text-18 text-brown mb-6">{{ section.settings.title }}</h2>
+                {% endif %}
+                <div class="mb-12 md:mb-0">
+                    <h3 class="font-matterlight text-24 -mb-1">{{ col.title }}</h3>
+                    {% if section.settings.headline != blank %}
+                        <h4 class="font-italic text-24"><span class="font-heading">(</span>{{ section.settings.headline }}<span class="font-heading">)</span></h4>
+                    {% endif %}                        
+                </div> 
+            </div>
+            <div class="col-span-2 pr-36 sm:col-span-1 sm:pr-0">
+                <div class="text-17">
                     {% if section.settings.title != blank %}
-                        <h2 class="font-matter text-18 text-brown">{{ section.settings.title }}</h2>
+                        <h2 class="font-matter text-18 text-brown mb-6 md:hidden">{{ section.settings.title }}</h2>
                     {% endif %}
-                    <div>
-                        <h3 class="font-matter text-24">{{ col.title }}</h3>
+                    <div class="mb-12 md:hidden">
+                        <h3 class="font-matterlight text-24 -mb-1">{{ col.title }}</h3>
                         {% if section.settings.headline != blank %}
                             <h4 class="font-italic text-24"><span class="font-heading">(</span>{{ section.settings.headline }}<span class="font-heading">)</span></h4>
                         {% endif %}                        
@@ -19,11 +30,11 @@
                     {% endif %}                
                 </div>
             </div>
-            <div class="col-start-3 -ml-40 space-y-12">     
+            <div class="col-start-3 -ml-40 space-y-12 sm:ml-0 sm:col-start-1 sm:pr-0 sm:space-y-5">     
                 {% if section.settings.image_2 != blank %}
-                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="" loading="lazy" alt="{{ section.settings.image_2.alt }}" />                    
+                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="sm:pb-4 sm:pr-16" loading="lazy" alt="{{ section.settings.image_2.alt }}" />                    
                 {% endif %}
-                {% if col.description %}{{ col.description }}{% endif %}
+                {% if col.description %}<div class="sm:text-17">{{ col.description }}</div>{% endif %}
                 <div class="">
                     <a href="{{ col.url }}" class="arrow-link-wrap">
                         <div class="arrow-link text-brown">{{ section.settings.link_text }}</div>
@@ -48,16 +59,22 @@
     "name": "Featured",
     "settings": [        
         {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"        
+         },  
+        {
             "type": "text",
             "id": "title",
             "label": "Title",
             "default": "Featured Collection"
          },
          {
-            "type": "collection",
-            "id": "collection",
-            "label": "Collection"        
-         },      
+            "type": "text",
+            "id": "headline",
+            "label": "Headline",
+            "default": "F/W — 2020 Collection"
+         },             
          {
             "type": "text",
             "id": "link_text",

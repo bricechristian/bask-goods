@@ -28,6 +28,7 @@ module.exports = {
       'orange': '#DD9B00'
     },
     fontSize: {
+      12: '12px',
       13: '13px',
       15: '15px',
       16: '16px',

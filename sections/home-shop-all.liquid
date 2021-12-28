@@ -1,9 +1,9 @@
-<section class="home__shop-all relative bg-cream py-24 mt-[100vh]">
+<section class="home__shop-all relative bg-cream py-24 mt-[100vh] md:py-10 sm:mt-[66vh]">
     <div class="container-full">
-        <div class="grid grid-cols-3 gap-24 pb-16 border-b border-brown">
+        <div class="grid grid-cols-3 gap-24 pb-16 border-b border-brown lg:gap-10 md:grid-cols-1 md:pb-10">
             <div class="flex flex-col">
                 {% if section.settings.bodycopy != blank %}
-                    <p class="font-heading text-24">{{ section.settings.bodycopy }}</p>
+                    <p class="font-heading text-24 lg:text-20">{{ section.settings.bodycopy }}</p>
                 {% endif %}
                 {% if section.settings.link_text != blank and section.settings.link_url != blank %}
                     <div class="mt-6">
@@ -21,11 +21,11 @@
                         </a>
                     </div>
                 {% endif %}   
-                <div class="flex-grow flex items-center justify-center">                
+                <div class="flex-grow flex items-center justify-center md:justify-end">                
                     <div class="glow-bubble w-[50px] h-[50px]"></div>
                 </div>
             </div>
-            <div class="col-span-2 -mr-6">
+            <div class="col-span-2 -mr-10 md:-mr-5">
                 <div class="carousel" data-flickity='{ "freeScroll": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "prevNextButtons": false, "pageDots": false }'>
                     {% for block in section.blocks %}
                         {% assign prod = all_products[block.settings.prod] %}
@@ -33,7 +33,7 @@
                         {% if block.settings.category != blank %}
                             {% assign prod_category = block.settings.category %}
                         {% endif %}
-                        <div class="w-3/5 mr-10">{% render 'product-card', prod: prod, category: prod_category %}</div>
+                        <div class="w-3/5 mr-10 md:mr-5">{% render 'product-card', prod: prod, category: prod_category %}</div>
                     {% endfor %}
                     {% comment %} <div class="w-3/5 mr-8">{% render 'product-card' %}</div>
                     <div class="w-3/5 mr-8">{% render 'product-card' %}</div>

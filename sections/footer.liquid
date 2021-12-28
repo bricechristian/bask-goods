@@ -1,0 +1,116 @@
+<footer class="footer relative py-10 bg-brown text-cream">
+    <div class="container-full">
+        <div class="grid grid-cols-3 gap-24 mb-10 lg:gap-10">
+            <div class="-mr-[15%] md:mr-0 md:col-span-3">
+                {% if section.settings.title != blank %}
+                    <h4 class="font-matter text-13">{{ section.settings.title }}</h4>
+                {% endif %}
+                {% if section.settings.headline != blank %}
+                    <p class="text-12 mt-2">{{ section.settings.headline }}</p>
+                {% endif %}
+                {% form 'customer', class: 'form w-full flex flex-col mt-6' %}
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+                    <input
+                        type="text"
+                        name="contact[first_name]"
+                        class="form__input font-matterlight text-13 tracking-[.081em] py-2 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
+                        value="{{ form.first_name }}"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        placeholder="Your Name"
+                    >                        
+                    <input
+                        type="email"
+                        name="contact[email]"
+                        class="form__input font-matterlight text-13 tracking-[.081em] py-2 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
+                        value="{{ form.email }}"
+                        aria-required="true"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        autocomplete="email"
+                        placeholder="Your Email"
+                        required
+                    >          
+                    <div class="inline-block">
+                        <input type="submit" class="font-matterlight text-13 tracking-[.081em] opacity-50 transition-smooth cursor-pointer hover:opacity-100" name="commit" value="Subscribe" />
+                    </div>
+                    {% if form.errors %}
+                        <p class="text-12">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</p>
+                    {% endif %}                                
+                    {% if form.posted_successfully? %}
+                      <p class="text-12">{{ section.settings.success }}</p>
+                    {% endif %}
+                  {% endform %}                
+            </div>
+            <div class="col-span-2 pl-[5%] md:col-span-3 md:pl-0">
+                <div class="grid grid-cols-3 gap-[15%] pr-[15%] md:grid-cols-2 md:pr-0 md:grid-cols-[1.5fr_1fr] md:gap-10 md:pb-6 md:border-b md:border-cream sm:gap-6 ">
+                    {% for block in section.blocks %}
+                        <ul>
+                            <li class="font-matter text-13 tracking-[.1em] mb-6">{{ block.settings.title }}</li>
+                            {% for link in linklists[block.settings.menu].links %}
+                                <li{% unless forloop.last %} class="mb-2"{% endunless %}><a href="{{ link.url }}" class="font-matterlight text-13 tracking-[.081em] transition-smooth hover:text-orange">{{ link.title }}</a></li>
+                            {% endfor %}
+                        </ul>                     
+                    {% endfor %}
+                    <svg class="max-w-[71px] mr-auto md_min:hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 55 55"><path d="M.65 25.277 0 24.643c1.625-1.588 5.866-3.543 10.83-4.201 3.77-.505 7.174-.137 9.962 1.03L.924 2.041l.651-.636 19.868 19.433c-1.195-2.729-1.568-6.057-1.056-9.744C21.062 6.237 23.06 2.089 24.684.5l.648.637c-1.478 1.444-3.394 5.468-4.035 10.078-.433 3.116-.564 8.929 3.418 12.824l-.65.636c-3.983-3.897-9.922-3.764-13.111-3.345-4.712.628-8.826 2.503-10.304 3.947Zm53.7 0c-1.478-1.444-5.592-3.319-10.304-3.947-3.19-.42-9.13-.552-13.111 3.345l-.65-.636c3.982-3.895 3.85-9.707 3.416-12.824-.64-4.61-2.556-8.634-4.034-10.078l.65-.637c2.74 2.679 6.483 12.894 3.25 20.329L53.423 1.405l.65.636-19.866 19.433c2.787-1.169 6.188-1.537 9.962-1.032 4.964.658 9.205 2.613 10.83 4.2l-.65.635ZM30.317 54.5l-.65-.637c3.089-3.021 7.538-16.134.618-22.902l.65-.636c3.983 3.898 9.926 3.765 13.111 3.344 4.712-.627 8.826-2.502 10.304-3.946l.65.634c-1.625 1.588-5.866 3.542-10.83 4.201-3.774.504-7.175.135-9.962-1.032L54.075 52.96l-.651.636-19.858-19.424c3.234 7.435-.509 17.65-3.249 20.329Zm-5.633 0c-1.624-1.588-3.622-5.737-4.297-10.593-.512-3.687-.139-7.017 1.056-9.745L1.575 53.595l-.65-.636 19.867-19.434c-2.788 1.168-6.191 1.537-9.962 1.033-4.964-.66-9.205-2.613-10.83-4.2l.65-.635c1.478 1.444 5.592 3.319 10.304 3.946 3.19.42 9.13.552 13.111-3.344l.65.636c-3.982 3.895-3.851 9.708-3.418 12.825.641 4.61 2.557 8.633 4.035 10.077l-.648.637Z" fill="#FBF1DC" /></svg>
+
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-[1fr_165px_1fr] gap-6 items-end md:grid-cols-2 md:gap-4">
+            <p class="font-matterlight text-13 tracking-[.1em]">© {{ 'now' | date: '%Y'  }} BASK, Inc, All Rights Reserved.</p>
+            <div class="text-center md:text-right">
+                <a href="#" class="font-matterlight text-13 tracking-[.1em] transition-smooth hover:text-orange">Made by Nice People</a>
+            </div>
+            <svg class="max-w-[71px] ml-auto md:hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 55 55"><path d="M.65 25.277 0 24.643c1.625-1.588 5.866-3.543 10.83-4.201 3.77-.505 7.174-.137 9.962 1.03L.924 2.041l.651-.636 19.868 19.433c-1.195-2.729-1.568-6.057-1.056-9.744C21.062 6.237 23.06 2.089 24.684.5l.648.637c-1.478 1.444-3.394 5.468-4.035 10.078-.433 3.116-.564 8.929 3.418 12.824l-.65.636c-3.983-3.897-9.922-3.764-13.111-3.345-4.712.628-8.826 2.503-10.304 3.947Zm53.7 0c-1.478-1.444-5.592-3.319-10.304-3.947-3.19-.42-9.13-.552-13.111 3.345l-.65-.636c3.982-3.895 3.85-9.707 3.416-12.824-.64-4.61-2.556-8.634-4.034-10.078l.65-.637c2.74 2.679 6.483 12.894 3.25 20.329L53.423 1.405l.65.636-19.866 19.433c2.787-1.169 6.188-1.537 9.962-1.032 4.964.658 9.205 2.613 10.83 4.2l-.65.635ZM30.317 54.5l-.65-.637c3.089-3.021 7.538-16.134.618-22.902l.65-.636c3.983 3.898 9.926 3.765 13.111 3.344 4.712-.627 8.826-2.502 10.304-3.946l.65.634c-1.625 1.588-5.866 3.542-10.83 4.201-3.774.504-7.175.135-9.962-1.032L54.075 52.96l-.651.636-19.858-19.424c3.234 7.435-.509 17.65-3.249 20.329Zm-5.633 0c-1.624-1.588-3.622-5.737-4.297-10.593-.512-3.687-.139-7.017 1.056-9.745L1.575 53.595l-.65-.636 19.867-19.434c-2.788 1.168-6.191 1.537-9.962 1.033-4.964-.66-9.205-2.613-10.83-4.2l.65-.635c1.478 1.444 5.592 3.319 10.304 3.946 3.19.42 9.13.552 13.111-3.344l.65.636c-3.982 3.895-3.851 9.708-3.418 12.825.641 4.61 2.557 8.633 4.035 10.077l-.648.637Z" fill="#FBF1DC" /></svg>
+        </div>
+    </div>
+</footer> 
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings": [      
+        {
+            "type": "header",
+            "content": "Newsletter"
+        },  
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Newsletter"
+        },
+        {
+            "type": "textarea",
+            "id": "headline",
+            "label": "Headline",
+            "default": "Sign up for updates, pop-ups, and promotions."
+        },     
+        {
+            "type": "textarea",
+            "id": "success",
+            "label": "Success Message",
+            "default": "Thanks for subscribing!"
+        }           
+    ],
+    "blocks": [
+        {
+            "type": "column",
+            "name": "Column",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "link_list",
+                    "id": "menu",
+                    "label": "Menu"
+                }
+            ]
+        }
+    ] 
+}
+{% endschema %}

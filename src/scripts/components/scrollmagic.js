@@ -5,6 +5,7 @@ import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 ScrollMagicPluginGsap(ScrollMagic, TweenMax);
 
 const $header = document.querySelector("header");
+const $hero = document.querySelector(".full__hero");
 
 let controller = new ScrollMagic.Controller();
 
@@ -35,5 +36,11 @@ new ScrollMagic.Scene()
         if(direction !== "REVERSE"){
             $header.classList.remove("swiped-down")
         }
+    }
+
+    if(event.scrollPos > window.innerHeight + 600){
+        document.querySelector("body").classList.add("scrolled-past-hero")
+    } else {
+        document.querySelector("body").classList.remove("scrolled-past-hero")
     }
 });
