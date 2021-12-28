@@ -3,8 +3,7 @@
     "hero": {
       "type": "home-hero",
       "settings": {
-        "image": "shopify:\/\/shop_images\/home-hero.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/mobile-hero.jpeg"
+        "image": "shopify:\/\/shop_images\/home-hero.jpg"
       }
     },
     "shop_all": {
@@ -99,8 +98,9 @@
     "featured": {
       "type": "home-featured",
       "settings": {
-        "title": "Featured Collection",
         "collection": "sample",
+        "title": "Featured Collection",
+        "headline": "F\/W — 2020 Collection",
         "link_text": "Shop Collection",
         "image": "shopify:\/\/shop_images\/featured-1.jpg",
         "image_2": "shopify:\/\/shop_images\/featured-2.jpg"
@@ -145,6 +145,7 @@
       "settings": {
         "title": "Our Journal",
         "article": "journal\/journal-1",
+        "article_image": "shopify:\/\/shop_images\/article-1.jpg",
         "link_text": "Read More",
         "link_url": "\/",
         "link_new_tab": false,
