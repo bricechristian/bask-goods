@@ -145,7 +145,6 @@
       "settings": {
         "title": "Our Journal",
         "article": "journal\/journal-1",
-        "article_image": "shopify:\/\/shop_images\/article-1.jpg",
         "link_text": "Read More",
         "link_url": "\/",
         "link_new_tab": false,

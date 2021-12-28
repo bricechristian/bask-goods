@@ -1,4 +1,50 @@
 {
   "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "b790e2a0-b1d1-41da-aab1-4c0db41cc40e": {
+            "type": "column",
+            "settings": {
+              "title": "Shop",
+              "menu": "footer"
+            }
+          },
+          "f9f33bc5-c2da-454c-b115-2d4b213848a2": {
+            "type": "column",
+            "settings": {
+              "title": "About Us",
+              "menu": "footer-about"
+            }
+          },
+          "281c1825-44bf-43ac-a43d-b491bdaf00b3": {
+            "type": "column",
+            "settings": {
+              "title": "Stay Connected",
+              "menu": "footer-connected"
+            }
+          }
+        },
+        "block_order": [
+          "b790e2a0-b1d1-41da-aab1-4c0db41cc40e",
+          "f9f33bc5-c2da-454c-b115-2d4b213848a2",
+          "281c1825-44bf-43ac-a43d-b491bdaf00b3"
+        ],
+        "settings": {
+          "title": "Newsletter",
+          "headline": "Sign up for updates, pop-ups, and promotions.",
+          "success": "Thanks for subscribing!"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   }
 }
