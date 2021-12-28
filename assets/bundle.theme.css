@@ -627,6 +627,9 @@ body.scrolled-past-hero .full__hero {
 .h-\[50px\]{
   height: 3.125rem;
 }
+.h-\[75vh\]{
+  height: 75vh;
+}
 .min-h-\[700px\]{
   min-height: 43.75rem;
 }
@@ -1620,6 +1623,9 @@ body{
   }
   .sm\:mt-\[66vh\]{
     margin-top: 66vh;
+  }
+  .sm\:mt-\[75vh\]{
+    margin-top: 75vh;
   }
   .sm\:block{
     display: block;
