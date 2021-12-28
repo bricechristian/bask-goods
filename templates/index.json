@@ -3,7 +3,8 @@
     "hero": {
       "type": "home-hero",
       "settings": {
-        "image": "shopify:\/\/shop_images\/home-hero.jpg"
+        "image": "shopify:\/\/shop_images\/home-hero.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/mobile-hero.jpg"
       }
     },
     "shop_all": {
