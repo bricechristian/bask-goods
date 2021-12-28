@@ -362,6 +362,117 @@ a {
   --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   border-color: currentColor;
 }
+.delay.delay-300 {
+    transition-delay: 300ms;
+  }
+.delay.delay-400 {
+    transition-delay: 400ms;
+  }
+.delay.delay-600 {
+    transition-delay: 600ms;
+  }
+.delay.delay-900 {
+    transition-delay: 900ms;
+  }
+.delay.delay-1200 {
+    transition-delay: 1200ms;
+  }
+[data-viewport].in-view .fade-in {
+    opacity: 1;
+    filter: blur(0);
+  }
+[data-viewport].in-view .fade-in.delay-0 {
+    transition-delay: 0ms;
+  }
+[data-viewport].in-view .fade-in.delay-100 {
+    transition-delay: 100ms;
+  }
+[data-viewport].in-view .fade-in.delay-200 {
+    transition-delay: 200ms;
+  }
+[data-viewport].in-view .fade-in.delay-300 {
+    transition-delay: 300ms;
+  }
+[data-viewport].in-view .fade-in.delay-400 {
+    transition-delay: 400ms;
+  }
+[data-viewport].in-view .fade-in.delay-500 {
+    transition-delay: 500ms;
+  }
+[data-viewport].in-view .fade-in.delay-600 {
+    transition-delay: 600ms;
+  }
+[data-viewport].in-view .fade-in.delay-700 {
+    transition-delay: 700ms;
+  }
+[data-viewport].in-view .fade-in.delay-800 {
+    transition-delay: 800ms;
+  }
+[data-viewport].in-view .fade-in.delay-900 {
+    transition-delay: 900ms;
+  }
+[data-viewport].in-view .fade-in.delay-1000 {
+    transition-delay: -1000ms;
+  }
+[data-viewport].in-view .fade-in.delay-1100 {
+    transition-delay: 1100ms;
+  }
+[data-viewport].in-view .fade-in.delay-1200 {
+    transition-delay: 1200ms;
+  }
+[data-viewport].in-view .fade-in.highlighted {
+    transform: none;
+  }
+[data-viewport].fade-in,
+[data-viewport] .fade-in {
+    opacity: 0;
+    filter: blur(0.625rem);
+    transition: 1s opacity, 0.6s filter;
+  }
+[data-viewport].fade-in.in-view,
+[data-viewport] .fade-in.in-view {
+    opacity: 1;
+    filter: blur(0);
+  }
+[data-viewport].fade-in.in-view.delay-0, [data-viewport] .fade-in.in-view.delay-0 {
+    transition-delay: 0ms;
+  }
+[data-viewport].fade-in.in-view.delay-100, [data-viewport] .fade-in.in-view.delay-100 {
+    transition-delay: 100ms;
+  }
+[data-viewport].fade-in.in-view.delay-200, [data-viewport] .fade-in.in-view.delay-200 {
+    transition-delay: 200ms;
+  }
+[data-viewport].fade-in.in-view.delay-300, [data-viewport] .fade-in.in-view.delay-300 {
+    transition-delay: 300ms;
+  }
+[data-viewport].fade-in.in-view.delay-400, [data-viewport] .fade-in.in-view.delay-400 {
+    transition-delay: 400ms;
+  }
+[data-viewport].fade-in.in-view.delay-500, [data-viewport] .fade-in.in-view.delay-500 {
+    transition-delay: 500ms;
+  }
+[data-viewport].fade-in.in-view.delay-600, [data-viewport] .fade-in.in-view.delay-600 {
+    transition-delay: 600ms;
+  }
+[data-viewport].fade-in.in-view.delay-700, [data-viewport] .fade-in.in-view.delay-700 {
+    transition-delay: 700ms;
+  }
+[data-viewport].fade-in.in-view.delay-800, [data-viewport] .fade-in.in-view.delay-800 {
+    transition-delay: 800ms;
+  }
+[data-viewport].fade-in.in-view.delay-900, [data-viewport] .fade-in.in-view.delay-900 {
+    transition-delay: 900ms;
+  }
+[data-viewport].fade-in.in-view.delay-1000, [data-viewport] .fade-in.in-view.delay-1000 {
+    transition-delay: -1000ms;
+  }
+[data-viewport].fade-in.in-view.delay-1100, [data-viewport] .fade-in.in-view.delay-1100 {
+    transition-delay: 1100ms;
+  }
+[data-viewport].fade-in.in-view.delay-1200, [data-viewport] .fade-in.in-view.delay-1200 {
+    transition-delay: 1200ms;
+  }
 body.scrolled-past-hero .full__hero {
     display: none !important;
   }
@@ -829,6 +940,9 @@ body.scrolled-past-hero .full__hero {
 .opacity-50{
   opacity: 0.5;
 }
+.delay-300{
+  transition-delay: 300ms;
+}
 .container{
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1017,6 +1131,7 @@ https://flickity.metafizzy.co
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  border-radius: 0;
   background-color: transparent;
   outline: 0.125rem solid transparent;
   outline-offset: 0.125rem;

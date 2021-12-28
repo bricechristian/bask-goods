@@ -3,7 +3,7 @@
 <section class="home__featured relative bg-cream pt-32 md:pt-7">
     <div class="container-full">
         <div class="grid grid-cols-3 gap-24 pb-32 border-b border-brown lg:gap-10 md:pb-7 sm:grid-cols-1 sm:gap-8">
-            <div class="md_min:hidden col-span-3 sm:col-span-1">
+            <div class="md_min:hidden col-span-3 sm:col-span-1 fade-in" data-viewport>
                 {% if section.settings.title != blank %}
                     <h2 class="font-matter text-18 text-brown mb-6">{{ section.settings.title }}</h2>
                 {% endif %}
@@ -15,7 +15,7 @@
                 </div> 
             </div>
             <div class="col-span-2 pr-36 sm:col-span-1 sm:pr-0">
-                <div class="text-17">
+                <div class="text-17 fade-in" data-viewport>
                     {% if section.settings.title != blank %}
                         <h2 class="font-matter text-18 text-brown mb-6 md:hidden">{{ section.settings.title }}</h2>
                     {% endif %}
@@ -26,16 +26,16 @@
                         {% endif %}                        
                     </div> 
                     {% if section.settings.image != blank %}
-                        <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="" loading="lazy" alt="{{ section.settings.image.alt }}" />                    
+                        <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="fade-in delay-600" data-viewport loading="lazy" alt="{{ section.settings.image.alt }}" />                    
                     {% endif %}                
                 </div>
             </div>
             <div class="col-start-3 -ml-40 space-y-12 sm:ml-0 sm:col-start-1 sm:pr-0 sm:space-y-5">     
                 {% if section.settings.image_2 != blank %}
-                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="sm:pb-4 sm:pr-16" loading="lazy" alt="{{ section.settings.image_2.alt }}" />                    
+                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="sm:pb-4 sm:pr-16 fade-in delay-300" data-viewport loading="lazy" alt="{{ section.settings.image_2.alt }}" />                    
                 {% endif %}
-                {% if col.description %}<div class="sm:text-17">{{ col.description }}</div>{% endif %}
-                <div class="">
+                {% if col.description %}<div class="sm:text-17 fade-in" data-viewport="-300">{{ col.description }}</div>{% endif %}
+                <div class="fade-in" data-viewport="-300">
                     <a href="{{ col.url }}" class="arrow-link-wrap">
                         <div class="arrow-link text-brown">{{ section.settings.link_text }}</div>
                         <svg width="35px" height="18px" viewBox="0 0 35 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

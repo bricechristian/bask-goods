@@ -5,6 +5,7 @@ import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 ScrollMagicPluginGsap(ScrollMagic, TweenMax);
 
 const $header = document.querySelector("header");
+const scrollEls = document.querySelectorAll("[data-viewport]");
 const $hero = document.querySelector(".full__hero");
 
 let controller = new ScrollMagic.Controller();
@@ -44,3 +45,20 @@ new ScrollMagic.Scene()
         document.querySelector("body").classList.remove("scrolled-past-hero")
     }
 });
+
+
+if(scrollEls !== null){
+    scrollEls.forEach(el => {
+        let offset = 0;
+        if(el.getAttribute('data-viewport') !== ''){
+            offset = parseInt(el.getAttribute('data-viewport'))
+        }
+        new ScrollMagic.Scene({
+            triggerElement: el,
+            offset: offset, 
+            reverse: false
+        })
+        .setClassToggle(el, 'in-view')
+        .addTo(controller)
+    });
+}

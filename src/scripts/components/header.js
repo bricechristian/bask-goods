@@ -1,67 +1,6 @@
 const $header = document.querySelector('header')
 const $nav = document.querySelector('nav')
 
-// FLY AWAY HEADER
-let lastScrollTop = 0;
-let scrollSpeed = 0;
-
-/*
-const checkScrollSpeed = ((settings) => {
-    settings = settings || {};
-
-    let lastPos, newPos, timer, delta,
-        delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
-
-    function clear() {
-        lastPos = null;
-        delta = 0;
-    }
-
-    clear();
-
-    return function () {
-        newPos = window.scrollY;
-        if (lastPos != null) { // && newPos < maxScroll 
-            delta = newPos - lastPos;
-        }
-        lastPos = newPos;
-        clearTimeout(timer);
-        timer = setTimeout(clear, delay);
-        scrollSpeed = delta;
-    };
-})();
-
-window.addEventListener("scroll", () => { 
-    checkScrollSpeed();
-    const $header = document.querySelector('header')
-    let st = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (st > lastScrollTop){
-        //downscroll
-        $header.classList.remove('swiped-down');
-        if(st > $header.offsetHeight){
-            $header.classList.add('swiped-up');
-        } else {
-            $header.classList.remove('swiped-up');
-        }
-    }  else {
-        //upscroll
-        if(Math.abs(scrollSpeed) > 12){
-            $header.classList.remove('swiped-up');
-            $header.classList.add('swiped-down'); 
-        } 
-    }
-    if (st < $header.offsetHeight) {
-        $header.classList.remove('swiped-up');
-        $header.classList.remove('swiped-down');
-        $header.classList.remove('active');
-    } else {
-        $header.classList.add('active');
-    }        
-    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-}, false);  
-*/ 
-
 //DROPDOWNS
 const $headerOverlay = document.querySelector('.header__overlay');
 const $headerNav = $header.querySelector('.header nav').children;
@@ -69,6 +8,7 @@ const navChildren = [...$headerNav]
 const $shopLink = document.getElementById('header-shop-link');
 const $searchLink = document.getElementById('header-search-link');
 const $headerMain = $header.querySelector('.header__main');
+const $headerMainLinks = $headerMain.querySelectorAll(".header__link");
 let headerHeight = $headerMain.offsetHeight;
 const $headerShopCats = $header.querySelector('.header__categories');
 const $headerSearch = $header.querySelector('.header__search');
@@ -134,41 +74,20 @@ if ($shopLink !== null && $headerShopCats !== null) {
     }, false)
 }
 
-//MAIN SEARCH LINK
-if ($searchLink !== null && $headerSearch !== null) {
-    $searchLink.addEventListener("mouseover", () => {
-        if (!$headerSearch.classList.contains("active")) {
-            closeMenu()
-            // UPDATE FOCUS
-            // create invisible dummy input to receive the focus first
-            const fakeInput = document.createElement('input')
-            fakeInput.setAttribute('type', 'text')
-            fakeInput.style.position = 'absolute'
-            fakeInput.style.opacity = 0
-            fakeInput.style.height = 0
-            fakeInput.style.fontSize = '16px' // disable auto zoom
-            // you may need to append to another element depending on the browser's auto 
-            // zoom/scroll behavior
-            document.querySelector('.header').prepend(fakeInput)
-            // focus so that subsequent async focus will work
-            fakeInput.focus()
-            setTimeout(() => {
-                // now we can focus on the target input
-                document.querySelector(".header__search input").focus()
-                // cleanup
-                fakeInput.remove()
-            }, 300)            
-            openDropdown($searchLink, $headerSearch)
+//HEADER LINKS
+$headerMainLinks.forEach($link => {
+    $link.addEventListener("mouseover", () => {
+        if ($headerSearch.classList.contains("active")) {
+            closeDropdown($searchLink, $headerSearch)
         }
-    }, false)
-    $header.addEventListener("mouseleave", () => {
-        closeDropdown($searchLink, $headerSearch)
-    }, false)
-}
-
-//HEADER SUBMENU LINKS
+        if ($headerShopCats.classList.contains("active")) {
+            closeDropdown($shopLink, $headerShopCats)
+        }
+    })
+})
 $headerMenuLinks.forEach($link => {
     $link.addEventListener("mouseover", () => {
+        console.log($link)
         $headerTopMenu.style.height = "auto";
         $headerMenuLinks.forEach($link => {
             $link.classList.remove("active")
@@ -205,6 +124,39 @@ if ($headerLinksWithSubmenu !== null) {
             $subMenu.classList.add("active")
         })
     });
+}
+
+
+//MAIN SEARCH LINK
+if ($searchLink !== null && $headerSearch !== null) {
+    $searchLink.addEventListener("mouseover", () => {
+        if (!$headerSearch.classList.contains("active")) {
+            closeMenu()
+            // UPDATE FOCUS
+            // create invisible dummy input to receive the focus first
+            const fakeInput = document.createElement('input')
+            fakeInput.setAttribute('type', 'text')
+            fakeInput.style.position = 'absolute'
+            fakeInput.style.opacity = 0
+            fakeInput.style.height = 0
+            fakeInput.style.fontSize = '16px' // disable auto zoom
+            // you may need to append to another element depending on the browser's auto 
+            // zoom/scroll behavior
+            document.querySelector('.header').prepend(fakeInput)
+            // focus so that subsequent async focus will work
+            fakeInput.focus()
+            setTimeout(() => {
+                // now we can focus on the target input
+                document.querySelector(".header__search input").focus()
+                // cleanup
+                fakeInput.remove()
+            }, 300)            
+            openDropdown($searchLink, $headerSearch)
+        }
+    }, false)
+    $header.addEventListener("mouseleave", () => {
+        closeDropdown($searchLink, $headerSearch)
+    }, false)
 }
 
 // HAMBURGER

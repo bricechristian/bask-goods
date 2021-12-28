@@ -16,11 +16,11 @@
 {% endfor %}
 
 <section class="home__journals bg-cream relative">
-    <div class="py-10 bg-beige-50 md:py-6">
+    <div class="py-10 bg-beige-50 md:py-6" data-viewport>
         <div class="container-full">
             {% if section.settings.title != blank %}
                 <div class="flex-grow md_min:hidden md:mb-6">
-                    <h2 class="font-matter text-18">{{ section.settings.title }}</h2>
+                    <h2 class="font-matter text-18 fade-in">{{ section.settings.title }}</h2>
                 </div>
             {% endif %}            
             <div class="grid grid-cols-3 gap-24 md:grid-cols-1 md:gap-5">
@@ -28,25 +28,25 @@
                     <div class="h-full flex flex-col justify-between space-y-8">
                         {% if section.settings.title != blank %}
                             <div class="flex-grow md:hidden">
-                                <h2 class="font-matter text-18">{{ section.settings.title }}</h2>
+                                <h2 class="font-matter text-18 fade-in">{{ section.settings.title }}</h2>
                             </div>
                         {% endif %}
                         {% comment %} MAIN ARTICLE {% endcomment %}
                             <div>
-                                <p class="font-matter text-brown text-13 mb-2">{{ main_article.published_at | date: format: 'abbreviated_date' }}</p>
+                                <p class="font-matter text-brown text-13 mb-2 fade-in delay-300">{{ main_article.published_at | date: format: 'abbreviated_date' }}</p>
                                 {% for tag in main_article.tags %}
                                     {% if forloop.first %}
-                                        <p class="font-italic text-24 -mb-1">{{ tag }} —</p>
+                                        <p class="font-italic text-24 -mb-1 fade-in delay-600">{{ tag }} —</p>
                                     {% endif %}
                                 {% endfor %}
-                                <p class="font-matterlight text-24 tracking-[.05em] mb-6">{{ main_article.title }}</p>
+                                <p class="font-matterlight text-24 tracking-[.05em] mb-6 fade-in delay-600">{{ main_article.title }}</p>
                                 {% if main_article.excerpt != blank %}
-                                    <div class="text-17 mb-8">{{ main_article.excerpt }}</div>
+                                    <div class="text-17 mb-8 fade-in delay-900">{{ main_article.excerpt }}</div>
                                 {% else %}
                                     {% assign main_article_content = main_article.content | split: "</p>" | first %}
-                                    <div class="text-17 mb-8">{{ main_article_content | append: '</p>' }}</div>
+                                    <div class="text-17 mb-8 fade-in delay-900">{{ main_article_content | append: '</p>' }}</div>
                                 {% endif %}
-                                <a href="{{ main_article.url }}" class="arrow-link-wrap" {% if section.settings.link_new_tab %} target="_blank"{% endif %}>
+                                <a href="{{ main_article.url }}" class="arrow-link-wrap fade-in delay-900" {% if section.settings.link_new_tab %} target="_blank"{% endif %}>
                                     <div class="arrow-link text-brown">{{ section.settings.link_text }}</div>
                                     <svg width="35px" height="18px" viewBox="0 0 35 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -62,7 +62,7 @@
 
                     </div>
                 </div>
-                <div class="col-start-3 -ml-40 md:col-start-1 md:ml-0">
+                <div class="col-start-3 -ml-40 md:col-start-1 md:ml-0 fade-in delay-300">
                     <img src="{{ section.settings.article_image | img_url: '1200x' }}" loading="lazy" />             
                     {% comment %} {% if section.settings.image_2 != blank %}
                         <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="" loading="lazy" />                    
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="py-10 md:py-8">
+    <div class="py-10 md:py-8" data-viewport>
         <div class="container-full">
             <div class="grid grid-cols-2 gap-10 mb-10 md:grid-cols-1 md:gap-8 md:mb-5">
                 {% for tag in article_2.tags %}
@@ -84,10 +84,10 @@
                         {% assign article_3_tag = tag %}
                     {% endif %}
                 {% endfor %}                       
-                <div>{% render 'article-card', article: article_2, category: article_2_tag %}</div>
-                <div>{% render 'article-card', article: article_3, category: article_3_tag %}</div>
+                <div class="fade-in">{% render 'article-card', article: article_2, category: article_2_tag %}</div>
+                <div class="fade-in delay-300">{% render 'article-card', article: article_3, category: article_3_tag %}</div>
             </div>
-            <a href="/blogs/journal" class="arrow-link-wrap">
+            <a href="/blogs/journal" class="arrow-link-wrap fade-in" data-viewport>
                 <div class="arrow-link text-brown">View All</div>
                 <svg width="35px" height="18px" viewBox="0 0 35 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
