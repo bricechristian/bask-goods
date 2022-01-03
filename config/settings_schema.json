@@ -31,6 +31,12 @@
         "id": "announcement_bar_text",
         "label": "Content",
         "default": "<p>FREE SHIPPING ON ORDERS OVER $100. <a href='#'>SHOP NOW</a></p>"
+      },
+      {
+        "type": "number",
+        "id": "announcement_bar_speed",
+        "label": "Mobile Ticker Speed (s)",
+        "default": 16
       }
     ]
   }  
