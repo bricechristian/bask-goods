@@ -126,7 +126,6 @@ if ($headerLinksWithSubmenu !== null) {
     });
 }
 
-
 //MAIN SEARCH LINK
 if ($searchLink !== null && $headerSearch !== null) {
     $searchLink.addEventListener("mouseover", () => {
@@ -192,6 +191,26 @@ $hamburger.addEventListener("click", openMenu)
 $hamburgerClose.addEventListener("click", closeMenu)
 $header.addEventListener("mouseleave", closeMenu)
 $headerOverlay.addEventListener("mouseenter", closeMenu)
+
+//MOBILE MENU
+const mediaQuery = window.matchMedia('(max-width: 768px)')
+const handlesubMenuParents = () => {
+    const $subMenuParents = document.querySelectorAll(".header__link.has-submenu");
+    $subMenuParents.forEach($parent => {
+        $parent.addEventListener("click", e => {
+            e.preventDefault()
+            console.log("click")
+        })
+    });
+}
+const handleMediaQuery = e => {
+  if (e.matches) {
+    console.log('Mobile')
+    handlesubMenuParents()
+  }
+}
+mediaQuery.addListener(handleMediaQuery)
+handleMediaQuery(mediaQuery)
 
 const resizeWindow = () => {
     headerHeight = $headerMain.offsetHeight;

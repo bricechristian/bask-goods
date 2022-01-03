@@ -55,9 +55,10 @@
                 <div class="container-full flex">
                     <ul class="header__menu-top flex flex-wrap gap-x-16 py-6 border-t border-t-black w-full md:border-none md:flex-col">
                         {% for link in linklists.main-menu.links %}
-                            <li class="relative">
-                                <a href="{{ link.url }}" class="header__link font-matter text-13{% if link.links != blank %} has-submenu{% endif %}">{{ link.title }}</a>
+                            <li class="relative md:mb-2">
+                                <a href="{{ link.url }}" class="header__link font-matter text-13{% if link.links != blank %} has-submenu{% endif %} md:text-30 md:font-heading md:normal-case md:tracking-[0em]">{{ link.title }}</a>
                                 {% if link.links != blank %}
+                                    <span class="header__submenu-toggle md_min:hidden md:text-30 md:font-heading">+</span>
                                     <ul class="header__submenu absolute left-0 grid grid-cols-5 gap-8 mt-6 pb-6">
                                         {% for child_link in link.links %}
                                             <li>
@@ -71,6 +72,8 @@
                                 {% endif %}
                             </li>
                         {% endfor %}
+                        <li class="md_min:hidden mt-2"><a href="#" class="header__link font-matter text-13">Account</a></li>
+                        <li class="md_min:hidden mt-3"><a href="#" id="header-search-link" class="header__link font-matter text-13">Search</a></li>                        
                     </ul>
                 </div>
             </div>
