@@ -642,6 +642,9 @@ body.scrolled-past-hero .full__hero {
 .mb-4{
   margin-bottom: 1rem;
 }
+.mt-5{
+  margin-top: 1.25rem;
+}
 .block{
   display: block;
 }
@@ -710,6 +713,10 @@ body.scrolled-past-hero .full__hero {
 }
 .flex-grow{
   flex-grow: 1;
+}
+.translate-y-\[1px\]{
+  --tw-translate-y: 0.0625rem;
+  transform: var(--tw-transform);
 }
 .transform{
   transform: var(--tw-transform);
@@ -1705,6 +1712,9 @@ body{
 }
 
 @media (min-width: 768px){
+  .md_min\:inline-block{
+    display: inline-block;
+  }
   .md_min\:hidden{
     display: none;
   }

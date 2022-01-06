@@ -11,7 +11,7 @@
                         <li class="relative">
                             <svg xmlns="http://www.w3.org/2000/svg" id="hamburger" class="w-8 cursor-pointer active" viewBox="0 0 31 22"><g fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5h30M.5 11h30M.5 21h30"/></g></svg>
                             <span id="hamburger-close" class="font-matter text-13 absolute-center left-0 text-black">
-                                <span class="md:hidden">Close</span>
+                                <span class="md:hidden md_min:inline-block translate-y-[1px]">Close</span>
                                 <?xml version="1.0" encoding="UTF-8"?>
                                     <svg width="26px" height="26px" class="md_min:hidden" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="md:hidden">
                     <ul class="flex items-center justify-end space-x-8">
-                        <li><a href="#" class="header__link font-matter text-13 hover:text-orange">Account</a></li>
+                        <li><a href="/account" class="header__link font-matter text-13 hover:text-orange">Account</a></li>
                         <li><a href="#" class="header-search-link header__link font-matter text-13 hover:text-orange">Search</a></li>
                         <li><a href="#" class="bag-count header__link font-matter text-13 hover:text-orange">0</a></li>
                     </ul>            
@@ -91,9 +91,9 @@
                                 {% endif %}
                             </li>
                         {% endfor %}
-                        <li class="md_min:hidden mt-2"><a href="#" class="header__link font-matter text-13">Account</a></li>
+                        <li class="md_min:hidden mt-2"><a href="/account" class="header__link font-matter text-13">Account</a></li>
                         <li class="md_min:hidden mt-3"><a href="#" class="header-search-link header__link font-matter text-13">Search</a></li>                        
-                        <li class="md_min:hidden mt-3"><a href="#" class="bag-count header__link font-matter text-13 hover:text-orange">0</a></li>
+                        <li class="md_min:hidden mt-5"><a href="#" class="bag-count header__link font-matter text-13 hover:text-orange">0</a></li>
                     </ul>
                 </div>
             </div>

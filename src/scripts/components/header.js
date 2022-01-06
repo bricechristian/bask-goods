@@ -1,5 +1,7 @@
 const $header = document.querySelector('header')
 const $nav = document.querySelector('nav')
+const $hamburger = document.getElementById('hamburger');
+const $hamburgerClose = document.getElementById('hamburger-close');
 
 //DROPDOWNS
 const $headerOverlay = document.querySelector('.header__overlay');
@@ -30,7 +32,7 @@ const openDropdown = (a, b) => {
     if (a !== null) {
         a.classList.add("active");
     }
-    if (b !== null) {
+    if ( b !== null) {
         setTimeout(() => {
             b.style.left = "0px";
         }, 50);
@@ -69,14 +71,18 @@ const closeDropdown = (a, b) => {
 
 //MAIN SHOP LINK
 if ($shopLink !== null && $headerShopCats !== null) {
-    $shopLink.addEventListener("mouseover", () => {
+    const handleShopLink = e => {
+        e.preventDefault()
         if (!$headerShopCats.classList.contains("active")) {
             setTimeout(() => {
                 closeMenu()
                 openDropdown($shopLink, $headerShopCats)
             }, 51);
-        }
-    }, false)
+        }        
+    }
+    ['mouseover', 'click'].forEach( evt => {
+        $shopLink.addEventListener(evt, handleShopLink, false)
+    });      
     $header.addEventListener("mouseleave", () => {
         closeDropdown($shopLink, $headerShopCats)
     }, false)
@@ -84,7 +90,7 @@ if ($shopLink !== null && $headerShopCats !== null) {
 
 //HEADER LINKS
 $headerMainLinks.forEach($link => {
-    $link.addEventListener("mouseover", () => {         
+    const handleMainLinks = () => {
         if ($headerSearch.classList.contains("active")) {
             $searchLinks.forEach($searchLink => {
                 closeDropdown($searchLink, $headerSearch)
@@ -93,15 +99,23 @@ $headerMainLinks.forEach($link => {
         if ($headerShopCats.classList.contains("active")) {
             closeDropdown($shopLink, $headerShopCats)
         }     
+        
         setTimeout(() => {
             $header.style.height = "135px";
             $headerOverlay.classList.add("active");
             $header.classList.add("dropdown-open");
-        }, 50);         
-    })
+            $headerMenu.classList.remove("active")
+            $hamburger.classList.add("active")
+            $hamburgerClose.classList.remove("active")
+        }, 50);             
+    }
+    ['mouseover', 'click'].forEach( evt => {
+        $link.addEventListener(evt, handleMainLinks, false)
+    });    
 })
 $headerMenuLinks.forEach($link => {
-    $link.addEventListener("mouseover", () => {
+
+    const handleHeaderMenuLinks = () => {
         $headerTopMenu.style.height = "auto";
         $headerMenuLinks.forEach($link => {
             $link.classList.remove("active")
@@ -113,14 +127,19 @@ $headerMenuLinks.forEach($link => {
                     $submenu.classList.remove("active")
                 });
             }
-        }
-    })
+        }        
+    }
+    ['mouseover', 'click'].forEach( evt => {
+        $link.addEventListener(evt, handleHeaderMenuLinks, false)
+    });  
+
 });
 if ($headerLinksWithSubmenu !== null) {
     $headerLinksWithSubmenu.forEach($link => {
         const $subMenu = $link.nextElementSibling;
         let currentHeaderHeight;
-        $link.addEventListener("mouseover", () => {
+        const handleSubMenuLinks = e => {
+            e.preventDefault();
             currentHeaderHeight = $header.offsetHeight;
             $headerTopMenu.style.height = "auto";
             const subMenuHeight = $subMenu.offsetHeight;
@@ -134,16 +153,21 @@ if ($headerLinksWithSubmenu !== null) {
                     $header.style.height = currentHeaderHeight + "px";
                 }, 100);
             }
-            $link.classList.add("active")
-            $subMenu.classList.add("active")
-        })
+            setTimeout(() => {
+                $link.classList.add("active")
+                $subMenu.classList.add("active")
+            }, 125);
+        }
+        ['mouseover', 'click'].forEach( evt => {
+            $link.addEventListener(evt, handleSubMenuLinks, false)
+        });          
     });
 }
 
 //MAIN SEARCH LINK
 if ($searchLinks !== null && $headerSearch !== null) {
     $searchLinks.forEach($searchLink => {
-        $searchLink.addEventListener("mouseover", () => {
+        const handleSearchLinks = () => {
             if (!$headerSearch.classList.contains("active")) {
                 // closeMenu()
                 // UPDATE FOCUS
@@ -166,8 +190,11 @@ if ($searchLinks !== null && $headerSearch !== null) {
                     fakeInput.remove()
                 }, 300)            
                 openDropdown($searchLink, $headerSearch)
-            }
-        }, false)
+            }            
+        }
+        ['mouseover', 'click'].forEach( evt => {
+            $searchLink.addEventListener(evt, handleSearchLinks, false)
+        });  
         $header.addEventListener("mouseleave", () => {
             closeDropdown($searchLink, $headerSearch)
         }, false)
@@ -175,8 +202,6 @@ if ($searchLinks !== null && $headerSearch !== null) {
 }
 
 // HAMBURGER
-const $hamburger = document.getElementById('hamburger');
-const $hamburgerClose = document.getElementById('hamburger-close');
 const openMenu = () => {
     $hamburger.classList.remove("active")
     openDropdown($hamburgerClose, $headerMenu)
