@@ -64,12 +64,12 @@
     .header__link {
       @apply text-black;
       &:hover {
-        @apply text-orange;
+        @apply md_min:text-orange;
       }
     }
-    #header-search-link.active,
+    .header-search-link.active,
     #header-shop-link.active {
-      @apply text-orange;
+      @apply md_min:text-orange;
     }
     #hamburger {
       g {
@@ -79,7 +79,7 @@
         stroke: theme("colors.orange");
       }
     }
-    #bag-count {
+    .bag-count {
       background: url(./bag.svg) 50% 70% / 95% no-repeat;
     }
   }
@@ -95,8 +95,14 @@
   }
   &.dropdown-open {
     background-color: theme("colors.cream") !important;
+    &:after {
+      opacity: 0 !important;
+    }
     @screen md {
       min-height: 100%;
+      .header__logo path {
+        fill: theme("colors.black");
+      }
     }
   }
   &.swiped-up {
@@ -109,7 +115,7 @@
   &__menu,
   &__search {
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s,
-      background-color 0.3s;
+    background-color 0.3s;
     @apply invisible;
     ul {
       opacity: 0;
@@ -124,13 +130,13 @@
         opacity: 1;
       }
       a.has-submenu.active {
-        @apply text-orange border-orange;
+        @apply md_min:text-orange border-orange;
       }
     }
   }
-  &__menu {
+  &__menu-top {
     @screen md {
-
+      height: auto !important;
     }
   }
   &__submenu {
@@ -140,17 +146,27 @@
 
     li {
       opacity: 0;
-      transition: 0.5s;
+      @screen md_min {
+        transition: 0.5s;
+      }
+      @screen md {
+        @apply transition-smooth mt-1;
+        &:first-child {
+          @apply mt-2;
+        }
+      }
     }
     &.active {
-      @apply visible;
+      @apply visible md:max-h-[9999px];
       li {
-        transition-delay: 0.3s;
+        @screen md_min {
+          transition-delay: 0.3s;
+        }
         opacity: 1;
       }
     }
   }
-  #bag-count {
+  .bag-count {
     background: url(./bag-cream.svg) 50% 70% / 93% no-repeat;
     padding: 13px clamp(6.25px, .5vw, 25%) 6px clamp(7px, .5vw, 50%);
     position: relative;

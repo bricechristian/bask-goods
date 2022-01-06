@@ -149,7 +149,7 @@
     .fade-in {
       opacity: 0;
       filter: blur(10px);
-      transition: 1s opacity, .6s filter;
+      transition: .5s opacity, .35s filter;
       &.in-view {
         opacity: 1;
         filter: blur(0px);

@@ -427,7 +427,7 @@ a {
 [data-viewport] .fade-in {
     opacity: 0;
     filter: blur(0.625rem);
-    transition: 1s opacity, 0.6s filter;
+    transition: 0.5s opacity, 0.35s filter;
   }
 [data-viewport].fade-in.in-view,
 [data-viewport] .fade-in.in-view {
@@ -603,6 +603,9 @@ body.scrolled-past-hero .full__hero {
 .-mt-8{
   margin-top: -2rem;
 }
+.mt-3{
+  margin-top: 0.75rem;
+}
 .mt-4{
   margin-top: 1rem;
 }
@@ -639,9 +642,6 @@ body.scrolled-past-hero .full__hero {
 .mb-4{
   margin-bottom: 1rem;
 }
-.mt-3{
-  margin-top: 0.75rem;
-}
 .block{
   display: block;
 }
@@ -671,6 +671,9 @@ body.scrolled-past-hero .full__hero {
 }
 .h-\[50px\]{
   height: 3.125rem;
+}
+.max-h-0{
+  max-height: 0;
 }
 .min-h-\[700px\]{
   min-height: 43.75rem;
@@ -1252,13 +1255,15 @@ https://flickity.metafizzy.co
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
-.header.dropdown-open .header__link:hover, .header.active .header__link:hover{
-  --tw-text-opacity: 1;
-  color: rgb(221 155 0 / var(--tw-text-opacity));
-}
-.header.dropdown-open #header-search-link.active, .header.dropdown-open #header-shop-link.active, .header.active #header-search-link.active, .header.active #header-shop-link.active{
-  --tw-text-opacity: 1;
-  color: rgb(221 155 0 / var(--tw-text-opacity));
+@media (min-width: 768px){
+  .header.dropdown-open .header__link:hover, .header.active .header__link:hover{
+    --tw-text-opacity: 1;
+    color: rgb(221 155 0 / var(--tw-text-opacity));
+  }
+  .header.dropdown-open .header-search-link.active, .header.dropdown-open #header-shop-link.active, .header.active .header-search-link.active, .header.active #header-shop-link.active{
+    --tw-text-opacity: 1;
+    color: rgb(221 155 0 / var(--tw-text-opacity));
+  }
 }
 .header.dropdown-open #hamburger g, .header.active #hamburger g {
   stroke: #000000;
@@ -1266,7 +1271,7 @@ https://flickity.metafizzy.co
 .header.dropdown-open #hamburger:hover g, .header.active #hamburger:hover g {
   stroke: #DD9B00;
 }
-.header.dropdown-open #bag-count, .header.active #bag-count {
+.header.dropdown-open .bag-count, .header.active .bag-count {
   background: url(./bag.svg) 50% 70%/95% no-repeat;
 }
 .header.active {
@@ -1282,9 +1287,15 @@ https://flickity.metafizzy.co
 .header.dropdown-open {
   background-color: #FBF1DC !important;
 }
+.header.dropdown-open:after {
+  opacity: 0 !important;
+}
 @media (max-width: 767px) {
   .header.dropdown-open {
     min-height: 100%;
+  }
+  .header.dropdown-open .header__logo path {
+    fill: #000000;
   }
 }
 .header.swiped-up {
@@ -1317,10 +1328,18 @@ https://flickity.metafizzy.co
 .header__categories.active a.has-submenu.active, .header__menu.active a.has-submenu.active, .header__search.active a.has-submenu.active{
   --tw-border-opacity: 1;
   border-color: rgb(221 155 0 / var(--tw-border-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(221 155 0 / var(--tw-text-opacity));
 }
-@media (max-width: 767px) {}
+@media (min-width: 768px){
+  .header__categories.active a.has-submenu.active, .header__menu.active a.has-submenu.active, .header__search.active a.has-submenu.active{
+    --tw-text-opacity: 1;
+    color: rgb(221 155 0 / var(--tw-text-opacity));
+  }
+}
+@media (max-width: 767px) {
+  .header__menu-top {
+    height: auto !important;
+  }
+}
 .header__submenu {
     transition: 0.3s;
     opacity: 0;
@@ -1329,17 +1348,42 @@ https://flickity.metafizzy.co
   }
 .header__submenu li {
   opacity: 0;
-  transition: 0.5s;
+}
+@media (min-width: 768px) {
+  .header__submenu li {
+    transition: 0.5s;
+  }
+}
+@media (max-width: 767px) {
+  .header__submenu li{
+    margin-top: 0.25rem;
+  }
+
+  .header__submenu li {
+    transition: 0.3s;
+  }
+  .header__submenu li:first-child{
+    margin-top: 0.5rem;
+  }
 }
 .header__submenu.active{
     opacity: 1;
     visibility: visible;
 }
+@media (max-width: 767px){
+  .header__submenu.active{
+    max-height: 624.9375rem;
+  }
+}
 .header__submenu.active li {
-  transition-delay: 0.3s;
   opacity: 1;
 }
-.header #bag-count {
+@media (min-width: 768px) {
+  .header__submenu.active li {
+    transition-delay: 0.3s;
+  }
+}
+.header .bag-count {
   background: url(./bag-cream.svg) 50% 70%/93% no-repeat;
   padding: 0.8125rem clamp(0.39063rem, 0.5vw, 25%) 0.375rem clamp(0.4375rem, 0.5vw, 50%);
   position: relative;
@@ -1477,6 +1521,9 @@ body{
   .md\:mr-0{
     margin-right: 0;
   }
+  .md\:mb-2{
+    margin-bottom: 0.5rem;
+  }
   .md\:mb-8{
     margin-bottom: 2rem;
   }
@@ -1510,8 +1557,11 @@ body{
   .md\:mr-5{
     margin-right: 1.25rem;
   }
-  .md\:mb-2{
-    margin-bottom: 0.5rem;
+  .md\:mt-5{
+    margin-top: 1.25rem;
+  }
+  .md\:mt-6{
+    margin-top: 1.5rem;
   }
   .md\:flex{
     display: flex;

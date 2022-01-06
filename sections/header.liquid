@@ -4,13 +4,26 @@
     {% render 'announcement-bar' %}
 
     <nav>
-        <div class="header__main py-6 text-cream">
+        <div class="header__main py-6 text-cream md:pb-8">
             <div class="container-full grid grid-cols-[1fr_55px_1fr] gap-6 md:flex md:justify-between items-center">
                 <div>
                     <ul class="flex items-center space-x-8">
                         <li class="relative">
                             <svg xmlns="http://www.w3.org/2000/svg" id="hamburger" class="w-8 cursor-pointer active" viewBox="0 0 31 22"><g fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M.5.5h30M.5 11h30M.5 21h30"/></g></svg>
-                            <span id="hamburger-close" class="font-matter text-13 absolute-center left-0 text-black">Close</span>
+                            <span id="hamburger-close" class="font-matter text-13 absolute-center left-0 text-black">
+                                <span class="md:hidden">Close</span>
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                    <svg width="26px" height="26px" class="md_min:hidden" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+                                            <g transform="translate(-20.000000, -16.000000)" stroke="#000000" stroke-width="1.5">
+                                                <g transform="translate(22.000000, 18.000000)">
+                                                    <line x1="0" y1="18" x2="18" y2="0" id="Line-Copy-2"></line>
+                                                    <line x1="0" y1="18" x2="18" y2="0" id="Line-Copy-2" transform="translate(9.000000, 9.000000) scale(-1, 1) translate(-9.000000, -9.000000) "></line>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>                                
+                            </span>
                         </li>
                         <li class="relative md:hidden">
                             <a href="#" id="header-shop-link" class="header__link font-matter text-13 hover:text-orange">Shop</a>
@@ -23,8 +36,8 @@
                 <div class="md:hidden">
                     <ul class="flex items-center justify-end space-x-8">
                         <li><a href="#" class="header__link font-matter text-13 hover:text-orange">Account</a></li>
-                        <li><a href="#" id="header-search-link" class="header__link font-matter text-13 hover:text-orange">Search</a></li>
-                        <li><a href="#" id="bag-count" class="header__link font-matter text-13 hover:text-orange">0</a></li>
+                        <li><a href="#" class="header-search-link header__link font-matter text-13 hover:text-orange">Search</a></li>
+                        <li><a href="#" class="bag-count header__link font-matter text-13 hover:text-orange">0</a></li>
                     </ul>            
                 </div>
             </div>
@@ -53,13 +66,12 @@
             {% endif %}
             <div class="header__menu -mt-8 w-full absolute left-0">
                 <div class="container-full flex">
-                    <ul class="header__menu-top flex flex-wrap gap-x-16 py-6 border-t border-t-black w-full md:border-none md:flex-col">
+                    <ul class="header__menu-top flex flex-wrap gap-x-16 py-6 border-t border-t-black w-full md:mt-6 md:flex-col">
                         {% for link in linklists.main-menu.links %}
                             <li class="relative md:mb-2">
-                                <a href="{{ link.url }}" class="header__link font-matter text-13{% if link.links != blank %} has-submenu{% endif %} md:text-30 md:font-heading md:normal-case md:tracking-[0em]">{{ link.title }}</a>
+                                <a href="{{ link.url }}" class="header__link font-matter text-13{% if link.links != blank %} has-submenu md:hidden{% endif %} md:text-30 md:font-heading md:normal-case md:tracking-[0em]">{{ link.title }}</a>
                                 {% if link.links != blank %}
-                                    <span class="header__submenu-toggle md_min:hidden md:text-30 md:font-heading">+</span>
-                                    <ul class="header__submenu absolute left-0 grid grid-cols-5 gap-8 mt-6 pb-6">
+                                    <ul class="header__submenu md:hidden absolute left-0 grid grid-cols-5 gap-8 mt-6 pb-6">
                                         {% for child_link in link.links %}
                                             <li>
                                                 <a href="#">
@@ -69,11 +81,19 @@
                                             </li>    
                                         {% endfor %}
                                     </ul>
+                                    <span class="header__link font-matter text-13{% if link.links != blank %} md_min:hidden has-submenu{% endif %} md:text-30 md:font-heading md:normal-case md:tracking-[0em]">{{ link.title }}</span>
+                                    <span class="header__submenu-toggle md_min:hidden md:text-30 md:font-heading">+</span>
+                                    <ul class="header__submenu md_min:hidden max-h-0">
+                                        {% for child_link in link.links %}
+                                            <li><a href="#"class="font-matter text-13">{{ child_link.title }}</a></li>    
+                                        {% endfor %}
+                                    </ul>                                    
                                 {% endif %}
                             </li>
                         {% endfor %}
                         <li class="md_min:hidden mt-2"><a href="#" class="header__link font-matter text-13">Account</a></li>
-                        <li class="md_min:hidden mt-3"><a href="#" id="header-search-link" class="header__link font-matter text-13">Search</a></li>                        
+                        <li class="md_min:hidden mt-3"><a href="#" class="header-search-link header__link font-matter text-13">Search</a></li>                        
+                        <li class="md_min:hidden mt-3"><a href="#" class="bag-count header__link font-matter text-13 hover:text-orange">0</a></li>
                     </ul>
                 </div>
             </div>

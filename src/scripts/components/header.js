@@ -6,7 +6,7 @@ const $headerOverlay = document.querySelector('.header__overlay');
 const $headerNav = $header.querySelector('.header nav').children;
 const navChildren = [...$headerNav]
 const $shopLink = document.getElementById('header-shop-link');
-const $searchLink = document.getElementById('header-search-link');
+const $searchLinks = document.querySelectorAll('.header-search-link');
 const $headerMain = $header.querySelector('.header__main');
 const $headerMainLinks = $headerMain.querySelectorAll(".header__link");
 let headerHeight = $headerMain.offsetHeight;
@@ -16,7 +16,7 @@ const $headerMenu = $header.querySelector('.header__menu');
 const $headerTopMenu = $header.querySelector('.header__menu-top');
 const $headerMenuLinks = $headerMenu.querySelectorAll(".header__link");
 const $headerSubMenus = $header.querySelectorAll('.header__submenu');
-const $headerLinksWithSubmenu = $header.querySelectorAll('a.has-submenu');
+const $headerLinksWithSubmenu = $header.querySelectorAll('.has-submenu');
 
 const openDropdown = (a, b) => {
     navChildren.forEach((el, i) => {
@@ -58,6 +58,12 @@ const closeDropdown = (a, b) => {
         $header.style.height = headerHeight + "px";
         $headerOverlay.classList.remove("active");
         $header.classList.remove("dropdown-open");
+        if ($headerLinksWithSubmenu !== null) {
+            document.querySelectorAll("span.has-submenu").forEach($subMenuLink => {
+                const $subMenuToggle = $subMenuLink.nextElementSibling;
+                $subMenuToggle.textContent = "+";
+            });
+        }
     }, 50);
 }
 
@@ -65,8 +71,10 @@ const closeDropdown = (a, b) => {
 if ($shopLink !== null && $headerShopCats !== null) {
     $shopLink.addEventListener("mouseover", () => {
         if (!$headerShopCats.classList.contains("active")) {
-            closeMenu()
-            openDropdown($shopLink, $headerShopCats)
+            setTimeout(() => {
+                closeMenu()
+                openDropdown($shopLink, $headerShopCats)
+            }, 51);
         }
     }, false)
     $header.addEventListener("mouseleave", () => {
@@ -76,18 +84,24 @@ if ($shopLink !== null && $headerShopCats !== null) {
 
 //HEADER LINKS
 $headerMainLinks.forEach($link => {
-    $link.addEventListener("mouseover", () => {
+    $link.addEventListener("mouseover", () => {         
         if ($headerSearch.classList.contains("active")) {
-            closeDropdown($searchLink, $headerSearch)
+            $searchLinks.forEach($searchLink => {
+                closeDropdown($searchLink, $headerSearch)
+            });
         }
         if ($headerShopCats.classList.contains("active")) {
             closeDropdown($shopLink, $headerShopCats)
-        }
+        }     
+        setTimeout(() => {
+            $header.style.height = "135px";
+            $headerOverlay.classList.add("active");
+            $header.classList.add("dropdown-open");
+        }, 50);         
     })
 })
 $headerMenuLinks.forEach($link => {
     $link.addEventListener("mouseover", () => {
-        console.log($link)
         $headerTopMenu.style.height = "auto";
         $headerMenuLinks.forEach($link => {
             $link.classList.remove("active")
@@ -127,35 +141,37 @@ if ($headerLinksWithSubmenu !== null) {
 }
 
 //MAIN SEARCH LINK
-if ($searchLink !== null && $headerSearch !== null) {
-    $searchLink.addEventListener("mouseover", () => {
-        if (!$headerSearch.classList.contains("active")) {
-            closeMenu()
-            // UPDATE FOCUS
-            // create invisible dummy input to receive the focus first
-            const fakeInput = document.createElement('input')
-            fakeInput.setAttribute('type', 'text')
-            fakeInput.style.position = 'absolute'
-            fakeInput.style.opacity = 0
-            fakeInput.style.height = 0
-            fakeInput.style.fontSize = '16px' // disable auto zoom
-            // you may need to append to another element depending on the browser's auto 
-            // zoom/scroll behavior
-            document.querySelector('.header').prepend(fakeInput)
-            // focus so that subsequent async focus will work
-            fakeInput.focus()
-            setTimeout(() => {
-                // now we can focus on the target input
-                document.querySelector(".header__search input").focus()
-                // cleanup
-                fakeInput.remove()
-            }, 300)            
-            openDropdown($searchLink, $headerSearch)
-        }
-    }, false)
-    $header.addEventListener("mouseleave", () => {
-        closeDropdown($searchLink, $headerSearch)
-    }, false)
+if ($searchLinks !== null && $headerSearch !== null) {
+    $searchLinks.forEach($searchLink => {
+        $searchLink.addEventListener("mouseover", () => {
+            if (!$headerSearch.classList.contains("active")) {
+                // closeMenu()
+                // UPDATE FOCUS
+                // create invisible dummy input to receive the focus first
+                const fakeInput = document.createElement('input')
+                fakeInput.setAttribute('type', 'text')
+                fakeInput.style.position = 'absolute'
+                fakeInput.style.opacity = 0
+                fakeInput.style.height = 0
+                fakeInput.style.fontSize = '16px' // disable auto zoom
+                // you may need to append to another element depending on the browser's auto 
+                // zoom/scroll behavior
+                document.querySelector('.header').prepend(fakeInput)
+                // focus so that subsequent async focus will work
+                fakeInput.focus()
+                setTimeout(() => {
+                    // now we can focus on the target input
+                    document.querySelector(".header__search input").focus()
+                    // cleanup
+                    fakeInput.remove()
+                }, 300)            
+                openDropdown($searchLink, $headerSearch)
+            }
+        }, false)
+        $header.addEventListener("mouseleave", () => {
+            closeDropdown($searchLink, $headerSearch)
+        }, false)
+    });
 }
 
 // HAMBURGER
@@ -188,18 +204,31 @@ const closeMenu = () => {
     closeDropdown($hamburgerClose, $headerMenu)
 }
 $hamburger.addEventListener("click", openMenu)
-$hamburgerClose.addEventListener("click", closeMenu)
+$hamburgerClose.addEventListener("click", () => {
+    $searchLinks.forEach($searchLink => {
+        closeDropdown($searchLink, $headerSearch)
+    });    
+    closeMenu()
+})
 $header.addEventListener("mouseleave", closeMenu)
 $headerOverlay.addEventListener("mouseenter", closeMenu)
 
 //MOBILE MENU
 const mediaQuery = window.matchMedia('(max-width: 768px)')
 const handlesubMenuParents = () => {
-    const $subMenuParents = document.querySelectorAll(".header__link.has-submenu");
-    $subMenuParents.forEach($parent => {
+    document.querySelectorAll("span.has-submenu").forEach($parent => {
+        let menuIsOpen = false;
         $parent.addEventListener("click", e => {
             e.preventDefault()
-            console.log("click")
+            const $subMenuToggle = $parent.nextElementSibling;
+            const $subMenu = $parent.nextElementSibling.nextElementSibling;
+            $subMenu.classList.toggle("active")
+            menuIsOpen = !menuIsOpen;
+            if(menuIsOpen){
+                $subMenuToggle.textContent = "-";
+            } else {
+                $subMenuToggle.textContent = "+";
+            }
         })
     });
 }
