@@ -124,6 +124,14 @@
     a.has-submenu {
       @apply border-b border-transparent pb-1;
     }
+    span.has-submenu:after {
+      content: "+";
+      display: inline-block;
+      margin-left: 5px;
+    }
+    span.has-submenu.active:after {
+      content: "-";
+    }
     &.active {
       @apply visible;
       ul {

@@ -16,9 +16,9 @@ const $headerShopCats = $header.querySelector('.header__categories');
 const $headerSearch = $header.querySelector('.header__search');
 const $headerMenu = $header.querySelector('.header__menu');
 const $headerTopMenu = $header.querySelector('.header__menu-top');
-const $headerMenuLinks = $headerMenu.querySelectorAll(".header__link");
+const $headerMenuLinks = $headerMenu.querySelectorAll("a.header__link");
 const $headerSubMenus = $header.querySelectorAll('.header__submenu');
-const $headerLinksWithSubmenu = $header.querySelectorAll('.has-submenu');
+const $headerLinksWithSubmenu = $header.querySelectorAll('a.has-submenu');
 
 const openDropdown = (a, b) => {
     navChildren.forEach((el, i) => {
@@ -60,12 +60,6 @@ const closeDropdown = (a, b) => {
         $header.style.height = headerHeight + "px";
         $headerOverlay.classList.remove("active");
         $header.classList.remove("dropdown-open");
-        if ($headerLinksWithSubmenu !== null) {
-            document.querySelectorAll("span.has-submenu").forEach($subMenuLink => {
-                const $subMenuToggle = $subMenuLink.nextElementSibling;
-                $subMenuToggle.textContent = "+";
-            });
-        }
     }, 50);
 }
 
@@ -238,36 +232,11 @@ $hamburgerClose.addEventListener("click", () => {
 $header.addEventListener("mouseleave", closeMenu)
 $headerOverlay.addEventListener("mouseenter", closeMenu)
 
-//MOBILE MENU
-const mediaQuery = window.matchMedia('(max-width: 768px)')
-const handlesubMenuParents = () => {
-    document.querySelectorAll("span.has-submenu").forEach($parent => {
-        let menuIsOpen = false;
-        $parent.addEventListener("click", e => {
-            e.preventDefault()
-            const $subMenuToggle = $parent.nextElementSibling;
-            const $subMenu = $parent.nextElementSibling.nextElementSibling;
-            $subMenu.classList.toggle("active")
-            menuIsOpen = !menuIsOpen;
-            if(menuIsOpen){
-                $subMenuToggle.textContent = "-";
-            } else {
-                $subMenuToggle.textContent = "+";
-            }
-        })
-    });
-}
-const handleMediaQuery = e => {
-  if (e.matches) {
-    console.log('Mobile')
-    handlesubMenuParents()
-  }
-}
-mediaQuery.addListener(handleMediaQuery)
-handleMediaQuery(mediaQuery)
-
 const resizeWindow = () => {
     headerHeight = $headerMain.offsetHeight;
+    document.querySelectorAll('.header__menu .toggle-trigger').forEach($trigger => {
+        $trigger.classList.remove("active")
+    });
 }
 
 window.addEventListener("resize", resizeWindow, true)
