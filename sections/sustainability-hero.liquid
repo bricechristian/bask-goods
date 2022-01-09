@@ -1,0 +1,30 @@
+<section class="sustainability__hero full__hero w-full h-screen min-h-[700px] lg:min-h-[420px] sm:hidden" style="background: url({{ section.settings.image | img_url:'2400x' }}) center/cover no-repeat;">
+</section>
+<section class="sustainability__hero full__hero w-full h-[75vh] min-h-[400px] sm_min:hidden" style="background: url({{ section.settings.mobile_image | img_url:'1200x' }}) center/cover no-repeat;">
+</section>
+
+{% schema %}
+{
+    "name": "Hero",
+    "settings": [        
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Large Hero Image",
+            "info": "Recommended Image Dimensions: 2400x1350"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile Large Hero Image",
+            "info": "Recommended Image Dimensions: 1000x1350"
+        },       
+        {
+            "type": "image_picker",
+            "id": "small_image",
+            "label": "Small Hero Image",
+            "info": "Recommended Image Dimensions: 680x880"
+        }                                           
+    ] 
+}
+{% endschema %}

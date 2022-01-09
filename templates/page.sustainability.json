@@ -1,0 +1,19 @@
+{
+    "sections": {
+      "header": {
+        "type": "header-wordmark"
+      },
+      "hero": {
+        "type": "sustainability-hero",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/sustainabilitity-hero.jpg",
+          "mobile_image": "shopify:\/\/shop_images\/sustainabilitity-mobile-hero.jpg"
+        }
+      }      
+    },
+    "order": [
+      "header",
+      "hero"
+    ]
+  }
+  
