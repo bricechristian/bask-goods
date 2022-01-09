@@ -95,7 +95,11 @@ $headerMainLinks.forEach($link => {
         }     
         
         setTimeout(() => {
-            $header.style.height = "135px";
+            if($header.classList.contains("header__wordmark")){
+                $header.style.height = "160px";
+            } else {
+                $header.style.height = "135px";
+            }
             $headerOverlay.classList.add("active");
             $header.classList.add("dropdown-open");
             $headerMenu.classList.remove("active")

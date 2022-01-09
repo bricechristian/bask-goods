@@ -699,6 +699,9 @@ body.scrolled-past-hero .full__hero {
 .w-3\/5{
   width: 60%;
 }
+.w-\[213px\]{
+  width: 13.3125rem;
+}
 .max-w-\[71px\]{
   max-width: 4.4375rem;
 }
@@ -741,6 +744,9 @@ body.scrolled-past-hero .full__hero {
 }
 .grid-cols-5{
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-cols-\[1fr_213px_1fr\]{
+  grid-template-columns: 1fr 13.3125rem 1fr;
 }
 .grid-rows-3{
   grid-template-rows: repeat(3, minmax(0, 1fr));
@@ -913,6 +919,12 @@ body.scrolled-past-hero .full__hero {
 }
 .pl-40{
   padding-left: 10rem;
+}
+.pb-10{
+  padding-bottom: 2.5rem;
+}
+.pb-12{
+  padding-bottom: 3rem;
 }
 .text-center{
   text-align: center;
@@ -1262,7 +1274,7 @@ https://flickity.metafizzy.co
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.header__logo path {
+.header__logo path, .header__logo-wordmark path {
     transition: 0.3s;
   fill: #FBF1DC;
   }
@@ -1288,6 +1300,9 @@ https://flickity.metafizzy.co
 }
 .header.dropdown-open .bag-count, .header.active .bag-count {
   background: url(./bag.svg) 50% 70%/95% no-repeat;
+}
+.header.dropdown-open .header__logo-wordmark path, .header.active .header__logo-wordmark path {
+  fill: #000000;
 }
 .header.active {
     transition: 0.3s;
