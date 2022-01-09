@@ -14,7 +14,7 @@
                         <img src="{{ section.settings.image | img_url: '400x450' }}" loading="lazy" alt="{{ section.settings.image.alt }}" />                    
                     {% endif %}
                     </div>
-                    <div class="space-y-10 pb-16 sm:order-1 sm:pb-0 fade-in delay-900">
+                    <div class="space-y-10 pb-16 sm:order-1 sm:pb-0 fade-in md_min:delay-900">
                         {% for block in section.blocks %}     
                             <div class="flex items-center">
                                 {% if block.settings.icon != blank %}
