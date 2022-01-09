@@ -1303,6 +1303,7 @@ https://flickity.metafizzy.co
   background-color: #FBF1DC !important;
 }
 .header.dropdown-open:after {
+  transition-delay: 0.15s;
   opacity: 0 !important;
 }
 @media (max-width: 767px) {
@@ -1532,6 +1533,17 @@ body{
 }
 
 @media (max-width: 767px){
+
+  .md\:carousel__align-left{
+    overflow: hidden;
+  }
+
+  .md\:carousel__align-left{
+    padding-left: 1.25rem;
+  }
+  .md\:carousel__align-left .flickity-viewport{
+    overflow: visible;
+  }
   .md\:order-2{
     order: 2;
   }
@@ -1540,6 +1552,10 @@ body{
   }
   .md\:col-start-1{
     grid-column-start: 1;
+  }
+  .md\:-mx-5{
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
   }
   .md\:mr-0{
     margin-right: 0;
@@ -1722,6 +1738,9 @@ body{
 }
 
 @media (min-width: 768px){
+  .delay.md_min\:delay-900 {
+    transition-delay: 900ms;
+  }
   .md_min\:inline-block{
     display: inline-block;
   }

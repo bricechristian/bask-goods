@@ -25,8 +25,8 @@
                     <div class="glow-bubble w-[50px] h-[50px]"></div>
                 </div>
             </div>
-            <div class="col-span-2 -mr-10 md:-mr-5 fade-in delay-600">
-                <div class="carousel" data-flickity='{ "freeScroll": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "prevNextButtons": false, "pageDots": false }'>
+            <div class="col-span-2 -mr-10 md:-mx-5 fade-in delay-600">
+                <div class="carousel md:carousel__align-left" data-flickity='{ "freeScroll": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "prevNextButtons": false, "pageDots": false }'>
                     {% for block in section.blocks %}
                         {% assign prod = all_products[block.settings.prod] %}
                         {% assign prod_category = prod.type %}

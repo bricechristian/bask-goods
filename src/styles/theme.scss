@@ -224,6 +224,15 @@
       }
     }
   }  
+  //FLICKITY
+  .carousel {
+    &__align-left {
+      @apply pl-5 overflow-hidden;
+      .flickity-viewport {
+        @apply overflow-visible;
+      }
+    }
+  }
 }
 
 body.frozen {
