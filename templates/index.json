@@ -1,5 +1,8 @@
 {
   "sections": {
+    "header": {
+      "type": "header"
+    },
     "hero": {
       "type": "home-hero",
       "settings": {
@@ -156,6 +159,7 @@
     }
   },
   "order": [
+    "header",
     "hero",
     "shop_all",
     "quote",
