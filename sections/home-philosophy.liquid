@@ -11,14 +11,14 @@
                 <div class="grid grid-cols-2 gap-10 sm:grid-cols-1 sm:gap-12 fade-in delay-600">
                     <div class="sm:order-2">                
                     {% if section.settings.image != blank %}
-                        <img src="{{ section.settings.image | img_url: '400x450' }}" loading="lazy" alt="{{ section.settings.image.alt }}" />                    
+                        <img src="{{ section.settings.image | img_url: '400x450' }}" loading="lazy" width="400" height="450" alt="{{ section.settings.image.alt }}" />                    
                     {% endif %}
                     </div>
                     <div class="space-y-10 pb-16 sm:order-1 sm:pb-0 fade-in md_min:delay-900">
                         {% for block in section.blocks %}     
                             <div class="flex items-center">
                                 {% if block.settings.icon != blank %}
-                                    <img src="{{ block.settings.icon }}" class="mr-5 max-w-[40px]" loading="lazy" />             
+                                    <img src="{{ block.settings.icon }}" class="mr-5 max-w-[40px]" loading="lazy" width="40" height="40" alt="{{ block.settings.icon.alt }}" />             
                                 {% endif %}
                                 {% if block.settings.title != blank %}
                                     <p class="font-matter text-15">{{ block.settings.title }}</p>
@@ -46,7 +46,7 @@
             </div>
             <div class="col-start-3 -ml-40 sm:col-start-1 sm:ml-0 fade-in delay-300">           
                 {% if section.settings.image_2 != blank %}
-                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="md:hidden" loading="lazy" alt="{{ section.settings.image_2.alt }}" />                    
+                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="md:hidden" loading="lazy" width="1200" height="1500" alt="{{ section.settings.image_2.alt }}" />                    
                 {% endif %}
             </div>
         </div>

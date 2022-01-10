@@ -1,4 +1,12 @@
-<section class="sustainability__hero full__hero w-full h-screen min-h-[700px] lg:min-h-[420px] sm:hidden" style="background: url({{ section.settings.image | img_url:'2400x' }}) center/cover no-repeat;">
+<section class="sustainability__hero full__hero w-full h-screen min-h-[700px] py-40 flex items-center justify-center lg:min-h-[420px] sm:hidden" style="background: url({{ section.settings.image | img_url:'2400x' }}) center/cover no-repeat;" data-viewport>
+    {% if section.settings.small_image != blank %}
+        <div class="container relative absolute-center left-0 right-0 mx-auto">
+            <img src="{{ section.settings.small_image | img_url: '680x880' }}" class="max-w-[340px] mx-auto fade-in" loading="lazy" width="680" height="880" alt="{{ section.settings.small_image.alt }}">
+            {% if section.settings.title != blank %}
+                <h1 class="font-italic text-75 absolute-center left-0 right-0 mx-auto text-center text-cream fade-in delay-400">{{ section.settings.title | replace: '[', '<span class="font-matterlight">' | replace: ']', '</span>' }}</h1>
+            {% endif %}
+        </div>
+    {% endif %}
 </section>
 <section class="sustainability__hero full__hero w-full h-[75vh] min-h-[400px] sm_min:hidden" style="background: url({{ section.settings.mobile_image | img_url:'1200x' }}) center/cover no-repeat;">
 </section>
@@ -24,7 +32,14 @@
             "id": "small_image",
             "label": "Small Hero Image",
             "info": "Recommended Image Dimensions: 680x880"
-        }                                           
+        }, 
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Our [Ethos]",
+            "info": "Wrap italicized texts in brackets (i.e. [Ethos])"
+        }                            
     ] 
 }
 {% endschema %}

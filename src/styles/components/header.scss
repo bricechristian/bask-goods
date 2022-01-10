@@ -20,6 +20,12 @@
       height: 165px;
     }
   }
+
+  &__wordmark:after {
+    @screen md {
+      height: 225px;
+    }
+  }
   
   &__overlay {
     background: rgba(166, 124, 82, 0.7);
@@ -108,6 +114,19 @@
       .header__logo path {
         fill: theme("colors.black");
       }
+      .header__main:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        width: calc(100% - 40px);
+        height: 1px;
+        background-color: theme("colors.black");
+      }
+      // .container-full {
+      //   @apply border-b border-black;
+      // }
     }
   }
   &.swiped-up {

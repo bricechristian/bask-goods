@@ -1,19 +1,72 @@
 {
-    "sections": {
-      "header": {
-        "type": "header-wordmark"
-      },
-      "hero": {
-        "type": "sustainability-hero",
-        "settings": {
-          "image": "shopify:\/\/shop_images\/sustainabilitity-hero.jpg",
-          "mobile_image": "shopify:\/\/shop_images\/sustainabilitity-mobile-hero.jpg"
-        }
-      }      
+  "sections": {
+    "header": {
+      "type": "header-wordmark"
     },
-    "order": [
-      "header",
-      "hero"
-    ]
-  }
-  
+    "hero": {
+      "type": "sustainability-hero",
+      "settings": {
+        "image": "shopify://shop_images/sustainabilitity-hero.jpg",
+        "mobile_image": "shopify://shop_images/sustainabilitity-mobile-hero.jpg",
+        "small_image": "shopify://shop_images/ethos.jpg"
+      }
+    },
+    "objects": {
+      "type": "sustainability-objects",
+      "settings": {
+        "image": "shopify://shop_images/objects-1.jpg",
+        "image_2": "shopify://shop_images/objects-2.jpg",
+        "image_3": "shopify://shop_images/objects-3.jpg",
+        "image_4": "shopify://shop_images/objects-4.jpg"
+      }
+    },
+    "process": {
+      "type": "sustainability-process",
+      "blocks": {
+        "37b6fc3d-d266-4cf0-b933-f040499f8099": {
+          "type": "snapshot",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam",
+            "image": "shopify://shop_images/process-1.jpg"
+          }
+        },
+        "37569e1f-4595-4062-90e4-89d0524eb4a2": {
+          "type": "snapshot",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam",
+            "image": "shopify://shop_images/process-2.jpg"
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942231": {
+          "type": "snapshot",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam",
+            "image": "shopify://shop_images/process-3.jpg"
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942222": {
+          "type": "snapshot",
+          "settings": {
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam",
+            "image": "shopify://shop_images/process-4.jpg"
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942226": {
+            "type": "snapshot",
+            "settings": {
+              "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam",
+              "image": "shopify://shop_images/ethos.jpg"
+            }
+          }        
+      },
+      "block_order": [
+        "37b6fc3d-d266-4cf0-b933-f040499f8099",
+        "37569e1f-4595-4062-90e4-89d0524eb4a2",
+        "66495402-fcfe-41dc-8395-f97eef942231",
+        "66495402-fcfe-41dc-8395-f97eef942222",
+        "66495402-fcfe-41dc-8395-f97eef942226"
+      ]
+    }
+  },
+  "order": ["header", "hero", "objects", "process"]
+}

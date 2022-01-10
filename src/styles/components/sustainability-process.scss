@@ -1,0 +1,8 @@
+.process__item {
+    &-odd {
+        @apply max-w-[192px];
+    }
+    &-even {
+        @apply max-w-[343px];
+    }
+}

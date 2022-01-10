@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-start-3 -ml-40 md:col-start-1 md:ml-0 fade-in delay-300">
-                    <img src="{{ section.settings.article_image | img_url: '1200x' }}" loading="lazy" />             
+                    <img src="{{ section.settings.article_image | img_url: '1200x' }}" loading="lazy" width="1200" height="1500" alt="{{ section.settings.article_image.alt }}" />             
                     {% comment %} {% if section.settings.image_2 != blank %}
                         <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="" loading="lazy" />                    
                     {% endif %}                 {% endcomment %}
