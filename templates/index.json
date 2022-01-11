@@ -11,7 +11,7 @@
       }
     },
     "shop_all": {
-      "type": "home-shop-all",
+      "type": "shop-all",
       "blocks": {
         "37b6fc3d-d266-4cf0-b933-f040499f8091": {
           "type": "product",
