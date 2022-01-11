@@ -57,7 +57,7 @@
               "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam",
               "image": "shopify://shop_images/ethos.jpg"
             }
-          }        
+        }           
       },
       "block_order": [
         "37b6fc3d-d266-4cf0-b933-f040499f8099",
@@ -66,7 +66,47 @@
         "66495402-fcfe-41dc-8395-f97eef942222",
         "66495402-fcfe-41dc-8395-f97eef942226"
       ]
-    }
+    },
+    "guarantee": {
+      "type": "sustainability-guarantee"
+    },
+    "shop_all": {
+      "type": "shop-all",
+      "blocks": {
+        "37b6fc3d-d266-4cf0-b933-f040499f8091": {
+          "type": "product",
+          "settings": {
+            "prod": "black-feather",
+            "category": "Product Category"
+          }
+        },
+        "37569e1f-4595-4062-90e4-89d0524eb4a7": {
+          "type": "product",
+          "settings": {
+            "prod": "damp-smoke",
+            "category": ""
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942239": {
+          "type": "product",
+          "settings": {
+            "prod": "empty-water",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "37b6fc3d-d266-4cf0-b933-f040499f8091",
+        "37569e1f-4595-4062-90e4-89d0524eb4a7",
+        "66495402-fcfe-41dc-8395-f97eef942239"
+      ],
+      "settings": {
+        "bodycopy": "Bask in our goods.",
+        "link_text": "Shop All",
+        "link_url": "\/",
+        "link_new_tab": false
+      }
+    }     
   },
-  "order": ["header", "hero", "objects", "process"]
+  "order": ["header", "hero", "objects", "process", "guarantee", "shop_all"]
 }

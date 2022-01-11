@@ -8,10 +8,10 @@
                 <div class="font-heading text-24 mb-20 space-y-8 max-w-[665px]">{{ section.settings.bodycopy }}</div>
             {% endif %}
             <div>
-                <div class="flex justify-between pb-4 border-b border-brown">
+                <div class="flex justify-between pb-6 mb-10 border-b border-brown">
                     <h3 class="font-matter text-18 text-brown">thoughtful snapshots</h3>
                 </div>
-                <div class="carousel md:carousel__align-left" data-flickity='{ "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "groupCells": 4, "prevNextButtons": false, "pageDots": false }'>
+                <div class="carousel md:carousel__align-left" data-flickity='{ "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "groupCells": 4, "pageDots": false }'>
                     {% for block in section.blocks %}
                         {% assign orientation = forloop.index | modulo: 2 %}
                         <div class="{% if orientation == 0%}process__item-odd{% else %}process__item-even{% endif %} mr-8">
