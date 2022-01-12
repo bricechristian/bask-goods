@@ -6,11 +6,28 @@
       "hero": {
         "type": "hero",
         "settings": {
+          "title": "Elevated [Standards]",
           "image": "shopify://shop_images/about-hero.jpg",
           "mobile_image": "shopify://shop_images/about-mobile-hero.jpg",
           "small_image": "shopify://shop_images/elevated-standards.jpg"
         }
       },
+      "main": {
+        "type": "about-main",
+        "settings": {
+            "image": "shopify://shop_images/philosophy-2.jpg",
+            "image_2": "shopify://shop_images/objects-4.jpg"
+        }        
+      }, 
+      "quote": {
+        "type": "about-quote"
+      },     
+      "purpose": {
+        "type": "about-purpose"
+      },     
+      "thoughtful_energy": {
+        "type": "about-thoughtful-energy"
+      },     
       "shop_all": {
         "type": "shop-all",
         "blocks": {
@@ -49,6 +66,6 @@
         }
       }           
     },
-    "order": ["header", "hero", "shop_all"]
+    "order": ["header", "hero", "main", "quote", "purpose", "thoughtful_energy", "shop_all"]
   }
   
