@@ -4,7 +4,7 @@
       "type": "header-wordmark"
     },
     "hero": {
-      "type": "sustainability-hero",
+      "type": "hero",
       "settings": {
         "image": "shopify://shop_images/sustainabilitity-hero.jpg",
         "mobile_image": "shopify://shop_images/sustainabilitity-mobile-hero.jpg",
