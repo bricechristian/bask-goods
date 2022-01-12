@@ -68,8 +68,17 @@
       ]
     },
     "guarantee": {
-      "type": "sustainability-guarantee"
+      "type": "sustainability-guarantee",
+      "settings": {
+        "image": "shopify://shop_images/guarantee.jpg"
+      }      
     },
+    "earth": {
+      "type": "sustainability-earth",
+      "settings": {
+        "image": "shopify://shop_images/earth.jpg"
+      }          
+    },    
     "shop_all": {
       "type": "shop-all",
       "blocks": {
@@ -108,5 +117,5 @@
       }
     }     
   },
-  "order": ["header", "hero", "objects", "process", "guarantee", "shop_all"]
+  "order": ["header", "hero", "objects", "process", "guarantee", "earth", "shop_all"]
 }

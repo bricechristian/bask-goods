@@ -227,7 +227,7 @@
   }  
   //FLICKITY
   .carousel {
-    &__align-left {
+    &__align-left-pl-5 {
       @apply pl-5 overflow-hidden;
       .flickity-viewport {
         @apply overflow-visible;

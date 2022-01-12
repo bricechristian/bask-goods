@@ -1,9 +1,9 @@
-<section class="shop-all relative bg-cream py-24 md:py-10{% if template == 'index' %} mt-[100vh] sm:mt-[75vh]{% endif %}" data-viewport>
+<section class="shop-all relative bg-cream{% if template == 'index' %} mt-[100vh] sm:mt-[75vh] py-24 md:py-10{% else %} py-20 md:py-6{% endif %}" data-viewport>
     <div class="container-full">
         <div class="grid grid-cols-3 gap-24 pb-16 border-b border-brown lg:gap-10 md:grid-cols-1 md:pb-10">
             <div class="flex flex-col">
                 {% if section.settings.bodycopy != blank %}
-                    <p class="font-heading{% if template == 'index' %}text-24 lg:text-20{% else %} text-38 leading-[1.265]{% endif %} fade-in">{{ section.settings.bodycopy }}</p>
+                    <p class="font-heading{% if template == 'index' %} text-24 lg:text-20{% else %} text-38 md:text-30 leading-[1.265]{% endif %} fade-in">{{ section.settings.bodycopy }}</p>
                 {% endif %}
                 {% if section.settings.link_text != blank and section.settings.link_url != blank %}
                     <div class="mt-6 fade-in delay-300">
@@ -28,7 +28,7 @@
                 {% endif %}
             </div>
             <div class="col-span-2 -mr-10 md:-mx-5 fade-in delay-600">
-                <div class="carousel md:carousel__align-left" data-flickity='{ "freeScroll": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "prevNextButtons": false, "pageDots": false }'>
+                <div class="carousel md:carousel__align-left-pl-5" data-flickity='{ "freeScroll": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "prevNextButtons": false, "pageDots": false }'>
                     {% for block in section.blocks %}
                         {% assign prod = all_products[block.settings.prod] %}
                         {% assign prod_category = prod.type %}
