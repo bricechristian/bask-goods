@@ -53,6 +53,17 @@
       stroke: theme("colors.orange");
     }
   }
+  &.header__wordmark-brown {
+    #hamburger {
+      g {
+        @apply transition-smooth;
+        stroke: theme("colors.black");
+      }
+    }
+    .bag-count {
+      background: url(./bag.svg) 50% 70% / 95% no-repeat;
+    }
+  }
   nav {
     @apply transition-smooth;
     &.min {
@@ -64,6 +75,12 @@
     path {
       @apply transition-smooth;
       fill: theme("colors.cream");
+    }
+  }
+  &__logo-wordmark-brown {
+    path {
+      @apply transition-smooth;
+      fill: theme("colors.brown");
     }
   }
   &.dropdown-open,
