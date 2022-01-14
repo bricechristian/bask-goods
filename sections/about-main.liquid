@@ -1,27 +1,27 @@
-<section class="about__main bg-cream py-10 md:pt-7 md:pb-2">
+<section class="about__main bg-cream pt-10 md:pt-7">
     <div class="container">
-        <div class="grid grid-cols-2 gap-10 md:grid-cols-1 sm:gap-0" data-viewport>
+        <div class="grid grid-cols-2 gap-10 md:grid-cols-1 sm:gap-0">
             <div class="flex flex-col">        
                 <div class="flex-grow-0">
                     {% if section.settings.title != blank %}
-                        <h2 class="text-18 font-matter text-brown mb-12 md:mb-4">{{ section.settings.title }}</h2>
+                        <h2 class="text-18 font-matter text-brown mb-12 md:mb-6 fade-in" data-viewport>{{ section.settings.title }}</h2>
                     {% endif %}
                     {% if section.settings.bodycopy != blank %}
-                        <div class="text-24 font-heading space-y-8 md:text-20 md:leading-normal">{{ section.settings.bodycopy }}</div>
+                        <div class="text-24 font-heading space-y-8 md:text-20 md:leading-normal fade-in delay-300" data-viewport="-60">{{ section.settings.bodycopy }}</div>
                     {% endif %}
                 </div>
                 <div class="flex-grow flex items-center justify-center py-8">
                     {% if section.settings.image_2 != blank %}
-                        <img src="{{ section.settings.image_2 | img_url: '400x450' }}" class="max-w-[197px] md:max-w-[40vw] md:mr-auto fade-in" loading="lazy" width="400" height="450" alt="{{ section.settings.image_2.alt }}" />                    
+                        <img src="{{ section.settings.image_2 | img_url: '400x450' }}" class="max-w-[197px] md:max-w-[40vw] md:mr-auto fade-in" loading="lazy" width="400" height="450" alt="{{ section.settings.image_2.alt }}" data-viewport />                    
                     {% endif %}    
                 </div>
             </div>
             <div class="md:-mr-5">
                 {% if section.settings.image != blank %}
-                    <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="fade-in mb-11" loading="lazy" width="1200" height="1500" alt="{{ section.settings.image.alt }}" />                    
+                    <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="fade-in delay-600 mb-11 lg:mb-6" loading="lazy" width="1200" height="1500" alt="{{ section.settings.image.alt }}" data-viewport />                    
                 {% endif %}         
                 {% if section.settings.bodycopy_2 != blank %}
-                    <div class="text-24 font-heading space-y-8 md:text-20 md:leading-normal md:pr-5">{{ section.settings.bodycopy_2 }}</div>
+                    <div class="text-24 font-heading space-y-8 md:text-20 md:leading-normal md:pr-5 md:mb-6 fade-in delay-300" data-viewport="-125">{{ section.settings.bodycopy_2 }}</div>
                 {% endif %}       
             </div>            
         </div>

@@ -3,7 +3,7 @@
         <div class="container relative absolute-center left-0 right-0 mx-auto">
             <img src="{{ section.settings.small_image | img_url: '680x880' }}" class="max-w-[340px] mx-auto fade-in" loading="lazy" width="680" height="880" alt="{{ section.settings.small_image.alt }}">
             {% if section.settings.title != blank %}
-                <h1 class="font-italic text-75 absolute-center left-0 right-0 mx-auto text-center text-cream fade-in delay-400">{{ section.settings.title | replace: '[', '<span class="font-matterlight">' | replace: ']', '</span>' }}</h1>
+                <h1 class="font-italic text-75 leading-none absolute-center left-0 right-0 mx-auto text-center text-cream fade-in delay-400">{{ section.settings.title | replace: '[', '<span class="font-matterlight">' | replace: ']', '</span>' }}</h1>
             {% endif %}
         </div>
     {% endif %}

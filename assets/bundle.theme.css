@@ -560,11 +560,29 @@ body.scrolled-past-hero .full__hero {
 .-left-36{
   left: -9rem;
 }
+.top-20{
+  top: 5rem;
+}
+.top-24{
+  top: 6rem;
+}
+.-top-8{
+  top: -2rem;
+}
+.-top-32{
+  top: -8rem;
+}
+.-top-64{
+  top: -16rem;
+}
 .z-50{
   z-index: 50;
 }
 .z-40{
   z-index: 40;
+}
+.z-10{
+  z-index: 10;
 }
 .col-span-2{
   grid-column: span 2 / span 2;
@@ -675,6 +693,30 @@ body.scrolled-past-hero .full__hero {
 .mb-20{
   margin-bottom: 5rem;
 }
+.mb-16{
+  margin-bottom: 4rem;
+}
+.-mb-24{
+  margin-bottom: -6rem;
+}
+.-mb-44{
+  margin-bottom: -11rem;
+}
+.mt-40{
+  margin-top: 10rem;
+}
+.mb-48{
+  margin-bottom: 12rem;
+}
+.ml-32{
+  margin-left: 8rem;
+}
+.ml-16{
+  margin-left: 4rem;
+}
+.-mr-44{
+  margin-right: -11rem;
+}
 .block{
   display: block;
 }
@@ -758,6 +800,15 @@ body.scrolled-past-hero .full__hero {
 }
 .max-w-\[665px\]{
   max-width: 41.5625rem;
+}
+.max-w-\[220px\]{
+  max-width: 13.75rem;
+}
+.max-w-\[245px\]{
+  max-width: 15.3125rem;
+}
+.max-w-\[558px\]{
+  max-width: 34.875rem;
 }
 .flex-grow-0{
   flex-grow: 0;
@@ -918,6 +969,10 @@ body.scrolled-past-hero .full__hero {
   --tw-bg-opacity: 1;
   background-color: rgb(221 155 0 / var(--tw-bg-opacity));
 }
+.object-cover{
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .py-10{
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -965,6 +1020,10 @@ body.scrolled-past-hero .full__hero {
 .px-6{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+.px-12{
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 .pt-10{
   padding-top: 2.5rem;
@@ -1031,6 +1090,21 @@ body.scrolled-past-hero .full__hero {
 }
 .pr-24{
   padding-right: 6rem;
+}
+.pb-28{
+  padding-bottom: 7rem;
+}
+.pt-24{
+  padding-top: 6rem;
+}
+.pt-5{
+  padding-top: 1.25rem;
+}
+.pt-28{
+  padding-top: 7rem;
+}
+.pb-40{
+  padding-bottom: 10rem;
 }
 .text-center{
   text-align: center;
@@ -1655,6 +1729,23 @@ https://flickity.metafizzy.co
     left: 0;
   }
 }
+
+.about__quote-headline:before, .about__quote-headline:after {
+  content: "";
+  display: inline-block;
+  position: relative;
+}
+.about__quote-headline:before {
+  content: "“";
+  left: -0.625rem;
+  margin-left: -0.625rem;
+}
+.about__quote-headline:after {
+  content: "“";
+  transform: scaleX(-1);
+  right: -0.625rem;
+  margin-right: -0.625rem;
+}
 body.frozen {
   overflow: hidden;
 }
@@ -1725,6 +1816,15 @@ body{
   .lg\:-ml-44{
     margin-left: -11rem;
   }
+  .lg\:mb-8{
+    margin-bottom: 2rem;
+  }
+  .lg\:mb-4{
+    margin-bottom: 1rem;
+  }
+  .lg\:mb-6{
+    margin-bottom: 1.5rem;
+  }
   .lg\:min-h-\[420px\]{
     min-height: 26.25rem;
   }
@@ -1768,6 +1868,9 @@ body{
   .md\:carousel__align-left-pl-5 .flickity-viewport{
     overflow: visible;
   }
+  .md\:static{
+    position: static;
+  }
   .md\:absolute{
     position: absolute;
   }
@@ -1783,8 +1886,14 @@ body{
   .md\:col-span-3{
     grid-column: span 3 / span 3;
   }
+  .md\:col-span-1{
+    grid-column: span 1 / span 1;
+  }
   .md\:col-start-1{
     grid-column-start: 1;
+  }
+  .md\:col-start-2{
+    grid-column-start: 2;
   }
   .md\:-mx-5{
     margin-left: -1.25rem;
@@ -1853,11 +1962,26 @@ body{
   .md\:-mt-\[32vw\]{
     margin-top: -32vw;
   }
+  .md\:-mt-32{
+    margin-top: -8rem;
+  }
+  .md\:-mt-44{
+    margin-top: -11rem;
+  }
+  .md\:-mt-40{
+    margin-top: -10rem;
+  }
+  .md\:mt-2{
+    margin-top: 0.5rem;
+  }
   .md\:block{
     display: block;
   }
   .md\:flex{
     display: flex;
+  }
+  .md\:grid{
+    display: grid;
   }
   .md\:hidden{
     display: none;
@@ -1889,6 +2013,9 @@ body{
   .md\:max-w-\[250px\]{
     max-width: 15.625rem;
   }
+  .md\:max-w-\[120px\]{
+    max-width: 7.5rem;
+  }
   .md\:grid-cols-1{
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -1898,11 +2025,23 @@ body{
   .md\:grid-cols-\[1\.5fr_1fr\]{
     grid-template-columns: 1.5fr 1fr;
   }
+  .md\:grid-cols-3{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .md\:grid-cols-\[40px_1fr\]{
+    grid-template-columns: 2.5rem 1fr;
+  }
   .md\:flex-col{
     flex-direction: column;
   }
   .md\:flex-nowrap{
     flex-wrap: nowrap;
+  }
+  .md\:items-start{
+    align-items: flex-start;
+  }
+  .md\:justify-start{
+    justify-content: flex-start;
   }
   .md\:justify-end{
     justify-content: flex-end;
@@ -1924,6 +2063,15 @@ body{
   }
   .md\:gap-8{
     gap: 2rem;
+  }
+  .md\:gap-12{
+    gap: 3rem;
+  }
+  .md\:gap-6{
+    gap: 1.5rem;
+  }
+  .md\:gap-14{
+    gap: 3.5rem;
   }
   .md\:space-y-8 > :not([hidden]) ~ :not([hidden]){
     --tw-space-y-reverse: 0;
@@ -2027,6 +2175,12 @@ body{
   }
   .md\:pb-\[72px\]{
     padding-bottom: 4.5rem;
+  }
+  .md\:pr-12{
+    padding-right: 3rem;
+  }
+  .md\:pt-0{
+    padding-top: 0;
   }
   .md\:text-right{
     text-align: right;
