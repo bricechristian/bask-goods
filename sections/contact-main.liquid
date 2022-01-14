@@ -1,0 +1,40 @@
+<section class="hero contact__main bg-cream pt-28" data-viewport>
+    <div class="container-full mt-12">
+        <div class="border-t border-brown"></div>
+    </div>
+    <div class="container-920 py-20">
+        {% if section.settings.image != blank %}
+            <img 
+                src="{{ section.settings.image | img_url: '1800x1200' }}" 
+                class="w-full mb-12 fade-in"
+                loading="lazy" 
+                width="{{ section.settings.image.width }}" 
+                height="{{ section.settings.image.height }}" 
+                alt="{{ section.settings.image.alt }}" 
+            />                    
+        {% endif %}
+        {% if section.settings.bodycopy != blank %}
+            <div class="text-24 font-heading space-y-8 md:text-20 md:leading-normal fade-in delay-300">{{ section.settings.bodycopy }}</div>
+        {% endif %}                
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Main",
+    "settings": [        
+         {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Large Image",
+            "info": "Recommended Image Dimensions: 1800x1200"
+        },
+        {
+            "type": "richtext",
+            "id": "bodycopy",
+            "label": "Bodycopy",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+        }         
+    ] 
+}
+{% endschema %}

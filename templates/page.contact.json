@@ -1,17 +1,17 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page"
+    "header": {
+      "type": "header-wordmark-brown"
     },
-    "form": {
-      "type": "contact-form",
+    "main": {
+      "type": "contact-main",
       "settings": {
-        "heading": ""
+        "image": "shopify://shop_images/contact-hero.jpg"
       }
     }
   },
   "order": [
-    "main",
-    "form"
+    "header",
+    "main"
   ]
 }
