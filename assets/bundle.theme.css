@@ -1489,6 +1489,11 @@ https://flickity.metafizzy.co
     transition: 0.3s;
   fill: #FBF1DC;
   }
+@media (max-width: 767px) {
+  .header__logo path, .header__logo-wordmark path {
+    fill: #000000 !important;
+  }
+}
 .header__logo-wordmark-brown path {
     transition: 0.3s;
   fill: #A67C52;

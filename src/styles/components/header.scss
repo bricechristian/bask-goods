@@ -75,6 +75,9 @@
     path {
       @apply transition-smooth;
       fill: theme("colors.cream");
+      @screen md {
+        fill: theme("colors.black") !important;
+      }
     }
   }
   &__logo-wordmark-brown {
