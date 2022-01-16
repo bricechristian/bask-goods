@@ -40,9 +40,6 @@ module.exports = {
       38: '38px',
       75: '75px'
     },
-    letterSpacing: {
-      wider: '.063em'
-    },
     screens: {
       '2xl': { max: '1440px'},
       '2xl_min': '1441px',
@@ -58,6 +55,9 @@ module.exports = {
     extend: {
       zIndex: {
         '-1': '-1'
+      },
+      letterSpacing: {
+        wider: '.063em'
       }
     }  
   }

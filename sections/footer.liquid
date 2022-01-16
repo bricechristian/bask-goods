@@ -10,19 +10,31 @@
                 {% endif %}
                 {% form 'customer', class: 'form w-full flex flex-col mt-6' %}
                     <input type="hidden" name="contact[tags]" value="newsletter">
-                    <input
-                        type="text"
-                        name="contact[first_name]"
-                        class="form__input font-matterlight text-13 tracking-[.081em] py-2 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
-                        value="{{ form.first_name }}"
-                        autocorrect="off"
-                        autocapitalize="off"
-                        placeholder="Your Name"
-                    >                        
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <input
+                            type="text"
+                            name="contact[first_name]"
+                            class="form__input text-cream text-13 tracking-[.081em] min-h-0 pl-0 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
+                            value="{{ form.first_name }}"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            placeholder="First Name"
+                        >     
+                        <input
+                            type="text"
+                            name="contact[last_name]"
+                            class="form__input text-cream text-13 tracking-[.081em] min-h-0 pl-0 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
+                            value="{{ form.last_name }}"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            placeholder="Last Name"
+                        >     
+                    </div>                  
                     <input
                         type="email"
                         name="contact[email]"
-                        class="form__input font-matterlight text-13 tracking-[.081em] py-2 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
+                        class="form__input text-cream text-13 tracking-[.081em] min-h-0 pl-0 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
                         value="{{ form.email }}"
                         aria-required="true"
                         autocorrect="off"

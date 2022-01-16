@@ -112,6 +112,9 @@
     .header__logo-wordmark path {
       fill: theme("colors.black");
     }
+    .container-full .border-b {
+      @apply border-transparent;
+    }
   }
   &.active {
     @apply transition-smooth;

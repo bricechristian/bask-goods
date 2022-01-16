@@ -95,7 +95,7 @@ $headerMainLinks.forEach($link => {
         }     
         
         setTimeout(() => {
-            if($header.classList.contains("header__wordmark")){
+            if($header.classList.contains("header__wordmark") || $header.classList.contains("header__wordmark-brown")){
                 $header.style.height = "160px";
             } else {
                 $header.style.height = "135px";
@@ -244,3 +244,10 @@ const resizeWindow = () => {
 }
 
 window.addEventListener("resize", resizeWindow, true)
+
+window.addEventListener("load", () => {
+    $header.classList.add("swiped-down")
+    if(window.scrollY > $header.offsetHeight){
+        $header.classList.add("active")
+    }
+}, true)

@@ -4,7 +4,6 @@
 
 @import "~flickity/css/flickity";
 
-@import "./components/form.scss";
 @import "./components/accordion.scss";
 @import "./components/header.scss";
 @import "./components/item-card.scss";
@@ -16,7 +15,7 @@
     a {
         transition: .3s;
     }
-    .font-matter,
+    .font-matter, 
     .font-matterlight {
         text-transform: uppercase; 
     }
@@ -35,27 +34,21 @@
       }
       @apply font-italic text-24 md:text-20;
     }
-    // .link-hover-line-orange {
-    //   padding-bottom: 1px;
-    //   @apply border-b border-transparent;
-    //   &:hover {
-    //     @apply text-orange border-orange;
-    //   }
-    // }
+    .button {
+      @apply rounded-none appearance-none outline-none bg-orange text-cream border border-orange font-matterlight text-13 tracking-widest w-full p-3 min-h-[48px] cursor-pointer transition-smooth hover:bg-cream hover:text-orange md:text-16; 
+    }
 }
 
 @layer utilities {
   .container-base {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    @apply w-full mx-auto;
   }
   .container {
     @apply container-base px-10 md:px-5;
     max-width: 1440px;
     &-full {
       @apply container-base px-10 md:px-5;
-      max-width: 100%;
+      max-width: 100%; 
     }
     &-1280 {
       @apply container-base px-10 md:px-5; 
@@ -65,9 +58,9 @@
       @apply container-base px-10 md:px-5;
       max-width: 1060px;
     }
-    &-920 {
+    &-975 {
       @apply container-base px-10 md:px-5;
-      max-width: 920px;
+      max-width: 975px;
     }
     &-768 {
       @apply container-base px-10 md:px-5; 
@@ -162,6 +155,12 @@
   }
   body.scrolled-past-hero .full__hero {
     display: none !important;
+  }
+  //FORM
+  .form {
+    &__input {
+        @apply text-brown rounded-none appearance-none outline-none bg-transparent border-0 font-matterlight text-18 min-h-[59px] w-full py-2 px-4 md:text-16 md:min-h-[50px]; 
+    }
   }
   //RICHTEXT
   .richtext > p > a {
