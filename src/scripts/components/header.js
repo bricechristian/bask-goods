@@ -241,7 +241,17 @@ const resizeWindow = () => {
     document.querySelectorAll('.header__menu .toggle-trigger').forEach($trigger => {
         $trigger.classList.remove("active")
     });
+    if(document.querySelector(".hero") !== null){
+        if(document.querySelector(".announcement-bar") !== null){
+            const announcementBarHeight = document.querySelector(".announcement-bar").offsetHeight
+            document.querySelector(".hero").style.paddingTop = headerHeight + announcementBarHeight + "px"
+        } else {
+            document.querySelector(".hero").style.paddingTop = headerHeight + "px"
+        }
+    }
 }
+
+resizeWindow()
 
 window.addEventListener("resize", resizeWindow, true)
 

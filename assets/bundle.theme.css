@@ -1218,6 +1218,9 @@ body.scrolled-past-hero .full__hero {
 .capitalize{
   text-transform: capitalize;
 }
+.normal-case{
+  text-transform: none;
+}
 .italic{
   font-style: italic;
 }
@@ -1556,11 +1559,6 @@ https://flickity.metafizzy.co
     transition: 0.3s;
   fill: #FBF1DC;
   }
-@media (max-width: 767px) {
-  .header__logo path, .header__logo-wordmark path {
-    fill: #000000 !important;
-  }
-}
 .header__logo-wordmark-brown path {
     transition: 0.3s;
   fill: #A67C52;
@@ -1588,8 +1586,10 @@ https://flickity.metafizzy.co
 .header.dropdown-open .bag-count, .header.active .bag-count {
   background: url(./bag.svg) 50% 70%/95% no-repeat;
 }
-.header.dropdown-open .header__logo-wordmark path, .header.active .header__logo-wordmark path {
-  fill: #000000;
+.header.dropdown-open .header__logo path,
+.header.dropdown-open .header__logo-wordmark path, .header.active .header__logo path,
+.header.active .header__logo-wordmark path {
+  fill: #000000 !important;
 }
 .header.dropdown-open .container-full .border-b, .header.active .container-full .border-b{
   border-color: transparent;

@@ -75,9 +75,6 @@
     path {
       @apply transition-smooth;
       fill: theme("colors.cream");
-      @screen md {
-        fill: theme("colors.black") !important;
-      }
     }
   }
   &__logo-wordmark-brown {
@@ -109,8 +106,9 @@
     .bag-count {
       background: url(./bag.svg) 50% 70% / 95% no-repeat;
     }
+    .header__logo path,
     .header__logo-wordmark path {
-      fill: theme("colors.black");
+      fill: theme("colors.black") !important;
     }
     .container-full .border-b {
       @apply border-transparent;
