@@ -2,10 +2,14 @@
     "sections": {
       "header": {
         "type": "header-wordmark-brown"
+      },
+      "nav": {
+          "type": "faqs-nav"
       }
     },
     "order": [
-      "header"
+      "header",
+      "nav"
     ]
   }
   

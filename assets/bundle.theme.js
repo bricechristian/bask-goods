@@ -51,6 +51,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var scro
 
 /***/ }),
 
+/***/ "./src/scripts/sections/faqs.js":
+/*!**************************************!*\
+  !*** ./src/scripts/sections/faqs.js ***!
+  \**************************************/
+/***/ (() => {
+
+eval("if (document.querySelector(\".faqs__nav\") !== null) {\n  const resizeWindow = () => {\n    headerHeight = document.querySelector('.header__main').offsetHeight;\n\n    if (document.querySelector(\".announcement-bar\") !== null) {\n      const announcementBarHeight = document.querySelector(\".announcement-bar\").offsetHeight;\n      document.querySelector(\".faqs__nav\").style.paddingTop = headerHeight + announcementBarHeight + \"px\";\n      document.querySelectorAll(\".faqs__section\")[0].style.paddingTop = headerHeight + announcementBarHeight + \"px\";\n    } else {\n      document.querySelector(\".faqs__nav\").style.paddingTop = headerHeight + \"px\";\n      document.querySelectorAll(\".faqs__section\")[0].style.paddingTop = headerHeight + \"px\";\n    }\n  };\n\n  resizeWindow();\n  window.addEventListener(\"resize\", resizeWindow, true);\n}\n\n//# sourceURL=webpack://bask-goods/./src/scripts/sections/faqs.js?");
+
+/***/ }),
+
 /***/ "./src/scripts/theme.js":
 /*!******************************!*\
   !*** ./src/scripts/theme.js ***!
@@ -58,7 +68,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var scro
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_theme_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/theme.scss */ \"./src/styles/theme.scss\");\n/* harmony import */ var _components_scrollmagic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/scrollmagic */ \"./src/scripts/components/scrollmagic.js\");\n/* harmony import */ var _components_flickity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/flickity */ \"./src/scripts/components/flickity.js\");\n/* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/accordion */ \"./src/scripts/components/accordion.js\");\n/* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_accordion__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/header */ \"./src/scripts/components/header.js\");\n/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_header__WEBPACK_IMPORTED_MODULE_4__);\n//SCSS\n //JS\n\n\n\n\n\n\n//# sourceURL=webpack://bask-goods/./src/scripts/theme.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_theme_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/theme.scss */ \"./src/styles/theme.scss\");\n/* harmony import */ var _components_scrollmagic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/scrollmagic */ \"./src/scripts/components/scrollmagic.js\");\n/* harmony import */ var _components_flickity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/flickity */ \"./src/scripts/components/flickity.js\");\n/* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/accordion */ \"./src/scripts/components/accordion.js\");\n/* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_accordion__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/header */ \"./src/scripts/components/header.js\");\n/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_header__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _sections_faqs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sections/faqs */ \"./src/scripts/sections/faqs.js\");\n/* harmony import */ var _sections_faqs__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_sections_faqs__WEBPACK_IMPORTED_MODULE_5__);\n//SCSS\n //JS\n\n\n\n\n\n\n\n//# sourceURL=webpack://bask-goods/./src/scripts/theme.js?");
 
 /***/ }),
 

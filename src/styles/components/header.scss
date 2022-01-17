@@ -15,6 +15,7 @@
     filter: blur(7px);
     opacity: 0;
     visibility: visible;
+    pointer-events: none; 
     @apply transition-smooth;
     @screen md {
       height: 165px;
@@ -74,7 +75,9 @@
   &__logo-wordmark {
     path {
       @apply transition-smooth;
-      fill: theme("colors.cream");
+      @screen md {
+        fill: theme("colors.black");
+      }
     }
   }
   &__logo-wordmark-brown {

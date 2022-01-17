@@ -11,6 +11,8 @@
 @import "./components/sustainability-process.scss";
 @import "./components/about-quote.scss";
 
+@import "./pages/faqs.scss";
+
 @layer base {
     a {
         transition: .3s;
@@ -234,6 +236,10 @@
       }
     }
   }
+}
+
+html {
+  @apply scroll-smooth;
 }
 
 body.frozen {

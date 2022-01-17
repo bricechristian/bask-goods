@@ -6,3 +6,4 @@ import './components/scrollmagic';
 import './components/flickity';
 import './components/accordion';
 import './components/header';
+import './sections/faqs';

@@ -673,6 +673,9 @@ body.scrolled-past-hero .full__hero {
 .mt-8{
   margin-top: 2rem;
 }
+.mb-4{
+  margin-bottom: 1rem;
+}
 .mb-10{
   margin-bottom: 2.5rem;
 }
@@ -742,9 +745,6 @@ body.scrolled-past-hero .full__hero {
 .mb-5{
   margin-bottom: 1.25rem;
 }
-.mb-4{
-  margin-bottom: 1rem;
-}
 .-mr-36{
   margin-right: -9rem;
 }
@@ -753,6 +753,12 @@ body.scrolled-past-hero .full__hero {
 }
 .mb-20{
   margin-bottom: 5rem;
+}
+.ml-8{
+  margin-left: 2rem;
+}
+.ml-0{
+  margin-left: 0;
 }
 .block{
   display: block;
@@ -865,6 +871,21 @@ body.scrolled-past-hero .full__hero {
 }
 .cursor-pointer{
   cursor: pointer;
+}
+.scroll-mt-28{
+  scroll-margin-top: 7rem;
+}
+.scroll-mt-32{
+  scroll-margin-top: 8rem;
+}
+.scroll-mt-36{
+  scroll-margin-top: 9rem;
+}
+.scroll-mt-40{
+  scroll-margin-top: 10rem;
+}
+.scroll-pt-32{
+  scroll-padding-top: 8rem;
 }
 .grid-flow-col-dense{
   grid-auto-flow: column dense;
@@ -1176,11 +1197,11 @@ body.scrolled-past-hero .full__hero {
 .font-heading{
   font-family: GT Super Display Light, serif;
 }
-.font-matterlight{
-  font-family: Matter Light, sans-serif;
-}
 .font-italic{
   font-family: GT Super Display Light Italic, serif;
+}
+.font-matterlight{
+  font-family: Matter Light, sans-serif;
 }
 .text-18{
   font-size: 1.125rem;
@@ -1322,6 +1343,22 @@ body.scrolled-past-hero .full__hero {
 }
 .container-975 {
     max-width: 60.9375rem;
+  }
+.container-768{
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+@media (max-width: 767px){
+  .container-768{
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+.container-768 {
+    max-width: 48rem;
   }
 .absolute-center{
   position: absolute;
@@ -1500,6 +1537,7 @@ https://flickity.metafizzy.co
   filter: blur(0.4375rem);
   opacity: 0;
   visibility: visible;
+  pointer-events: none;
     transition: 0.3s;
 }
 @media (max-width: 767px) {
@@ -1557,8 +1595,12 @@ https://flickity.metafizzy.co
 }
 .header__logo path, .header__logo-wordmark path {
     transition: 0.3s;
-  fill: #FBF1DC;
   }
+@media (max-width: 767px) {
+  .header__logo path, .header__logo-wordmark path {
+    fill: #000000;
+  }
+}
 .header__logo-wordmark-brown path {
     transition: 0.3s;
   fill: #A67C52;
@@ -1838,6 +1880,117 @@ https://flickity.metafizzy.co
   right: -0.625rem;
   margin-right: -0.625rem;
 }
+
+.page-faqs main{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 241 220 / var(--tw-bg-opacity));
+  padding-bottom: 14rem;
+}
+
+@media (max-width: 767px){
+  .page-faqs main{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .page-faqs main{
+    padding-bottom: 1rem;
+  }
+}
+
+.faqs__nav{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  grid-column-end: 2;
+  margin-top: 7rem;
+}
+
+@media (max-width: 767px){
+  .faqs__nav{
+    position: static;
+  }
+  .faqs__nav{
+    grid-column-end: 2;
+  }
+  .faqs__nav{
+    margin-top: 2.5rem;
+  }
+}
+.faqs__nav + .faqs__section{
+  margin-top: 6.25rem;
+}
+@media (max-width: 767px){
+  .faqs__nav + .faqs__section{
+    margin-top: 2rem;
+  }
+  .faqs__nav + .faqs__section {
+    padding-top: 0 !important;
+  }
+}
+.faqs__section{
+  order: 9;
+  grid-column: span 2 / span 2;
+  grid-column-start: 2;
+  margin-top: 5rem;
+}
+@media (max-width: 767px){
+  .faqs__section{
+    grid-column: span 1 / span 1;
+  }
+  .faqs__section{
+    grid-column-start: 1;
+  }
+  .faqs__section{
+    margin-top: 2rem;
+  }
+}
+.faqs__section .container-768{
+  margin-left: 0;
+}
+.faqs__section .toggle-trigger:before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 0.75rem;
+  display: inline-block;
+  height: 1.25rem;
+  width: 1.25rem;
+  transform-origin: center;
+  --tw-translate-y: -0.25rem;
+  --tw-rotate: -90deg;
+  transform: var(--tw-transform);
+  background-repeat: no-repeat;
+    transition: 0.3s;
+}
+@media (max-width: 767px){
+  .faqs__section .toggle-trigger:before{
+    top: 0.5rem;
+  }
+}
+.faqs__section .toggle-trigger:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='19' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.996 11.192c0-3.137 2.083-5.444 3.325-6.54 1.849-1.631 3.911-2.51 4.914-2.51h.265V.992h-.265c-1.93 0-6.284 2.377-8.24 6.197l-.99-.002c-.634-1.246-1.56-2.422-2.726-3.45C4.238 1.936 1.96.993.766.992H.5l.002 1.15h.264c1.003 0 3.065.879 4.913 2.51C6.921 5.75 9.004 8.06 9.004 11.19v.31h.992v-.308Z' fill='%23A67C52' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+.faqs__section .toggle-trigger.active:before{
+  --tw-translate-y: -0.125rem;
+  --tw-translate-x: -0.25rem;
+  --tw-rotate: 0deg;
+  transform: var(--tw-transform);
+}
+@media (max-width: 767px){
+  .faqs__section .toggle-trigger.active:before{
+    --tw-translate-y: 0;
+    transform: var(--tw-transform);
+  }
+}
+.faqs__section .toggle-container p:last-child{
+  padding-bottom: 2rem;
+}
+html{
+  scroll-behavior: smooth;
+}
+
 body.frozen {
   overflow: hidden;
 }
@@ -2123,6 +2276,9 @@ body{
   .md\:grid-cols-\[1\.5fr_1fr\]{
     grid-template-columns: 1.5fr 1fr;
   }
+  .md\:flex-row{
+    flex-direction: row;
+  }
   .md\:flex-col{
     flex-direction: column;
   }
@@ -2156,21 +2312,26 @@ body{
   .md\:gap-14{
     gap: 3.5rem;
   }
+  .md\:gap-5{
+    gap: 1.25rem;
+  }
   .md\:gap-4{
     gap: 1rem;
   }
-  .md\:gap-5{
-    gap: 1.25rem;
+  .md\:space-y-5 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
   }
   .md\:space-y-8 > :not([hidden]) ~ :not([hidden]){
     --tw-space-y-reverse: 0;
     margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(2rem * var(--tw-space-y-reverse));
   }
-  .md\:space-y-5 > :not([hidden]) ~ :not([hidden]){
-    --tw-space-y-reverse: 0;
-    margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+  .md\:space-x-8 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(2rem * var(--tw-space-x-reverse));
+    margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
   }
   .md\:overflow-auto{
     overflow: auto;
@@ -2311,6 +2472,9 @@ body{
 @media (min-width: 768px){
   .delay.md_min\:delay-900 {
     transition-delay: 900ms;
+  }
+  .md_min\:mb-4{
+    margin-bottom: 1rem;
   }
   .md_min\:inline-block{
     display: inline-block;
