@@ -17,7 +17,7 @@
 
 <section class="home__journals bg-cream relative">
     <div class="py-10 bg-beige-50 md:py-6" data-viewport>
-        <div class="container-full">
+        <div class="container">
             {% if section.settings.title != blank %}
                 <div class="flex-grow md_min:hidden md:mb-6">
                     <h2 class="font-matter text-18 fade-in">{{ section.settings.title }}</h2>
@@ -72,7 +72,7 @@
         </div>
     </div>
     <div class="py-10 md:py-8" data-viewport>
-        <div class="container-full">
+        <div class="container">
             <div class="grid grid-cols-2 gap-10 mb-10 md:grid-cols-1 md:gap-8 md:mb-5">
                 {% for tag in article_2.tags %}
                     {% if forloop.first %}
