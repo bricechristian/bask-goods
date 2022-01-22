@@ -74,7 +74,7 @@
                                     <ul class="header__submenu md:hidden absolute left-0 grid grid-cols-5 gap-8 mt-6 pb-6">
                                         {% for child_link in link.links %}
                                             <li>
-                                                <a href="#">
+                                                <a href="{{ child_link.url }}">
                                                     <img src="https://via.placeholder.com/400x460" class="w-full mb-2" />
                                                     <div><span class="font-italic">{{ child_link.title }} </span>—</div>
                                                 </a> 
@@ -113,6 +113,7 @@
 
 {% schema %}
 { 
-  "name": "Header"
+  "name": "Header",
+  "class": "header-wrap"
 }
 {% endschema %}
