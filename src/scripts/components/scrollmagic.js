@@ -51,7 +51,7 @@ if(parallaxEls !== null){
         let shiftX = 0;
         let shiftY = 0;
         if(el.getAttribute('data-parallax-trigger') !== ''){
-            triggerEl = parseInt(el.getAttribute('data-parallax-trigger'))
+            triggerEl = el.getAttribute('data-parallax-trigger')
         }            
         if(el.getAttribute('data-parallax-offset') !== ''){
             offset = parseInt(el.getAttribute('data-parallax-offset'))
