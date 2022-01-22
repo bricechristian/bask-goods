@@ -414,7 +414,6 @@ a {
   }
 [data-viewport].in-view .fade-in {
     opacity: 1;
-    filter: blur(0);
   }
 [data-viewport].in-view .fade-in.delay-0 {
     transition-delay: 0ms;
@@ -461,13 +460,11 @@ a {
 [data-viewport].fade-in,
 [data-viewport] .fade-in {
     opacity: 0;
-    filter: blur(0.625rem);
-    transition: 0.5s opacity, 0.35s filter;
+    transition: 0.9s opacity;
   }
 [data-viewport].fade-in.in-view,
 [data-viewport] .fade-in.in-view {
     opacity: 1;
-    filter: blur(0);
   }
 [data-viewport].fade-in.in-view.delay-0, [data-viewport] .fade-in.in-view.delay-0 {
     transition-delay: 0ms;
@@ -615,8 +612,8 @@ body.scrolled-past-hero .full__hero {
 .right-0{
   right: 0;
 }
-.-top-64{
-  top: -16rem;
+.-top-24{
+  top: -6rem;
 }
 .top-0{
   top: 0;
@@ -626,9 +623,6 @@ body.scrolled-past-hero .full__hero {
 }
 .-left-36{
   left: -9rem;
-}
-.-top-24{
-  top: -6rem;
 }
 .z-50{
   z-index: 50;
@@ -820,6 +814,9 @@ body.scrolled-past-hero .full__hero {
 .w-\[213px\]{
   width: 13.3125rem;
 }
+.w-\[55px\]{
+  width: 3.4375rem;
+}
 .w-\[99\%\]{
   width: 99%;
 }
@@ -828,9 +825,6 @@ body.scrolled-past-hero .full__hero {
 }
 .w-3\/5{
   width: 60%;
-}
-.w-\[55px\]{
-  width: 3.4375rem;
 }
 .max-w-\[197px\]{
   max-width: 12.3125rem;
@@ -1801,7 +1795,7 @@ https://flickity.metafizzy.co
     transition: 0.3s;
     opacity: 0;
     visibility: hidden;
-  min-width: calc(100vw - 3rem);
+  min-width: calc(100vw - 5rem);
   }
 .header__submenu li {
   opacity: 0;
@@ -2094,6 +2088,12 @@ https://flickity.metafizzy.co
   --tw-bg-opacity: 1;
   background-color: rgb(251 241 220 / var(--tw-bg-opacity));
 }
+
+#more-items img{
+  aspect-ratio: 3 / 2;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 html{
   scroll-behavior: smooth;
 }
@@ -2304,8 +2304,11 @@ body{
   .md\:ml-0{
     margin-left: 0;
   }
-  .md\:-mt-40{
-    margin-top: -10rem;
+  .md\:-mt-32{
+    margin-top: -8rem;
+  }
+  .md\:mt-0{
+    margin-top: 0;
   }
   .md\:mb-5{
     margin-bottom: 1.25rem;
@@ -2345,15 +2348,6 @@ body{
   }
   .md\:mt-5{
     margin-top: 1.25rem;
-  }
-  .md\:-mt-32{
-    margin-top: -8rem;
-  }
-  .md\:-mt-0{
-    margin-top: -0;
-  }
-  .md\:mt-0{
-    margin-top: 0;
   }
   .md\:block{
     display: block;
@@ -2635,12 +2629,6 @@ body{
   .md_min\:right-0{
     right: 0;
   }
-  .md_min\:top-1\/2{
-    top: 50%;
-  }
-  .md_min\:top-\[96px\]{
-    top: 6rem;
-  }
   .md_min\:top-3{
     top: 0.75rem;
   }
@@ -2656,19 +2644,6 @@ body{
   }
   .md_min\:hidden{
     display: none;
-  }
-
-  .md_min\:absolute-center{
-    position: absolute;
-  }
-
-  .md_min\:absolute-center{
-    top: 50%;
-  }
-
-  .md_min\:absolute-center{
-    --tw-translate-y: -50%;
-    transform: var(--tw-transform);
   }
 }
 

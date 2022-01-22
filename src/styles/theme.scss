@@ -138,7 +138,6 @@
     &.in-view {
       .fade-in {
         opacity: 1;
-        filter: blur(0px);
         @apply delay;
         &.highlighted {
           transform: none;
@@ -148,11 +147,9 @@
     &.fade-in,
     .fade-in {
       opacity: 0;
-      filter: blur(10px);
-      transition: .5s opacity, .35s filter;
+      transition: .9s opacity;
       &.in-view {
         opacity: 1;
-        filter: blur(0px);
         @apply delay;
       }
     }

@@ -1,7 +1,8 @@
-<section class="article__hero">
+<section class="article__hero" data-blog-handle="{{ blog.handle }}" data-blog-id="{{ blog.id }}">
     <div class="bg-orange text-cream py-4 px-6 md:px-0">
         <div class="container-full font-matter tracking-wider text-13 leading-tight">
-            <span class="text-[#1A1107] opacity-50">Now Reading:</span> {{ article.title }}
+            <span class="text-[#1A1107] opacity-50">Now Reading:</span> 
+            <span id="article__title">{{ article.title }}</span>
         </div>
     </div>
     <div class="bg-cover bg-no-repeat bg-center min-h-[40vw] 2xl_min:min-h-[585px] fade-in delay-300" style="background-image:url({{ article.image.src | img_url: '1920x1080', crop: 'center' }})"></div>
@@ -18,11 +19,6 @@
             <p class="font-matter tracking-wider text-13 leading-tight text-brown">Written by {{ article.author | split: " " | first }}</p>
             <a href="#" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Share</a>
         </div>
-    </div>
-</section>
-<section class="article__more pb-24 md:pb-8">
-    <div class="container">
-        <div id="more-items" class="grid grid-cols-2 border-t border-brown pt-20 md:grid-cols-1 md:pb-8"></div>
     </div>
 </section>
 

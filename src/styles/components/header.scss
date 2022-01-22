@@ -223,7 +223,7 @@
   &__submenu {
     @apply transition-smooth;
     @apply invisible;
-    min-width: calc(100vw - 3rem);
+    min-width: calc(100vw - 5rem);
 
     li {
       opacity: 0;

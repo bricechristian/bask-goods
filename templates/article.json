@@ -5,10 +5,14 @@
     },
     "content": {
       "type": "article-content"
+    },
+    "more": {
+      "type": "article-more-items"
     }
   },
   "order": [
     "header",
-    "content"
+    "content",
+    "more"
   ]
 }

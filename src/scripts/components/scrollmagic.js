@@ -36,6 +36,7 @@ if(scrollEls !== null){
         }
         new ScrollMagic.Scene({
             triggerElement: el,
+            triggerHook: 0.75,
             offset: offset, 
             reverse: false
         })
