@@ -7,3 +7,4 @@ import './components/flickity';
 import './components/accordion';
 import './components/header';
 import './sections/faqs';
+import './sections/articles';

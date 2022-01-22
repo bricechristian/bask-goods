@@ -1,6 +1,5 @@
 .header {
   transform: translateY(0);
-  transition: height .3s;
   &:after {
     content: "";
     display: inline-block;
@@ -73,6 +72,7 @@
   }
   &__logo,
   &__logo-wordmark {
+    @apply transition-smooth;
     path {
       @apply transition-smooth;
       @screen md {
@@ -80,10 +80,23 @@
       }
     }
   }
+  &__logo-wordmark {
+    & + .header__logo {
+      @screen md_min {
+        @apply invisible;
+      }
+    }
+  }
   &__logo-wordmark-brown {
+    @apply transition-smooth;
     path {
       @apply transition-smooth;
       fill: theme("colors.brown");
+    }
+    & + .header__logo {
+      @screen md_min {
+        @apply invisible;
+      }
     }
   }
   &.dropdown-open,
@@ -109,8 +122,7 @@
     .bag-count {
       background: url(./bag.svg) 50% 70% / 95% no-repeat;
     }
-    .header__logo path,
-    .header__logo-wordmark path {
+    .header__logo path{
       fill: theme("colors.black") !important;
     }
     .container-full .border-b {
@@ -119,12 +131,20 @@
   }
   &.active {
     @apply transition-smooth;
+    .header__logo-wordmark,
+    .header__logo-wordmark-brown {
+      max-height: 55px;
+      @apply invisible;
+      & + .header__logo {
+        @screen md_min {
+          @apply visible;
+          top: 0;
+        }
+      }
+    }
     &:after {
       opacity: 1;
       visibility: visible;
-    }
-    .header__logo path {
-      fill: theme("colors.black");
     }
   }
   &.dropdown-open {
@@ -132,6 +152,10 @@
     &:after {
       transition-delay: .15s;
       opacity: 0 !important;
+    }
+    .header__logo-wordmark path,
+    .header__logo-wordmark-brown path {
+      fill: theme("colors.black") !important;
     }
     @screen md {
       min-height: 100%;
@@ -153,11 +177,12 @@
       // }
     }
   }
+  &.swiped-down {
+    position: fixed;
+    // transform: translateY(0px) !important;
+  }
   &.swiped-up {
     transform: translateY(-200px) !important;
-  }
-  &.swiped-down {
-    transform: translateY(0px) !important;
   }
   &__categories,
   &__menu,

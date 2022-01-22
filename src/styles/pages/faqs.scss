@@ -3,11 +3,19 @@
 }
 .faqs {
     &__nav {
-        @apply sticky top-0 mt-28 col-end-2 md:mt-10 md:col-end-2 md:static;
+        @apply sticky top-0 mt-28 col-end-2 md:mt-5 md:col-end-2 md:static;
         + .faqs__section {
             @apply mt-[100px] md:mt-8;
             @screen md {
                 padding-top: 0 !important;
+            }
+        }
+        @screen md {
+            a {
+                @apply text-brown;
+                &.active {
+                    @apply text-black;
+                }
             }
         }
     }

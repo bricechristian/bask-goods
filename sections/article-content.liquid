@@ -1,0 +1,34 @@
+<section class="article__hero">
+    <div class="bg-orange text-cream py-4 px-6 md:px-0">
+        <div class="container-full font-matter tracking-wider text-13 leading-tight">
+            <span class="text-[#1A1107] opacity-50">Now Reading:</span> {{ article.title }}
+        </div>
+    </div>
+    <div class="bg-cover bg-no-repeat bg-center min-h-[40vw] 2xl_min:min-h-[585px] fade-in delay-300" style="background-image:url({{ article.image.src | img_url: '1920x1080', crop: 'center' }})"></div>
+</section>
+<section class="article__content pt-14 pb-24 md:py-8">
+    <div class="container-975 space-y-6 text-17 leading-[1.59]">
+        <p class="font-matter text-brown text-13 mb-2">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
+        {% if article.tags != blank %}
+            <a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ article.tags[0] | handleize }}" class="inline-block font-italic text-24 -mb-1 lg:text-20 hover:text-orange">{{ article.tags[0] }} —</a>
+            <h1 class="block font-matterlight text-24 lg:text-20" style="margin-top:-.5rem;">{{ article.title }}</h1>
+        {% endif %}
+        {{ article.content }}
+        <div class="flex justify-between pt-14 md:pt-8">
+            <p class="font-matter tracking-wider text-13 leading-tight text-brown">Written by {{ article.author | split: " " | first }}</p>
+            <a href="#" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Share</a>
+        </div>
+    </div>
+</section>
+<section class="article__more pb-24 md:pb-8">
+    <div class="container">
+        <div id="more-items" class="grid grid-cols-2 border-t border-brown pt-20 md:grid-cols-1 md:pb-8"></div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Content",
+    "class": "hero"
+}
+{% endschema %}

@@ -1,3 +1,5 @@
+import Headspace from "headspace";
+
 const $header = document.querySelector('header')
 const $nav = document.querySelector('nav')
 const $hamburger = document.getElementById('hamburger');
@@ -255,9 +257,14 @@ resizeWindow()
 
 window.addEventListener("resize", resizeWindow, true)
 
-window.addEventListener("load", () => {
-    $header.classList.add("swiped-down")
-    if(window.scrollY > $header.offsetHeight){
-        $header.classList.add("active")
+// SCROLLING HEADER
+Headspace($header, { // can use factory method instead of `new`
+    startOffset: headerHeight,                            // default: height of element
+    tolerance: 15,                               // default: 8
+    showAtBottom: false,                        // default: true
+    classNames: {
+      base: 'absolute',                           // default: 'headspace'
+      fixed: 'swiped-down',                   // default: 'headspace--fixed'
+      hidden: 'swiped-up'                  // default: 'headspace--hidden'
     }
-}, true)
+  })

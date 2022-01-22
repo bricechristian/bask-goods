@@ -10,4 +10,7 @@
         <p class="item__card-title block font-matterlight text-24 lg:text-20">{{ article.title }}</p>
     </div>
     <p class="item__card-price font-matter text-18 text-brown">{{ article.price | money_without_trailing_zeros }}</p>
+    {% if template contains 'blog' %}
+        <div class="text-17 leading-[1.59] mt-6 md:mt-5 md:text-15">{{ article.excerpt_or_content | split: '.' | first }}</div>
+    {% endif %}
 </a>

@@ -11,42 +11,22 @@ const parallaxEls = document.querySelectorAll(".parallax");
 
 let controller = new ScrollMagic.Controller();
 
+//HEADER
 let loaded = false;
-
 new ScrollMagic.Scene()
 .addTo(controller)
 .on('update',function(event){
-    const direction = controller.info("scrollDirection");
     if(loaded){
         if(event.scrollPos > $header.offsetHeight){
             $header.classList.add("active")
-            if(direction === "REVERSE"){
-                $header.classList.remove("swiped-up")
-                $header.classList.add("swiped-down")
-            } else {
-                $header.classList.add("swiped-up")
-                $header.classList.remove("swiped-down")
-            }
         } else {
             if(event.scrollPos === 0){
                 $header.classList.remove("active")
-            }
-            $header.classList.remove("swiped-up")
-            if(direction !== "REVERSE"){
-                $header.classList.remove("swiped-down")
             }
         }
     }
     loaded = true;
 });
-
-//HEADER
-new ScrollMagic.Scene({
-    triggerHook: 0,
-    duration: $header.offsetHeight 
-})
-.setTween($header, { y: -$header.offsetHeight })
-.addTo(controller)
 
 if(scrollEls !== null){
     scrollEls.forEach(el => {

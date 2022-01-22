@@ -1,5 +1,18 @@
 if(document.querySelector(".faqs__nav") !== null){
 
+    const $links = document.querySelectorAll(".faqs__nav a");
+    const removeActive = () => {
+        $links.forEach($link => {
+            $link.classList.remove("active")
+        })
+    }
+    $links.forEach($link => {
+        $link.addEventListener("click", () => {
+            removeActive()
+            $link.classList.add("active");
+        })
+    });
+
     const resizeWindow = () => {
         headerHeight = document.querySelector('.header__main').offsetHeight;
         if(document.querySelector(".announcement-bar") !== null){

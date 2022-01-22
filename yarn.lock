@@ -2000,6 +2000,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+headspace@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/headspace/-/headspace-0.1.1.tgz#7d204899a75930d1eac206bc58e60036df07f5d0"
+  integrity sha1-fSBImadZMNHqwga8WOYANt8H9dA=
+
 human-signals@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"

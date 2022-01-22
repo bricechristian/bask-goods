@@ -1,5 +1,5 @@
-<div class="container flex justify-center md:justify-start">
-    <ul class="md:flex md:flex-row md:space-x-8 md:overflow-scroll">
+<div class="container flex justify-center lg:justify-start">
+    <ul class="md:flex md:flex-row md:space-x-8 md:overflow-scroll md:w-full md:border-b md:border-brown md:pb-5">
         {% for block in section.blocks %}
             <li class="font-matter text-15 md_min:mb-4"><a href="#{{ block.settings.title | handleize }}" class="text-brown">{{ block.settings.title }}</a></li>
         {% endfor %}
