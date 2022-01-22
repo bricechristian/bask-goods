@@ -1,14 +1,14 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner"
+    "header": {
+      "type": "header-wordmark"
     },
-    "product-grid": {
-      "type": "main-collection-product-grid"
+    "hero": {
+      "type": "collection-hero"
     }
   },
   "order": [
-    "banner",
-    "product-grid"
+    "header",
+    "hero"
   ]
 }
