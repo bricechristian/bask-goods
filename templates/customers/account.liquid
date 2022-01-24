@@ -1,49 +1,65 @@
-<div class="account order-page">
-  <div class="container">
-    <div class="inner">
+{% section 'header-wordmark-brown' %}
 
-      <h1 class="text-center">Order History</h1>
-
-      <div id="customer_sidebar">
-        <div id="customer_detail">
-          <p class="text-center">{{ customer.name }} ({{ customer.email }})</p>
-        </div>
-      </div>
-
-      <div id="customer_orders">
+<div class="hero account px-7 md:px-10 mt-12 mb-36">
+  <div class="max-w-7xl mx-auto">
+    <a href="/account/logout" class="uppercase hover:underline">
+      <small>Logout</small>
+    </a>
+    <h1 class="h3 mt-5">Account</h1>
+    <p class="mt-3">Welcome back, {{ customer.first_name }}!</p>
+    <div class="orders flex flex-wrap mt-14">
+      <div class="w-full lg:w-3/4 pb-14 lg:pr-12">
         {% if customer.orders.size != 0 %}
-        <table border="0">
-          <thead>
-            <tr>
-              <th class="order_number">Order</th>
-              <th class="date">Date</th>
-              <th class="payment_status">Payment Status</th>
-              <th class="fulfillment_status">Fulfillment Status</th>
-              <th class="total">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for order in customer.orders %}
-            <tr class="{% cycle 'odd', 'even' %} {% if order.cancelled %}cancelled_order{% endif %}">
-              <td>{{ order.name | link_to: order.customer_url }}</td>
-              <td><span class="note">{{ order.created_at | date: "%b %d, %Y" }}</span></td>
-              <td><span class="status_{{ order.financial_status }}">{{ order.financial_status | capitalize }}</span></td>
-              <td><span class="status_{{ order.fulfillment_status }}">{{ order.fulfillment_status | capitalize }}</span></td>
-              <td><span class="total money">{{ order.total_price | money_without_trailing_zeros }}</span></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+          {% paginate customer.orders by 10 %}
+            <div class="table-wrap">
+              <table class="w-full whitespace-nowrap">
+                <thead>
+                  <tr>
+                    <th class="text-left">Order</th>
+                    <th class="text-left">Date</th>
+                    <th class="text-left">Payment</th>
+                    <th class="text-left">Fullfillment</th>
+                    <th class="text-right">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for order in customer.orders %}
+                    <tr>
+                      <td class="order-name">{{ order.name | link_to: order.customer_url }}</td>
+                      <td>{{ order.created_at | date: format: 'abbreviated_date' }}</td>
+                      <td>{{ order.financial_status_label }}</td>
+                      <td>{{ order.fulfillment_status_label }}</td>
+                      <td class="text-right">{{ order.total_price | money_without_trailing_zeros }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <div class="mt-14 mb-6">
+                {{ paginate | default_pagination }}
+              </div>
+            </div>
+          {% endpaginate %}
         {% else %}
-        <p class="note text-center">You haven't placed any orders yet.</p>
+          <p>You haven't placed any orders yet.</p>
         {% endif %}
       </div>
-
-      <div class="actions text-center">
-        <p><a id="view_address" href="/account/addresses">Manage Addresses</a></p>
-        <p><a href="/account/logout">Logout</a></p>
+      <div class="w-full lg:w-1/4">       
+        {% if is_member == true %}
+          <div class="uk-margin-medium-bottom">
+            <h2 class="uk-margin-bottom account-title">Membership</h2>
+            <p><a class="text-sm underline hover:no-underline" href="/apps/wine-club/account/customers/{{ customer.id }}">Manage your Membership</a></p>
+          </div>
+        {% endif %}
+        <h2 class="account-title">Addresses</h2>
+        <div class="mb-4">
+          {{ customer.default_address | format_address }}
+        </div>
+        <a href="/account/addresses" class="text-sm underline hover:no-underline">
+          View Addresses ({{ customer.addresses_count }})
+        </a>
       </div>
-
     </div>
   </div>
 </div>

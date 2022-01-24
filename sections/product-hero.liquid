@@ -1,0 +1,80 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign is_available = false %}
+{% for variant in product.variants %}
+    {% if variant.inventory_quantity > 0 %}    
+        {% assign is_available = true %}
+    {% endif %}
+{% endfor %}
+
+<section class="product__hero pt-20" data-viewport>
+    <div class="container">
+        <div class="grid grid-cols-2 gap-20">
+            <div>
+                {% for image in product.images %}
+                    <img src="{{ image.src | img_url: '1200x1200', crop: 'center' }}" width="1200" height="1200" alt="{{ image.alt }}" loading="lazy">
+                {% endfor %}
+            </div>
+            <div class="pb-10">
+                {% if product.collections %}
+                    {% for collection in product.collections limit:1 %}
+                        <div class="font-italic text-24 -mb-1">{{ collection.title }} —</div>
+                    {% endfor %}
+                {% endif %}
+                <h1 class="font-matterlight text-24 tracking-[.05em] mb-5">{{ product.title }}</h1>
+                <p class="font-matter text-brown tracking-widest mb-5">{{ product.price | money_without_trailing_zeros }}</p>
+                <div class="border-t border-brown mb-4"></div>
+                {% form 'product', product, id: 'add-to-cart', data-product-handle: product.handle %}
+
+                    <select id="product-select" name="id" style="display:none;">
+                        {% for variant in product.variants %}
+                          {% if variant.available %}
+                            <option value="{{variant.id}}" data-qty="{% if variant.inventory_management != blank %}{{ variant.inventory_quantity }}{% else %}9999{% endif %}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+                          {% else %}
+                            <option value="{{variant.id}}" disabled="disabled" data-qty="{{ variant.inventory_quantity }}"> {{ variant.title }} - sold out!</option>
+                          {% endif %}
+                        {% endfor %}
+                    </select>  
+      
+                    {% unless product.has_only_default_variant %}
+                        {% for option in product.options_with_values %}
+                        {% assign optionindex = forloop.index0 %}
+                          {% if option.name contains 'Color' %}
+                            <div class="swatch__group-wrap mb-6"{% unless is_available %} style="pointer-events:none;"{% endunless %} data-option="{{ optionindex }}">
+                              <div class="swatch__group mr-6 md:mr-0 md:mb-6{% unless is_available %} disabled{% endunless %}">
+                                <div class="flex items-end mb-2">
+                                  <div class="swatch__label caps">Color: {% if optionindex == 0 %}{{ current_variant.title | split: ' / ' | first }}{% else %}{{ current_variant.title | split: ' / ' | last }}{% endif %}</div>
+                                </div>
+                                <div class="flex items-center">
+                                  {% for value in option.values %}
+                                    {% for tag in product.tags %}
+                                      {% if tag contains value %}
+                                       {% assign swatch_color = tag | split: ': ' | last %}
+                                      {% endif %}
+                                    {% endfor %}                             
+                                    <div class="swatch__wrap relative mr-3{% if current_variant.title contains value %} active{% endif %}"><input type="radio" id="{{ value | handleize }}" name="Color" value="{{ value }}" data-title="{{ value }}" class="swatch__radio {{ value | handleize }} absolute left-0 -top-[3px] h-full w-full opacity-0" data-qty-{{ variant.option1 | handleize }}="{{ variant.inventory_quantity }}" data-option="{{ optionindex }}"{% if current_variant.title contains value %} checked{% endif %}><span class="swatch {{ value | handleize }} inline-block rounded-full w-[18px] h-[18px]" style="background-color: {{ swatch_color }};"></span></div>
+                                  {% endfor %}
+                                </div>
+                              </div>
+                            </div>                    
+                          {% endif %}
+                        {% endfor %}
+                      {% endunless %}
+
+                    <div class="text-17 leading-[1.59] space-y-8 mb-10">{{ product.description }}</div>
+                    <div class="mb-10"><a href="#" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Share</a></div>
+
+                    <input type="number" class="" name="quantity" placeholder="1" id="quantity" style="display:none;">
+                    <input type="submit" name="add" id="add" value="Add to Bag" class="button" onclick="window.addCartItem('add-to-cart'); return false;">
+
+                {% endform %}                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Hero",
+    "class": "hero"
+}
+{% endschema %}

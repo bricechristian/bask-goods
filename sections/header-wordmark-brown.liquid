@@ -40,7 +40,7 @@
                     <ul class="flex items-center justify-end space-x-8">
                         <li><a href="/account" class="header__link text-black font-matter text-13 hover:text-orange">Account</a></li>
                         <li><a href="#" class="header-search-link header__link text-black font-matter text-13 hover:text-orange">Search</a></li>
-                        <li><a href="#" class="bag-count header__link text-black font-matter text-13 hover:text-orange">0</a></li>
+                        <li><a href="#" class="bag-count header__link text-black font-matter text-13 hover:text-orange" onclick="window.showCart(); return false;">{{ cart.item_count }}</a></li>
                     </ul>            
                 </div>
             </div>
@@ -95,7 +95,7 @@
                         {% endfor %}
                         <li class="md_min:hidden mt-2"><a href="/account" class="header__link text-black font-matter text-13">Account</a></li>
                         <li class="md_min:hidden mt-3"><a href="#" class="header-search-link header__link text-black font-matter text-13">Search</a></li>                        
-                        <li class="md_min:hidden mt-5"><a href="#" class="bag-count header__link text-black font-matter text-13 hover:text-orange">0</a></li>
+                        <li class="md_min:hidden mt-5"><a href="#" class="bag-count header__link text-black font-matter text-13 hover:text-orange" onclick="window.showCart(); return false;">{{ cart.item_count }}</a></li>
                     </ul>
                 </div>
             </div>

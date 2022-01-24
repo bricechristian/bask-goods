@@ -1,182 +1,337 @@
-<div class="account">
-  <div class="container">
-    <div class="inner">
+{% section 'header-wordmark-brown' %}
 
-      <h1 class="text-center">Manage Addresses</h1>
-
-      <div id="add_address" class="customer_address edit_address" style="display:none;">
-        <div class="form">
-          {% form 'customer_address', customer.new_address %}
-          <div class="form customer_address_table">
-            <div class="field">
-              <label>First Name</label>
-              <input type="text" id="address_first_name_new" name="address[first_name]" value="{{form.first_name}}" size="40" />
+<div class="hero account px-7 md:px-10 mt-12 mb-36">
+  <div class="max-w-7xl mx-auto">
+    <a href="/account/" class="uppercase hover:underline">
+      <small>Back to Account</small>
+    </a>
+    <h1 class="h3 mt-5">My Addresses</h1>
+    <div data-address class="w-full md:w-1/2 lg:w-1/3">
+      <button type="button" class="button mt-4" data-address-toggle>
+        Add New Address
+      </button>
+      <div data-address-form class="mt-12 hidden">
+        <h2>Add New Address</h2>
+        {% form 'customer_address', customer.new_address %}
+          <div class="mt-3">
+            <input type="text"
+                  name="address[first_name]"
+                  id="AddressFirstNameNew"
+                  value="{{ form.first_name }}"
+                  autocapitalize="words"
+                  placeholder="First Name">
+    
+            <input type="text"
+                  name="address[last_name]"
+                  id="AddressLastNameNew"
+                  value="{{ form.last_name }}"
+                  autocapitalize="words"
+                  placeholder="Last Name">
+    
+            <input type="text"
+                  name="address[company]"
+                  id="AddressCompanyNew"
+                  value="{{ form.company }}"
+                  autocapitalize="words"
+                  placeholder="Company">
+    
+            <input type="text"
+                  name="address[address1]"
+                  id="AddressAddress1New"
+                  value="{{ form.address1 }}"
+                  autocapitalize="words"
+                  placeholder="Address 1">
+    
+            <input type="text"
+                  name="address[address2]"
+                  id="AddressAddress2New"
+                  value="{{ form.address2 }}"
+                  autocapitalize="words"
+                  placeholder="Address 2">
+    
+            <input type="text"
+                  name="address[city]"
+                  id="AddressCityNew"
+                  value="{{ form.city }}"
+                  autocapitalize="words"
+                  placeholder="City">
+    
+            <label for="AddressCountryNew" class="inline-block mt-4">
+              Country
+            </label>
+            <select data-address-country
+              name="address[country]"
+              id="AddressCountryNew"
+              data-default="{{ form.country }}">
+            </select>
+    
+            <div data-address-province-wrapper class="hidden">
+              <label for="AddressProvinceNew" class="inline-block mt-4">
+                Province
+              </label>
+              <select data-address-province
+                name="address[province]"
+                id="AddressProvinceNew"
+                data-default="{{ form.province }}">
+              </select>
             </div>
-            <div class="field">
-              <label>Last Name</label>
-              <input type="text" id="address_last_name_new" name="address[last_name]" value="{{form.last_name}}" size="40" />
+    
+            <input type="text"
+                  name="address[zip]"
+                  id="AddressZipNew"
+                  value="{{ form.zip }}"
+                  autocapitalize="characters"
+                  placeholder="Zip">
+    
+            <input type="tel"
+                  name="address[phone]"
+                  id="AddressPhoneNew"
+                  value="{{ form.phone }}"
+                  pattern="[0-9\-]*"
+                  placeholder="Phone">
+          </div>
+          <div class="mt-6">
+            {{ form.set_as_default_checkbox }}
+            <label for="address_default_address_new" class="mt-0 ml-1">
+              Set as default address
+            </label>
+          </div>
+          <div class="mt-8">
+            <button type="submit" class="button mr-1">Add</button>
+            <button type="button" class="button" data-address-toggle>Cancel</button>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-6">
+      {% for address in customer.addresses %}
+        {% if address == customer.default_address %}
+          <div data-address class="w-full mt-14 md:w-1/2 lg:w-1/3 px-6">
+            <h2 class="account-title">Default Address</h2>
+            {{ address | format_address }}
+            <div class="mt-6">
+              <button type="button" class="button float-left mr-2" data-address-toggle>Edit</button>
+              <form data-address-delete-form method="post" action="/account/addresses/{{ address.id }}">
+                <input type="hidden" name="_method" value="delete"/>
+                <button class="button">Delete</button>
+              </form>
             </div>
-            <div class="field">
-              <label>Company</label>
-              <input type="text" id="address_company_new" name="address[company]" value="{{form.company}}" size="40" />
-            </div>
-            <div class="field">
-              <label>Address Line 1</label>
-              <input type="text" id="address_address1_new" name="address[address1]" value="{{form.address1}}" size="40" />
-            </div>
-            <div class="field">
-              <label>Address Line 2</label>
-              <input type="text" id="address_address2_new" name="address[address2]" value="{{form.address2}}" size="40" />
-            </div>
-            <div class="field">
-              <label>City</label>
-              <input type="text" id="address_city_new" name="address[city]" value="{{form.city}}" size="40" />
-            </div>
-            <div class="field">
-              <label>Country</label>
-              <div class="select_wrap">
-                <select id="address_country_new" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
-              </div>
-            </div>
-            <div id="address_province_container_new" style="display:none" class="field">
-              <label>State / Province</label>
-              <div class="select_wrap">
-                <select id="address_province_new" name="address[province]" data-default="{{form.province}}"></select>
-              </div>
-            </div>
-            <div class="field">
-              <label>Zip</label>
-              <input type="text" id="address_zip_new" name="address[zip]" value="{{form.zip}}" size="40" />
-            </div>
-            <div class="field">
-              <label>Phone</label>
-              <input type="text" id="address_phone_new" name="address[phone]" value="{{form.phone}}" size="40" />
-            </div>
-            <div class="field">
-              <p class="nomarg">{{ form.set_as_default_checkbox  }} Set as Default Address?</p>
-            </div>
-            <div class="text-center">
-              <input type="submit" value="Add Address" class="button">
+            <div data-address-form class="mt-14 hidden">
+              {% form 'customer_address', address %}
+                <h2>Edit Address</h2>
+                <div class="mt-3">
+                  <input type="text"
+                        name="address[first_name]"
+                        id="AddressFirstName_{{ form.id }}"
+                        value="{{ form.first_name }}"
+                        autocapitalize="words"
+                        placeholder="First Name">
+        
+                  <input type="text"
+                        name="address[last_name]"
+                        id="AddressLastName_{{ form.id }}"
+                        value="{{ form.last_name }}"
+                        autocapitalize="words"
+                        placeholder="Last Name">
+          
+                  <input type="text"
+                        name="address[company]"
+                        id="AddressCompany_{{ form.id }}"
+                        value="{{ form.company }}"
+                        autocapitalize="words"
+                        placeholder="Company">
+          
+                  <input type="text"
+                        name="address[address1]"
+                        id="AddressAddress1_{{ form.id }}"
+                        value="{{ form.address1 }}"
+                        autocapitalize="words"
+                        placeholder="Address 1">
+          
+                  <input type="text"
+                        name="address[address2]"
+                        id="AddressAddress2_{{ form.id }}"
+                        value="{{ form.address2 }}"
+                        autocapitalize="words"
+                        placeholder="Address 2">
+          
+                  <input type="text"
+                        name="address[city]"
+                        id="AddressCity_{{ form.id }}"
+                        value="{{ form.city }}"
+                        autocapitalize="words"
+                        placeholder="City">
+          
+                  <label for="AddressCountry_{{ form.id }}" class="inline-block mt-4">
+                    Country
+                  </label>
+                  <select data-address-country
+                    name="address[country]"
+                    id="AddressCountry_{{ form.id }}"
+                    class="address-country-option"
+                    data-form-id="{{ form.id }}"
+                    data-default="{{ form.country }}">
+                  </select>
+          
+                  <div id="AddressProvinceContainer_{{ form.id }}" data-address-province-wrapper class="hide">
+                    <label for="AddressProvince_{{ form.id }}" class="inline-block mt-4">
+                      Province
+                    </label>
+                    <select data-address-province
+                      name="address[province]"
+                      id="AddressProvince_{{ form.id }}"
+                      data-default="{{ form.province }}">
+                    </select>
+                  </div>
+          
+                  <input type="text"
+                        name="address[zip]"
+                        id="AddressZip_{{ form.id }}"
+                        value="{{ form.zip }}"
+                        autocapitalize="characters"
+                        placeholder="Zip">
+          
+                  <input type="tel"
+                        name="address[phone]"
+                        id="AddressPhone_{{ form.id }}"
+                        value="{{ form.phone }}"
+                        pattern="[0-9\-]*"
+                        placeholder="Phone">
+                </div>
+                <div class="mt-6">
+                  {{ form.set_as_default_checkbox }}
+                  <label for="address_default_address_{{ form.id }}" class="ml-1">
+                    Set as default address
+                  </label>
+                </div>
+                <div class="mt-8">
+                  <button type="submit" class="button mr-1">Update</button>
+                  <button
+                    type="button" class="button"
+                    data-address-toggle data-form-id="{{ form.id }}">
+                    Cancel
+                  </button>
+                </div>
+              {% endform %}
             </div>
           </div>
-          <div class="actions text-center">
-            <p><a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">Cancel</a></p>
-          </div>          
-          {% endform %}
-        </div>
-      </div>
-
-      {% if customer.addresses.size > 0 %}
-      
-        <div id="address_tables">
-
-          {% for address in customer.addresses %}
-          
-          <div class="address_table">
-            <div id="view_address_{{address.id}}" class="customer_address">
-              
-              <p>
-                <span>{{ address.street }}</span><br />
-                {% if address == customer.default_address %}<span class="default_address note">(Default)</span><br />{% endif %}
-                <span class="action_link action_edit">{{ "Edit" | edit_customer_address_link: address.id }}</span>
-                <span class="action_link action_delete">{{ "Delete" | delete_customer_address_link: address.id }}</span>
-              </p>
-              <div class="view_address">
-                <p>{{ address.first_name }} {{address.last_name }}</p>
-                <p>{{ address.company }}</p>
-                <p>{{ address.street }}</p>
-                <p>{{ address.city }} {% if address.province_code %}, {{ address.province_code }}{% endif %}</p>
-                <p>{{ address.country }} {{ address.zip }}</p>
-                <p>{{ address.phone }}</p>
-              </div>
-              
+        {% endif %}
+      {% endfor %}
+      {% assign count = 1 %}
+      {% for address in customer.addresses %}
+        {% if address != customer.default_address %}
+          {% assign count = count | plus: 1 %}
+          <div data-address class="w-full mt-14 md:w-1/2 lg:w-1/3 px-6">
+            <h2 class="account-title">Address ({{ count }})</h2>
+            {{ address | format_address }}
+            <div class="mt-6">
+              <button type="button" class="button float-left mr-2" data-address-toggle>Edit</button>
+              <form data-address-delete-form method="post" action="/account/addresses/{{ address.id }}">
+                <input type="hidden" name="_method" value="delete"/>
+                <button class="button">Delete</button>
+              </form>
             </div>
-            
-            <div id="edit_address_{{address.id}}" class="customer_address edit_address" style="display:none;">
-              
+            <div data-address-form class="mt-14 hidden">
               {% form 'customer_address', address %}
-              
-                <div class="form customer_address_table">
-                  <div class="field">
-                    <label>First Name</label>
-                    <input type="text" id="address_first_name_{{form.id}}" name="address[first_name]" value="{{form.first_name}}" size="40" />
-                  </div>
-                  <div class="field">
-                    <label>Last Name</label>
-                    <input type="text" id="address_last_name_{{form.id}}" name="address[last_name]" value="{{form.last_name}}" size="40" />
-                  </div>
-                  <div class="field">
-                    <label>Company</label>
-                    <input type="text" id="address_company_{{form.id}}" name="address[company]" value="{{form.company}}" size="40" />
-                  </div>
-                  <div class="field">
-                    <label>Address Line 1</label>
-                    <input type="text" id="address_address1_{{form.id}}" name="address[address1]" value="{{form.address1}}" size="40" />
-                  </div>
-                  <div class="field">
-                    <label>Address Line 2</label>
-                    <input type="text" id="address_address2_{{form.id}}" name="address[address2]" value="{{form.address2}}" size="40"  />
-                  </div>
-                  <div class="field">
-                    <label>City</label>
-                    <input type="text" id="address_city_{{form.id}}" name="address[city]" value="{{form.city}}" size="40" />
-                  </div>
-                  <div class="field">
-                    <label>Country</label>
-                    <div class="select_wrap">
-                      <select id="address_country_{{form.id}}" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
-                    </div>
-                  </div>
-                  <div id="address_province_container_{{form.id}}" style="display:none" class="field">
-                    <label>Province</label>
-                    <div class="select_wrap">
-                      <select id="address_province_{{form.id}}" name="address[province]" data-default="{{form.province}}"></select>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <label>Zip</label>
-                    <input type="text" id="address_zip_{{form.id}}" name="address[zip]" value="{{form.zip}}" size="40" />
-                  </div>
-                  <div class="field">
-                    <label>Phone</label>
-                    <input type="text" id="address_phone_{{form.id}}" name="address[phone]" value="{{form.phone}}" size="40" />
-                  </div>
-                  <div class="field">
-                    <p class="nomarg">{{ form.set_as_default_checkbox }} Set as Default Address?</p>
-                  </div>
-                  <div class="text-center">
-                    <input type="submit" value="Update Address" class="button">
-                  </div>
-                  <div class="actions text-center">
-                    <p><a href="#" onclick="Shopify.CustomerAddress.toggleForm({{form.id}}); return false;">Cancel</a></p>
-                  </div>
-                </div>
-              
-              {% endform %}
-              
-            </div>
-          </div><!-- end .address_table -->
+                <h2>Edit Address</h2>
+                <div class="mt-3">
+                  <input type="text"
+                        name="address[first_name]"
+                        id="AddressFirstName_{{ form.id }}"
+                        value="{{ form.first_name }}"
+                        autocapitalize="words"
+                        placeholder="First Name">
+        
+                  <input type="text"
+                        name="address[last_name]"
+                        id="AddressLastName_{{ form.id }}"
+                        value="{{ form.last_name }}"
+                        autocapitalize="words"
+                        placeholder="Last Name">
           
-          {% endfor %}
-
-        </div><!-- end #address_tables -->
-      
-      {% endif %}
-
-      <div class="actions text-center">
-        <p>
-          <a href="/account">Return To Account</a> <span class="divider">|</span> <a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">Add New Address</a>
-        </p>
-      </div>
-
+                  <input type="text"
+                        name="address[company]"
+                        id="AddressCompany_{{ form.id }}"
+                        value="{{ form.company }}"
+                        autocapitalize="words"
+                        placeholder="Company">
+          
+                  <input type="text"
+                        name="address[address1]"
+                        id="AddressAddress1_{{ form.id }}"
+                        value="{{ form.address1 }}"
+                        autocapitalize="words"
+                        placeholder="Address 1">
+          
+                  <input type="text"
+                        name="address[address2]"
+                        id="AddressAddress2_{{ form.id }}"
+                        value="{{ form.address2 }}"
+                        autocapitalize="words"
+                        placeholder="Address 2">
+          
+                  <input type="text"
+                        name="address[city]"
+                        id="AddressCity_{{ form.id }}"
+                        value="{{ form.city }}"
+                        autocapitalize="words"
+                        placeholder="City">
+          
+                  <label for="AddressCountry_{{ form.id }}" class="inline-block mt-4">
+                    Country
+                  </label>
+                  <select data-address-country
+                    name="address[country]"
+                    id="AddressCountry_{{ form.id }}"
+                    class="address-country-option"
+                    data-form-id="{{ form.id }}"
+                    data-default="{{ form.country }}">
+                  </select>
+          
+                  <div id="AddressProvinceContainer_{{ form.id }}" data-address-province-wrapper class="hide">
+                    <label for="AddressProvince_{{ form.id }}" class="inline-block mt-4">
+                      Province
+                    </label>
+                    <select data-address-province
+                      name="address[province]"
+                      id="AddressProvince_{{ form.id }}"
+                      data-default="{{ form.province }}">
+                    </select>
+                  </div>
+          
+                  <input type="text"
+                        name="address[zip]"
+                        id="AddressZip_{{ form.id }}"
+                        value="{{ form.zip }}"
+                        autocapitalize="characters"
+                        placeholder="Zip">
+          
+                  <input type="tel"
+                        name="address[phone]"
+                        id="AddressPhone_{{ form.id }}"
+                        value="{{ form.phone }}"
+                        pattern="[0-9\-]*"
+                        placeholder="Phone">
+                </div>
+                <div class="mt-6">
+                  {{ form.set_as_default_checkbox }}
+                  <label for="address_default_address_{{ form.id }}" class="ml-1">
+                    Set as default address
+                  </label>
+                </div>
+                <div class="mt-8">
+                  <button type="submit" class="button mr-1">Update</button>
+                  <button
+                    type="button" class="button"
+                    data-address-toggle data-form-id="{{ form.id }}">
+                    Cancel
+                  </button>
+                </div>
+              {% endform %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-  // initialize observers on address selectors
-  new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address_province_container_new'});  
-  {% for address in customer.addresses %}
-    new Shopify.CountryProvinceSelector('address_country_{{address.id}}', 'address_province_{{address.id}}', {hideElement: 'address_province_container_{{address.id}}'});
-  {% endfor %}
-</script>

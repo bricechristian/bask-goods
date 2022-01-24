@@ -1,5 +1,6 @@
 import Headspace from "headspace";
 
+const $headerWrap = document.querySelector('.header-wrap')
 const $header = document.querySelector('header')
 const $nav = document.querySelector('nav')
 const $hamburger = document.getElementById('hamburger');
@@ -43,7 +44,8 @@ const openDropdown = (a, b) => {
         }, 75);
     }
     setTimeout(() => {
-        $header.style.height = headerHeight + b.offsetHeight + "px";
+        $headerWrap.style.height = headerHeight + b.offsetHeight + 2 + "px";
+        $header.style.height = headerHeight + b.offsetHeight + 2 + "px";
         $headerOverlay.classList.add("active");
         $header.classList.add("dropdown-open");
     }, 50);
@@ -59,7 +61,14 @@ const closeDropdown = (a, b) => {
         }, 25);
     }
     setTimeout(() => {
-        $header.style.height = headerHeight + "px";
+        if(document.querySelector(".announcement-bar") !== null){
+            const announcementBarHeight = document.querySelector(".announcement-bar").offsetHeight
+            $headerWrap.style.height = headerHeight + announcementBarHeight + 2 + "px";
+            $header.style.height = headerHeight + announcementBarHeight + 2 + "px";
+        } else {
+            $headerWrap.style.height = headerHeight + "px";
+            $header.style.height = headerHeight + "px";
+        }
         $headerOverlay.classList.remove("active");
         $header.classList.remove("dropdown-open");
     }, 50);
@@ -98,8 +107,10 @@ $headerMainLinks.forEach($link => {
         
         setTimeout(() => {
             if($header.classList.contains("header__wordmark") || $header.classList.contains("header__wordmark-brown")){
+                $headerWrap.style.height = "160px";
                 $header.style.height = "160px";
             } else {
+                $headerWrap.style.height = "135px";
                 $header.style.height = "135px";
             }
             $headerOverlay.classList.add("active");
@@ -122,6 +133,7 @@ $headerMenuLinks.forEach($link => {
         });
         if (!$link.classList.contains("has-submenu")) {
             if ($headerSubMenus !== null) {
+                $headerWrap.style.height = headerHeight + $headerMenu.offsetHeight + "px";
                 $header.style.height = headerHeight + $headerMenu.offsetHeight + "px";
                 $headerSubMenus.forEach($submenu => {
                     $submenu.classList.remove("active")
@@ -146,10 +158,12 @@ if ($headerLinksWithSubmenu !== null) {
             if (!$subMenu.classList.contains("active")) {
                 setTimeout(() => {
                     $headerTopMenu.style.height = subMenuHeight + "px";
+                    $headerWrap.style.height = currentHeaderHeight + subMenuHeight + "px";
                     $header.style.height = currentHeaderHeight + subMenuHeight + "px";
                 }, 100);
             } else {
                 setTimeout(() => {
+                    $headerWrap.style.height = currentHeaderHeight + "px";
                     $header.style.height = currentHeaderHeight + "px";
                 }, 100);
             }
@@ -206,6 +220,9 @@ const openMenu = () => {
     $hamburger.classList.remove("active")
     openDropdown($hamburgerClose, $headerMenu)
     document.querySelector("html").style.overflow = "hidden";
+    document.querySelector("body").style.overflow = "hidden";
+    document.querySelector("body").style.position = "relative";
+    document.querySelector(".header-wrap").style.position = "fixed";
     if ($shopLink !== null) {
         $shopLink.classList.remove("active")
     }
@@ -229,6 +246,9 @@ const closeMenu = () => {
     }
     closeDropdown($hamburgerClose, $headerMenu)
     document.querySelector("html").style.overflow = "initial";
+    document.querySelector("body").style.overflow = "initial";
+    document.querySelector("body").style.position = "static";
+    document.querySelector(".header-wrap").style.position = "absolute";
 }
 $hamburger.addEventListener("click", openMenu)
 $hamburgerClose.addEventListener("click", () => {
@@ -260,13 +280,13 @@ resizeWindow()
 window.addEventListener("resize", resizeWindow, true)
 
 // SCROLLING HEADER
-Headspace($header, { // can use factory method instead of `new`
-    startOffset: headerHeight,                            // default: height of element
-    tolerance: 15,                               // default: 8
-    showAtBottom: false,                        // default: true
+Headspace($header, {
+    startOffset: headerHeight,
+    tolerance: 15,
+    showAtBottom: false,
     classNames: {
-      base: 'absolute',                           // default: 'headspace'
-      fixed: 'swiped-down',                   // default: 'headspace--fixed'
-      hidden: 'swiped-up'                  // default: 'headspace--hidden'
+      base: 'absolute',
+      fixed: 'swiped-down',
+      hidden: 'swiped-up'  
     }
   })

@@ -1,7 +1,7 @@
-<section class="home__bestsellers relative bg-cream pt-10 pb-24 md:overflow-hidden md:pt-6 md:pb-8" data-viewport>
+<section class="home__bestsellers collection relative bg-cream pt-10 pb-24 md:overflow-hidden md:pt-6 md:pb-8">
     <div class="container">
         {% if section.settings.title != blank %}
-            <h2 class="font-matter text-18 mb-10 text-brown md:mb-8 fade-in">{{ section.settings.title }}</h2>
+            <h2 class="font-matter text-18 mb-10 text-brown md:mb-8 fade-in" data-viewport="-60">{{ section.settings.title }}</h2>
         {% endif %}
         <div class="grid grid-cols-3 gap-10 md:gap-5 md:-ml-5 md:-mr-5 md:px-5 md:flex md:flex-nowrap md:overflow-scroll">
             {% for block in section.blocks %}
@@ -10,7 +10,7 @@
                 {% if block.settings.category != blank %}
                     {% assign prod_category = block.settings.category %}
                 {% endif %}
-                <div class="md:min-w-[66vw] fade-in delay-{{ forloop.index | plus: 2 | times: 100 }}">{% render 'product-card', prod: prod, category: prod_category %}</div>
+                <div class="collection__main-item md:min-w-[66vw] fade-in{% unless forloop.first %} delay-{{ forloop.index0 | times: 300 }}{% endunless %}" data-viewport>{% render 'product-card', prod: prod, category: prod_category %}</div>
             {% endfor %}
         </div>
     </div>

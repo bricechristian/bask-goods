@@ -1,0 +1,23 @@
+.cart__drawer {
+
+    @apply bg-cream p-9 w-[620px] absolute top-0 right-0 z-10 h-full;
+
+    &-overlay {
+        @apply fixed top-0 right-0 bottom-0 left-0 bg-brown opacity-70 z-10 transition-smooth;
+    }
+
+    &-items {
+        @apply border-t border-brown py-9;
+    }
+
+    &-wrap {
+        @apply invisible flex justify-end fixed top-0 right-0 bottom-0 left-0 z-[9999999] transition-smooth;
+        &.active {
+
+            @apply visible;
+
+
+        }
+    }
+
+}

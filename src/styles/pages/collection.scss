@@ -1,0 +1,9 @@
+.collection {
+    &__main {
+        &-item {
+            @screen md {
+                transition-delay: 0ms !important;
+            }
+        }
+    }
+}

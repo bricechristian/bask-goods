@@ -10,10 +10,14 @@
 @import "./components/home-quote.scss";
 @import "./components/sustainability-process.scss";
 @import "./components/about-quote.scss";
+@import "./components/swatches.scss";
+@import "./components/cart-drawer.scss";
 
 @import "./pages/faqs.scss";
 @import "./pages/blog.scss";
 @import "./pages/article.scss";
+@import "./pages/collection.scss";
+@import "./pages/product.scss";
 
 @layer base {
     a {
