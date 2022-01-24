@@ -87,9 +87,7 @@
     @apply transition-smooth;
     path {
       @apply transition-smooth;
-      @screen md {
-        fill: theme("colors.black");
-      }
+      fill: theme("colors.cream");
     }
   }
   &__logo-wordmark {
@@ -157,6 +155,11 @@
     &:after {
       opacity: 1;
       visibility: visible;
+    }
+    .header__logo path {
+      @screen md {
+        fill: theme("colors.black");
+      }
     }
   }
   &.dropdown-open {

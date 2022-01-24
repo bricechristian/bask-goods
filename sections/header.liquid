@@ -84,7 +84,7 @@
                                     <span class="header__link toggle-trigger font-matter text-13{% if link.links != blank %} md_min:hidden has-submenu{% endif %} md:text-30 md:font-heading md:normal-case md:tracking-[0em]" data-container="menu-toggle-{{ forloop.index }}">{{ link.title }}</span>
                                     <ul id="menu-toggle-{{ forloop.index }}" class="header__submenu toggle-container md_min:hidden max-h-0">
                                         {% for child_link in link.links %}
-                                            <li><a href="#"class="font-matter text-13">{{ child_link.title }}</a></li>    
+                                            <li><a href="{{ child_link.url }}"class="font-matter text-13">{{ child_link.title }}</a></li>    
                                         {% endfor %}
                                     </ul>                                    
                                 {% endif %}

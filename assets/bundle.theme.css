@@ -679,11 +679,11 @@ body.scrolled-past-hero .full__hero {
 .mt-5{
   margin-top: 1.25rem;
 }
-.mt-8{
-  margin-top: 2rem;
-}
 .mb-4{
   margin-bottom: 1rem;
+}
+.mt-8{
+  margin-top: 2rem;
 }
 .ml-8{
   margin-left: 2rem;
@@ -844,6 +844,9 @@ body.scrolled-past-hero .full__hero {
 .max-w-\[245px\]{
   max-width: 15.3125rem;
 }
+.max-w-\[680px\]{
+  max-width: 42.5rem;
+}
 .max-w-\[71px\]{
   max-width: 4.4375rem;
 }
@@ -858,12 +861,6 @@ body.scrolled-past-hero .full__hero {
 }
 .max-w-\[665px\]{
   max-width: 41.5625rem;
-}
-.max-w-\[620px\]{
-  max-width: 38.75rem;
-}
-.max-w-\[680px\]{
-  max-width: 42.5rem;
 }
 .flex-grow-0{
   flex-grow: 0;
@@ -1004,9 +1001,6 @@ body.scrolled-past-hero .full__hero {
   --tw-space-y-reverse: 0;
   margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(4rem * var(--tw-space-y-reverse));
-}
-.overflow-hidden{
-  overflow: hidden;
 }
 .border{
   border-width: 0.0625rem;
@@ -1249,6 +1243,9 @@ body.scrolled-past-hero .full__hero {
 .text-13{
   font-size: 0.8125rem;
 }
+.text-\[50px\]{
+  font-size: 3.125rem;
+}
 .text-12{
   font-size: 0.75rem;
 }
@@ -1263,9 +1260,6 @@ body.scrolled-past-hero .full__hero {
 }
 .text-\[100px\]{
   font-size: 6.25rem;
-}
-.text-\[50px\]{
-  font-size: 3.125rem;
 }
 .capitalize{
   text-transform: capitalize;
@@ -1641,12 +1635,8 @@ https://flickity.metafizzy.co
   }
 .header__logo path, .header__logo-wordmark path {
     transition: 0.3s;
+  fill: #FBF1DC;
   }
-@media (max-width: 767px) {
-  .header__logo path, .header__logo-wordmark path {
-    fill: #000000;
-  }
-}
 @media (min-width: 768px) {
   .header__logo-wordmark + .header__logo{
     visibility: hidden;
@@ -1729,6 +1719,11 @@ https://flickity.metafizzy.co
 .header.active:after {
   opacity: 1;
   visibility: visible;
+}
+@media (max-width: 767px) {
+  .header.active .header__logo path {
+    fill: #000000;
+  }
 }
 .header.dropdown-open {
   background-color: #FBF1DC !important;

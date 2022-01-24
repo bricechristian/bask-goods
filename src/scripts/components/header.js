@@ -205,6 +205,7 @@ if ($searchLinks !== null && $headerSearch !== null) {
 const openMenu = () => {
     $hamburger.classList.remove("active")
     openDropdown($hamburgerClose, $headerMenu)
+    document.querySelector("html").style.overflow = "hidden";
     if ($shopLink !== null) {
         $shopLink.classList.remove("active")
     }
@@ -227,6 +228,7 @@ const closeMenu = () => {
         });
     }
     closeDropdown($hamburgerClose, $headerMenu)
+    document.querySelector("html").style.overflow = "initial";
 }
 $hamburger.addEventListener("click", openMenu)
 $hamburgerClose.addEventListener("click", () => {
