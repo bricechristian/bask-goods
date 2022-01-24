@@ -35,7 +35,7 @@ if (document.querySelector(".cart__drawer") !== null) {
 			<div class="cart__drawer-item">
 				<div>${cartItem.product_title}</div>
 				<div>${cartItem.variant_title}</div>
-				<a href="#" onclick="window.removeCartItem(${cartItem.variant_id}); return false;" style="cursor:pointer;">REMOVE</a>
+				<a href="#" onclick="window.removeFromCart(${cartItem.variant_id}); return false;" style="cursor:pointer;">REMOVE</a>
 			<\/div>
 		`);
 		selector.prepend(itemHTML);
@@ -59,7 +59,7 @@ if (document.querySelector(".cart__drawer") !== null) {
 		}
 	}
 	//CART ITEM ADD
-	const addCartItem = (form_id) => {
+	const addToCart = (form_id) => {
 		fetch(`/cart/add.js`, {
 			body: JSON.stringify(serializeForm(document.getElementById(form_id))),
 			credentials: 'same-origin',
@@ -76,7 +76,7 @@ if (document.querySelector(".cart__drawer") !== null) {
 		})
 	}
 	//CART ITEM REMOTE
-	const removeCartItem = (id) => {
+	const removeFromCart = (id) => {
 		const removeItemData = `updates[${id}]=0`;
 		fetch(`/cart/update.js?${removeItemData}`, {
 			credentials: 'same-origin',
@@ -93,8 +93,8 @@ if (document.querySelector(".cart__drawer") !== null) {
 		})
 	}
 	window.updateCart = updateCart;
-	window.addCartItem = addCartItem;
-	window.removeCartItem = removeCartItem;
+	window.addToCart = addToCart;
+	window.removeFromCart = removeFromCart;
 	window.showCart = showCart;
 	window.closeCart = closeCart;
 }
