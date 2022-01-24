@@ -1,10 +1,14 @@
 {
   "sections": {
     "header": {
-      "type": "header-wordmark-brown"
+      "type": "header-wordmark-brown",
+      "settings": {
+      }
     },
     "hero": {
-      "type": "product-hero"
+      "type": "product-hero",
+      "settings": {
+      }
     }
   },
   "order": [

@@ -1,19 +1,22 @@
 {
   "sections": {
     "header": {
-      "type": "header-wordmark"
+      "type": "header-wordmark",
+      "settings": {
+      }
     },
     "hero": {
-      "type": "collection-hero"
+      "type": "collection-hero",
+      "settings": {
+      }
     },
     "main": {
-      "type": "collection-main"
+      "type": "collection-main",
+      "settings": {
+      }
     },
     "bestsellers": {
       "type": "home-bestsellers",
-      "settings": {
-        "title": "Shop Our Goods"
-      },
       "blocks": {
         "37b6fc3d-d266-4cf0-b933-f040499f8094": {
           "type": "product",
@@ -43,9 +46,9 @@
         "66495402-fcfe-41dc-8395-f97eef942236"
       ],
       "settings": {
-        "title": "Best Sellers"
+        "title": "Shop All Goods"
       }
-    }    
+    }
   },
   "order": [
     "header",
