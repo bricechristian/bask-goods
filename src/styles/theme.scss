@@ -11,6 +11,7 @@
 @import "./components/sustainability-process.scss";
 @import "./components/about-quote.scss";
 @import "./components/swatches.scss";
+@import "./components/sizes.scss";
 @import "./components/cart-drawer.scss";
 
 @import "./pages/faqs.scss";
@@ -44,6 +45,9 @@
     }
     .button {
       @apply rounded-none appearance-none outline-none bg-orange text-cream border border-orange font-matterlight text-13 tracking-widest w-full p-3 min-h-[48px] cursor-pointer transition-smooth hover:bg-cream hover:text-orange md:text-16; 
+      &__outline {
+        @apply rounded-none appearance-none outline-none bg-cream text-orange border border-orange font-matterlight text-13 tracking-widest w-full p-3 min-h-[48px] cursor-pointer transition-smooth hover:bg-orange hover:text-cream md:text-16; 
+      }
     }
 }
 

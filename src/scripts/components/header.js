@@ -1,4 +1,5 @@
 import Headspace from "headspace";
+import disableScroll from 'disable-scroll';
 
 const $headerWrap = document.querySelector('.header-wrap')
 const $header = document.querySelector('header')
@@ -219,10 +220,6 @@ if ($searchLinks !== null && $headerSearch !== null) {
 const openMenu = () => {
     $hamburger.classList.remove("active")
     openDropdown($hamburgerClose, $headerMenu)
-    document.querySelector("html").style.overflow = "hidden";
-    document.querySelector("body").style.overflow = "hidden";
-    document.querySelector("body").style.position = "relative";
-    document.querySelector(".header-wrap").style.position = "fixed";
     if ($shopLink !== null) {
         $shopLink.classList.remove("active")
     }
@@ -244,23 +241,32 @@ const closeMenu = () => {
             $submenu.classList.remove("active")
         });
     }
+    document.querySelectorAll(".header__link.toggle-trigger").forEach($link => {
+        setTimeout(() => {
+            if($link.classList.contains("active")){
+                $link.classList.remove("active")
+            }
+        }, 150);
+    })
     closeDropdown($hamburgerClose, $headerMenu)
-    document.querySelector("html").style.overflow = "initial";
-    document.querySelector("body").style.overflow = "initial";
-    document.querySelector("body").style.position = "static";
-    document.querySelector(".header-wrap").style.position = "absolute";
+
 }
-$hamburger.addEventListener("click", openMenu)
+$hamburger.addEventListener("click", () => {
+    openMenu();
+    disableScroll.on();
+})
 $hamburgerClose.addEventListener("click", () => {
     $searchLinks.forEach($searchLink => {
         closeDropdown($searchLink, $headerSearch)
     });    
     closeMenu()
+    disableScroll.off()
 })
 $header.addEventListener("mouseleave", closeMenu)
 $headerOverlay.addEventListener("mouseenter", closeMenu)
 
 const resizeWindow = () => {
+    disableScroll.off()
     headerHeight = $headerMain.offsetHeight;
     document.querySelectorAll('.header__menu .toggle-trigger').forEach($trigger => {
         $trigger.classList.remove("active")
@@ -289,4 +295,10 @@ Headspace($header, {
       fixed: 'swiped-down',
       hidden: 'swiped-up'  
     }
-  })
+})
+
+window.addEventListener('scroll', () => {
+    if(window.isMobile()){
+        document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+    }
+});

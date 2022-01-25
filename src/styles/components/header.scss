@@ -1,7 +1,8 @@
 .header {
 
   transform: translateY(0);
-
+  @apply transition-smooth;
+  
   &-wrap {
     overflow: hidden;
     position: absolute;
@@ -10,8 +11,9 @@
     z-index: 999999;
     width: 100%;
     height: 162px;
+    transition: height .3s;
     @screen md {
-      height: 100%;
+      // height: 100%;
       // position: fixed;
     }
   }
@@ -194,6 +196,9 @@
         height: 1px;
         background-color: theme("colors.black");
       }
+      .header__menu-top {
+        transform: translateX(0); 
+      }      
       // .container-full {
       //   @apply border-b border-black;
       // }
@@ -240,6 +245,7 @@
   &__menu-top {
     @screen md {
       height: auto !important;
+      transform: translateX(-100%);
     }
   }
   &__submenu {

@@ -10,7 +10,6 @@ if (document.querySelector('.product__hero') !== null) {
     let prodJSON;
 
     fetch(`/products/${prodHandle}.json`, {
-        credentials: 'same-origin',
         headers: {
             'Content-Type': 'application/json',
             'X-Requested-With': 'xmlhttprequest'
@@ -27,6 +26,8 @@ if (document.querySelector('.product__hero') !== null) {
             if (variant) {
 
                 const $selector = document.getElementById("product-select");
+                const $addToCartButton = document.getElementById("add");
+                const $buyNowButton = document.getElementById("buy-now");
                 selectedVariant = variant.id;
                 selectedVariantQty = parseInt($selector.querySelector(`option[value="${selectedVariant}"]`).getAttribute('data-qty'));
 
@@ -35,9 +36,18 @@ if (document.querySelector('.product__hero') !== null) {
 
                 if (variant.available || selectedVariantQty > 0) {
                     // Selected a valid variant that is available.
+                    $addToCartButton.disabled = null;
+                    $buyNowButton.disabled = null;
+                    $addToCartButton.textContent = "Add to Cart";                 
+                    $buyNowButton.value = "Buy it Now";                        
+                    $buyNowButton.setAttribute("href", `${window.shopUrl}/cart/${selectedVariant}:1`)
                     // $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Bag').fadeTo(200, 1);
                 } else {
                     // Variant is sold out
+                    $addToCartButton.disabled = true;
+                    $buyNowButton.disabled = true;
+                    $addToCartButton.textContent = "Out of Stock";                 
+                    $buyNowButton.value = "Out of Stock";                 
                     // $('#add').val('Out of Stock').addClass('disabled').attr('disabled', 'disabled').fadeTo(200, 0.5);
                 }
 
@@ -51,6 +61,9 @@ if (document.querySelector('.product__hero') !== null) {
 
             } else {
                 // variant doesn't exist.
+                $addToCartButton.disabled = true;
+                $buyNowButton.disabled = true;  
+                $addToCartButton.textContent = "Out of Stock";    
                 // $('#add').val('Out of Stock').addClass('disabled').attr('disabled', 'disabled').fadeTo(200, 0.5);
             }
 
@@ -62,6 +75,7 @@ if (document.querySelector('.product__hero') !== null) {
             enableHistoryState: true
         });
 
+        //SWATCH BUTTONS
         if(document.querySelectorAll(".swatch__group-wrap") !== null){
             const $swatchGroups = document.querySelectorAll(".swatch__group-wrap");
             $swatchGroups.forEach($group => {
@@ -70,6 +84,7 @@ if (document.querySelector('.product__hero') !== null) {
                 const groupOption = $group.getAttribute("data-option");
                 const $swatchSelector = document.getElementById(`product-select-option-${groupOption}`);
                 $swatchSelector.style.display = "none";
+                $swatchSelector.previousSibling.style.display = "none";
                 const removeSwatchActiveClasses = () => {
                     $swatchWraps.forEach($wrap => {
                         if($wrap.classList.contains("active")){
@@ -86,6 +101,35 @@ if (document.querySelector('.product__hero') !== null) {
                         $swatchSelector.value = swatchVal;
                         $label.textContent = `Color: ${swatchVal}`
                         triggerEvent($swatchSelector, "change")
+                    })
+                });
+            });
+        }
+
+        //SIZE BUTTONS
+        if(document.querySelectorAll(".size__group-wrap") !== null){
+            const $sizeGroups = document.querySelectorAll(".size__group-wrap");
+            $sizeGroups.forEach($group => {
+                const $sizes = $group.querySelectorAll(".size__radio");
+                const $sizeButtons = $group.querySelectorAll(".size__button");
+                const sizeGroupOption = $group.getAttribute("data-option");
+                const $sizeSelector = document.getElementById(`product-select-option-${sizeGroupOption}`);
+                $sizeSelector.style.display = "none";
+                $sizeSelector.previousSibling.style.display = "none";
+                const removeSizeActiveClasses = () => {
+                    $sizeButtons.forEach($button => {
+                        if($button.classList.contains("active")){
+                            $button.classList.remove("active")
+                        }
+                    });
+                }
+                $sizes.forEach($size => {
+                    $size.addEventListener("click", (event) => {
+                        removeSizeActiveClasses();
+                        $size.parentNode.classList.add("active");
+                        const sizeVal = $size.value;
+                        $sizeSelector.value = sizeVal;
+                        triggerEvent($sizeSelector, "change")
                     })
                 });
             });

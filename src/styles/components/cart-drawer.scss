@@ -1,6 +1,6 @@
 .cart__drawer {
 
-    @apply bg-cream p-9 w-[620px] absolute top-0 right-0 z-10 h-full;
+    @apply bg-cream p-9 w-[620px] absolute top-0 right-0 z-10 h-full md:w-full;
 
     &-overlay {
         @apply fixed top-0 right-0 bottom-0 left-0 bg-brown opacity-70 z-10 transition-smooth;
@@ -9,6 +9,21 @@
     &-items {
         @apply border-t border-brown py-9;
     }
+
+    &-item {
+        @apply grid grid-cols-3 gap-10 md:gap-5;
+
+        &-image {
+            img {
+                @apply aspect-square;
+            }
+        }
+
+        &-content {
+            @apply col-span-2 flex flex-col;
+        }
+    }
+    
 
     &-wrap {
         @apply invisible flex justify-end fixed top-0 right-0 bottom-0 left-0 z-[9999999] transition-smooth;

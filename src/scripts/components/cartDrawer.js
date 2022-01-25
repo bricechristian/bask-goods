@@ -6,9 +6,8 @@ if (document.querySelector(".cart__drawer") !== null) {
 	const $cartItems = document.querySelector(".cart__drawer-items");
 	const $bag = document.querySelector(".bag-count");
 	//UPDATE CART
-	const updateCart = () => {
+	const refreshCart = () => {
 		fetch(`/cart.js`, {
-			credentials: 'same-origin',
 			headers: {
 				'Content-Type': 'application/json',
 				'X-Requested-With': 'xmlhttprequest'
@@ -26,6 +25,7 @@ if (document.querySelector(".cart__drawer") !== null) {
 				$bag.textContent = cart.item_count;
 			} else {
 				$bag.textContent = "0";
+				$cartItems.innerHTML = "<div class='font-italic text-24'>Your cart is empty</div>";
 			}
 		})
 	}
@@ -33,9 +33,19 @@ if (document.querySelector(".cart__drawer") !== null) {
 	const buildItem = (cartItem, selector) => {
 		let itemHTML = document.createRange().createContextualFragment(`
 			<div class="cart__drawer-item">
-				<div>${cartItem.product_title}</div>
-				<div>${cartItem.variant_title}</div>
-				<a href="#" onclick="window.removeFromCart(${cartItem.variant_id}); return false;" style="cursor:pointer;">REMOVE</a>
+				<div class="cart__drawer-item-image">
+					<img src="${cartItem.featured_image.url}" alt="${cartItem.featured_image.alt}" />
+				</div>
+				<div class="cart__drawer-item-content">
+					<div class="flex-grow">
+						<div class="font-heading text-24 md:text-20">${cartItem.product_title}</div>
+						<div class="font-matterlight text-24 md:text-20">${cartItem.variant_title}</div>
+						<div class="font-matterlight text-18 tracking-widest text-brown md:text-16">${Shopify.formatMoney(cartItem.price).replace('.00', '')}</div>
+					</div>
+					<div class="flex items-center">
+						<a href="#" class="font-matterlight text-13 tracking-[.081em] opacity-30" onclick="window.removeFromCart(${cartItem.variant_id}); return false;" style="cursor:pointer;">REMOVE</a>
+					</div>
+				</div>
 			<\/div>
 		`);
 		selector.prepend(itemHTML);
@@ -62,7 +72,6 @@ if (document.querySelector(".cart__drawer") !== null) {
 	const addToCart = (form_id) => {
 		fetch(`/cart/add.js`, {
 			body: JSON.stringify(serializeForm(document.getElementById(form_id))),
-			credentials: 'same-origin',
 			headers: {
 				'Content-Type': 'application/json',
 				'X-Requested-With': 'xmlhttprequest'
@@ -71,7 +80,7 @@ if (document.querySelector(".cart__drawer") !== null) {
 		}).then(response => {
 			return response.json();
 		}).then(() => {
-			updateCart()
+			refreshCart()
 			showCart()
 		})
 	}
@@ -79,7 +88,6 @@ if (document.querySelector(".cart__drawer") !== null) {
 	const removeFromCart = (id) => {
 		const removeItemData = `updates[${id}]=0`;
 		fetch(`/cart/update.js?${removeItemData}`, {
-			credentials: 'same-origin',
 			headers: {
 				'Content-Type': 'application/json',
 				'X-Requested-With': 'xmlhttprequest'
@@ -88,15 +96,15 @@ if (document.querySelector(".cart__drawer") !== null) {
 		}).then(response => {
 			return response.json();
 		}).then(() => {
-			updateCart()
+			refreshCart()
 			showCart()
 		})
 	}
-	window.updateCart = updateCart;
+	window.refreshCart = refreshCart;
 	window.addToCart = addToCart;
 	window.removeFromCart = removeFromCart;
 	window.showCart = showCart;
 	window.closeCart = closeCart;
 }
 
-updateCart()
+refreshCart()

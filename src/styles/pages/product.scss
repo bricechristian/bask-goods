@@ -1,3 +1,30 @@
 .product {
     @apply bg-cream;
+    &__nav-gallery-item {
+        @apply border border-transparent transition-smooth;
+        &.active {
+            @apply border-black;
+        }
+    }
+    .sticky__scroller-wrap,
+    .sticky__scroller {
+        @screen md {
+            position: static !important;
+            height: auto !important;
+            transform: none !important;
+        }
+    } 
+
+    .header {
+        &__logo path {
+            @screen md {
+                fill: theme("colors.black");
+            }
+        }
+        .container-full .border-brown {
+            @screen md {
+                display: none;
+            }
+        }        
+    }
 }

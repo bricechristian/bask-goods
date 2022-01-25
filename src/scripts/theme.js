@@ -2,11 +2,13 @@
 import '../styles/theme.scss';
 
 //JS
-import './components/scrollmagic';
+import './utilities/mobileCheck';
+import './components/scrollMagic';
+import './components/stickyScroller';
 import './components/flickity';
 import './components/accordion';
 import './components/header';
-import './components/product-selector';
-import './components/cart-drawer';
+import './components/productSelector';
+import './components/cartDrawer';
 import './sections/faqs';
-import './sections/articles';
+import './sections/articles'; 

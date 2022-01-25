@@ -7,6 +7,7 @@ ScrollMagicPluginGsap(ScrollMagic, TweenMax);
 const $header = document.querySelector("header");
 const scrollEls = document.querySelectorAll("[data-viewport]");
 const parallaxEls = document.querySelectorAll(".parallax");
+const productHeroImages = document.querySelectorAll(".product__main-gallery img");
 // const $hero = document.querySelector(".full__hero");
 
 let controller = new ScrollMagic.Controller();
@@ -71,4 +72,28 @@ if(parallaxEls !== null){
         .setTween(el, 0.5, { y: shiftY, x: shiftX })
         .addTo(controller)
     });    
+}
+
+if(productHeroImages !== null){
+    productHeroImages.forEach(img => {
+        new ScrollMagic.Scene({
+            triggerElement: img,
+            duration: '125%',
+            offset: 100,
+            triggerHook: 1
+        })
+        .setClassToggle(img, 'active')
+        .addTo(controller)
+        .on('update',function(event){
+            if(img.classList.contains("active")){
+                const id = img.getAttribute("id");
+                document.querySelectorAll(".product__nav-gallery a").forEach(item => {
+                    if(item.classList.contains("active")){
+                        item.classList.remove("active")
+                    }
+                });
+                document.querySelector(`.product__nav-gallery a[href="#${id}"]`).classList.add("active")
+            }
+        });        
+    });
 }
