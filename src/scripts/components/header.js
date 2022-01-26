@@ -254,13 +254,17 @@ const closeMenu = () => {
 $hamburger.addEventListener("click", () => {
     openMenu();
     disableScroll.on();
+    $headerWrap.style.position = "fixed";
+    document.querySelector("body").classList.add("menu-is-open")
 })
 $hamburgerClose.addEventListener("click", () => {
     $searchLinks.forEach($searchLink => {
         closeDropdown($searchLink, $headerSearch)
     });    
     closeMenu()
+    $headerWrap.style.position = "absolute";
     disableScroll.off()
+    document.querySelector("body").classList.remove("menu-is-open")
 })
 $header.addEventListener("mouseleave", closeMenu)
 $headerOverlay.addEventListener("mouseenter", closeMenu)
@@ -296,9 +300,3 @@ Headspace($header, {
       hidden: 'swiped-up'  
     }
 })
-
-window.addEventListener('scroll', () => {
-    if(window.isMobile()){
-        document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
-    }
-});

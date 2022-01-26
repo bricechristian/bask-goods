@@ -4,6 +4,7 @@
 
 @import "~flickity/css/flickity";
 
+@import "./components/dropdown.scss";
 @import "./components/accordion.scss";
 @import "./components/header.scss";
 @import "./components/item-card.scss";
@@ -168,7 +169,7 @@
   //FORM
   .form {
     &__input {
-        @apply text-brown rounded-none appearance-none outline-none bg-transparent border-0 font-matterlight text-18 min-h-[59px] w-full py-2 px-4 md:text-16 md:min-h-[50px]; 
+      @apply text-brown rounded-none appearance-none outline-none bg-transparent border-0 font-matterlight text-18 min-h-[59px] w-full py-2 px-4 md:text-16 md:min-h-[50px]; 
     }
   }
   //RICHTEXT

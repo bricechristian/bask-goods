@@ -2,7 +2,7 @@
 
   transform: translateY(0);
   @apply transition-smooth;
-  
+
   &-wrap {
     overflow: hidden;
     position: absolute;
@@ -282,3 +282,19 @@
     top: 0px;
   }
 }
+
+body.menu-is-open  {
+  overflow: hidden;
+
+  .header-wrap {
+    height: 100% !important;
+  }
+  main {
+    overflow: hidden;
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+    overflow: hidden;
+    /* Other browsers */
+    overscroll-behavior: none;
+  }
+} 

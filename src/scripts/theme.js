@@ -2,6 +2,7 @@
 import '../styles/theme.scss';
 
 //JS
+import './polyfills/closest';
 import './utilities/mobileCheck';
 import './components/scrollMagic';
 import './components/stickyScroller';
@@ -12,3 +13,4 @@ import './components/productSelector';
 import './components/cartDrawer';
 import './sections/faqs';
 import './sections/articles'; 
+import './sections/productRecommendations'; 

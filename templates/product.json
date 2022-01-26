@@ -11,7 +11,7 @@
       }
     },
     "ymal": {
-      "type": "home-bestsellers",
+      "type": "product-ymal",
       "blocks": {
         "37b6fc3d-d266-4cf0-b933-f040499f8094": {
           "type": "product",

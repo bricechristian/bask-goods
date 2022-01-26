@@ -1,4 +1,5 @@
 import { triggerEvent } from "../utilities/triggerEvents";
+import { wrapEl } from "../utilities/wrapEl";
 
 if (document.querySelector('.product__hero') !== null) {
 
@@ -8,6 +9,7 @@ if (document.querySelector('.product__hero') !== null) {
     let selectedVariant;
     let selectedVariantQty;
     let prodJSON;
+    let loaded = false;
 
     fetch(`/products/${prodHandle}.json`, {
         headers: {
@@ -24,6 +26,9 @@ if (document.querySelector('.product__hero') !== null) {
         const selectCallback = function (variant, selector) {
 
             if (variant) {
+
+                // console.log(variant)
+                // console.log(selector)
 
                 const $selector = document.getElementById("product-select");
                 const $addToCartButton = document.getElementById("add");
@@ -66,6 +71,31 @@ if (document.querySelector('.product__hero') !== null) {
                 $addToCartButton.textContent = "Out of Stock";    
                 // $('#add').val('Out of Stock').addClass('disabled').attr('disabled', 'disabled').fadeTo(200, 0.5);
             }
+
+            //DEFAULT SELECTOR
+            if(document.querySelector(".single-option-selector") !== null){
+                if(document.querySelector(".single-option-selector option").value === "Default Title"){
+                    // DEFAULT SELECTOR
+                    const $defaultSelectorOption = document.querySelector(".single-option-selector option[value='Default Title']");
+                    const $defaultSelector = $defaultSelectorOption.closest(".selector-wrapper");
+                    $defaultSelector.style.display = "none"
+                } else {
+                    // OTHER SELECTOR
+                    document.querySelectorAll(".selector-wrapper").forEach($selectorWrap => {
+                        const variantSelectorIndex = $selectorWrap.querySelector("select").getAttribute("id").split("option-")[1]
+                        const variantSelectorLabel = selector.product.options[variantSelectorIndex].name;
+                        if(!loaded && variantSelectorLabel !== "Size" && variantSelectorLabel !== "Color"){
+                            $selectorWrap.classList.add("dropdown__alt")       
+                            let variantSelectorLabelHTML = document.createRange().createContextualFragment(`
+                                <div class="font-matter text-13">Select a ${selector.product.options[variantSelectorIndex].name}:</div>
+                            `);                
+                            $selectorWrap.prepend(variantSelectorLabelHTML)
+                            wrapEl($selectorWrap, document.createElement('div'));
+                        }
+                    });
+                    loaded = true;
+                }
+            }            
 
         }
         // ]]>

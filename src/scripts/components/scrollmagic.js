@@ -75,17 +75,18 @@ if(parallaxEls !== null){
 }
 
 if(productHeroImages !== null){
+    let loaded = false;
     productHeroImages.forEach(img => {
         new ScrollMagic.Scene({
             triggerElement: img,
-            duration: '125%',
-            offset: 100,
-            triggerHook: 1
+            duration: '100%',
+            offset: 200,
+            triggerHook: 0.5
         })
         .setClassToggle(img, 'active')
         .addTo(controller)
         .on('update',function(event){
-            if(img.classList.contains("active")){
+            if(img.classList.contains("active") && loaded){
                 const id = img.getAttribute("id");
                 document.querySelectorAll(".product__nav-gallery a").forEach(item => {
                     if(item.classList.contains("active")){
@@ -94,6 +95,7 @@ if(productHeroImages !== null){
                 });
                 document.querySelector(`.product__nav-gallery a[href="#${id}"]`).classList.add("active")
             }
+            loaded = true;
         });        
     });
 }

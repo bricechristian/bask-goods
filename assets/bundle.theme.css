@@ -782,6 +782,12 @@ body.scrolled-past-hero .full__hero {
 .mb-8{
   margin-bottom: 2rem;
 }
+.mt-20{
+  margin-top: 5rem;
+}
+.-mt-\[1px\]{
+  margin-top: -0.0625rem;
+}
 .mb-5{
   margin-bottom: 1.25rem;
 }
@@ -1002,8 +1008,20 @@ body.scrolled-past-hero .full__hero {
 .scroll-m-8{
   scroll-margin: 2rem;
 }
+.scroll-m-16{
+  scroll-margin: 4rem;
+}
 .scroll-mt-40{
   scroll-margin-top: 10rem;
+}
+.scroll-mt-32{
+  scroll-margin-top: 8rem;
+}
+.scroll-mt-64{
+  scroll-margin-top: 16rem;
+}
+.scroll-mt-48{
+  scroll-margin-top: 12rem;
 }
 .grid-flow-col-dense{
   grid-auto-flow: column dense;
@@ -1134,6 +1152,11 @@ body.scrolled-past-hero .full__hero {
   --tw-space-y-reverse: 0;
   margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(4rem * var(--tw-space-y-reverse));
+}
+.space-y-4 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 .truncate{
   overflow: hidden;
@@ -1366,6 +1389,9 @@ body.scrolled-past-hero .full__hero {
 .pl-40{
   padding-left: 10rem;
 }
+.pb-2{
+  padding-bottom: 0.5rem;
+}
 .pb-20{
   padding-bottom: 5rem;
 }
@@ -1511,6 +1537,9 @@ body.scrolled-past-hero .full__hero {
 }
 .opacity-0{
   opacity: 0;
+}
+.opacity-30{
+  opacity: 0.3;
 }
 .delay-300{
   transition-delay: 300ms;
@@ -1730,6 +1759,47 @@ https://flickity.metafizzy.co
 .flickity-page-dots .dot.is-selected {
   opacity: 1;
 }
+
+.dropdown__alt{
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  border-bottom-width: 0.0625rem;
+  --tw-border-opacity: 1;
+  border-color: rgb(166 124 82 / var(--tw-border-opacity));
+  padding-right: 1.5rem;
+}
+
+.header.dropdown-open .container-full .dropdown__alt, .header.active .container-full .dropdown__alt{
+  border-color: transparent;
+}
+
+.product .header .container-full .dropdown__alt {
+    display: none;
+  }
+.dropdown__alt:after {
+  content: "ˇ";
+  position: absolute;
+  top: 0.125rem;
+  right: 0;
+}
+.dropdown__alt select, .dropdown__alt selectlight {
+    text-transform: uppercase;
+  }
+.dropdown__alt select {
+    letter-spacing: 0.1em;
+    margin-left: 1.5rem;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border-radius: 0;
+    border-width: 0;
+    background-color: transparent;
+    font-family: Matter Regular, sans-serif;
+    font-size: 0.8125rem;
+    outline: 0.125rem solid transparent;
+    outline-offset: 0.125rem;
+  }
 
 .toggle-container {
   transition: height 0.35s ease-in-out;
@@ -2054,6 +2124,21 @@ https://flickity.metafizzy.co
   padding: 0.8125rem clamp(0.39063rem, 0.5vw, 25%) 0.375rem clamp(0.4375rem, 0.5vw, 50%);
   position: relative;
   top: 0;
+}
+
+body.menu-is-open {
+  overflow: hidden;
+}
+body.menu-is-open .header-wrap {
+  height: 100% !important;
+}
+body.menu-is-open main {
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+  overflow: hidden;
+  /* Other browsers */
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
 }
 
 .item__card{
@@ -2440,6 +2525,14 @@ https://flickity.metafizzy.co
   --tw-bg-opacity: 1;
   background-color: rgb(251 241 220 / var(--tw-bg-opacity));
 }
+@media (max-width: 767px) {
+  .product .header__logo path {
+    fill: #000000;
+  }
+  .product .header .container-full .border-brown {
+    display: none;
+  }
+}
 .product__nav-gallery-item{
   border-width: 0.0625rem;
   border-color: transparent;
@@ -2449,6 +2542,48 @@ https://flickity.metafizzy.co
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
+.product__main-gallery:after {
+  content: "flickity";
+  display: none;
+  /* hide :after */
+}
+@media (min-width: 768px) {
+  .product__main-gallery:after {
+    content: "";
+  }
+}
+.product__main-gallery .flickity-page-dots{
+  bottom: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.product__main-gallery .flickity-page-dots .dot{
+  margin-left: 0;
+  margin-right: 0;
+  --tw-bg-opacity: 1;
+  background-color: rgb(166 124 82 / var(--tw-bg-opacity));
+  opacity: 1;
+}
+.product__main-gallery .flickity-page-dots .dot.is-selected{
+  height: 1rem;
+  width: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.product .toggle-trigger{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product .toggle-trigger:after {
+  content: "+";
+}
+.product .toggle-trigger.active:after {
+  content: "-";
+}
 @media (max-width: 767px) {
   .product .sticky__scroller-wrap,
 .product .sticky__scroller {
@@ -2456,12 +2591,18 @@ https://flickity.metafizzy.co
     height: auto !important;
     transform: none !important;
   }
-  .product .header__logo path {
-    fill: #000000;
-  }
-  .product .header .container-full .border-brown {
-    display: none;
-  }
+}
+.product .selector-wrapper{
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+.product .selector-wrapper.dropdown__alt{
+    opacity: 1;
+    visibility: visible;
+}
+.product .selector-wrapper label{
+  display: none;
 }
 html{
   scroll-behavior: smooth;
@@ -2655,6 +2796,12 @@ body{
   .md\:order-2{
     order: 2;
   }
+  .md\:order-8{
+    order: 8;
+  }
+  .md\:order-9{
+    order: 9;
+  }
   .md\:col-span-1{
     grid-column: span 1 / span 1;
   }
@@ -2738,9 +2885,6 @@ body{
   .md\:-mt-\[80px\]{
     margin-top: -5rem;
   }
-  .md\:mb-9{
-    margin-bottom: 2.25rem;
-  }
   .md\:mr-5{
     margin-right: 1.25rem;
   }
@@ -2767,6 +2911,12 @@ body{
   }
   .md\:hidden{
     display: none;
+  }
+  .md\:h-full{
+    height: 100%;
+  }
+  .md\:h-\[85vw\]{
+    height: 85vw;
   }
   .md\:max-h-\[85vh\]{
     max-height: 85vh;
@@ -2899,6 +3049,10 @@ body{
     --tw-border-opacity: 1;
     border-color: rgb(251 241 220 / var(--tw-border-opacity));
   }
+  .md\:object-cover{
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
   .md\:p-5{
     padding: 1.25rem;
   }
@@ -2997,6 +3151,9 @@ body{
   }
   .md\:pl-20{
     padding-left: 5rem;
+  }
+  .md\:pl-5{
+    padding-left: 1.25rem;
   }
   .md\:pb-2{
     padding-bottom: 0.5rem;
@@ -3109,6 +3266,12 @@ body{
   }
   .sm\:hidden{
     display: none;
+  }
+  .sm\:aspect-\[3\/4\]{
+    aspect-ratio: 3 / 4;
+  }
+  .sm\:h-auto{
+    height: auto;
   }
   .sm\:w-1\/2{
     width: 50%;
