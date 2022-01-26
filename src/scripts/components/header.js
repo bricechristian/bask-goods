@@ -249,6 +249,10 @@ const closeMenu = () => {
         }, 150);
     })
     closeDropdown($hamburgerClose, $headerMenu)
+    if(document.querySelector("body").classList.contains('menu-is-open')){
+        document.querySelector("body").classList.remove("menu-is-open")
+    }
+
 
 }
 $hamburger.addEventListener("click", () => {
@@ -264,7 +268,6 @@ $hamburgerClose.addEventListener("click", () => {
     closeMenu()
     $headerWrap.style.position = "absolute";
     disableScroll.off()
-    document.querySelector("body").classList.remove("menu-is-open")
 })
 $header.addEventListener("mouseleave", closeMenu)
 $headerOverlay.addEventListener("mouseenter", closeMenu)

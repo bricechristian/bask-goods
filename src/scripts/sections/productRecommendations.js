@@ -7,7 +7,6 @@ if(productRecommendationsSection !== null){
       const $grid = productRecommendationsSection.querySelector(".grid");
       if (products.length > 0) {
         $grid.innerHTML = "";
-        console.log(products)
         products.forEach((prod, i) => {
           let prodHTML = document.createRange().createContextualFragment(`
           <div class="collection__main-item md:min-w-[66vw] fade-in${i !== 0 ? ` delay-${i*300}`: ``}" data-viewport>

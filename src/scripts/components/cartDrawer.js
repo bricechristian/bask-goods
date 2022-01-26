@@ -5,6 +5,8 @@ if (document.querySelector(".cart__drawer") !== null) {
 	const $cartDrawer = document.querySelector(".cart__drawer");
 	const $cartItems = document.querySelector(".cart__drawer-items");
 	const $bag = document.querySelector(".bag-count");
+	const $checkoutButton = document.getElementById("checkout-button")
+	const $cartDrawerFooter = document.querySelector(".cart__drawer-footer");
 	//UPDATE CART
 	const refreshCart = () => {
 		fetch(`/cart.js`, {
@@ -23,9 +25,12 @@ if (document.querySelector(".cart__drawer") !== null) {
 					buildItem(item, $cartItems)
 				});
 				$bag.textContent = cart.item_count;
+				$cartDrawerFooter.style.display = "block";
+				$checkoutButton.textContent = `Checkout — ${Shopify.formatMoney(cart.total_price)}`
 			} else {
 				$bag.textContent = "0";
 				$cartItems.innerHTML = "<div class='font-italic text-24'>Your cart is empty</div>";
+				$cartDrawerFooter.style.display = "none";
 			}
 		})
 	}
@@ -33,17 +38,30 @@ if (document.querySelector(".cart__drawer") !== null) {
 	const buildItem = (cartItem, selector) => {
 		let itemHTML = document.createRange().createContextualFragment(`
 			<div class="cart__drawer-item">
-				<div class="cart__drawer-item-image">
+				<a href="${cartItem.url}" class="cart__drawer-item-image hover:opacity-60">
 					<img src="${cartItem.featured_image.url}" alt="${cartItem.featured_image.alt}" />
-				</div>
+				</a>
 				<div class="cart__drawer-item-content">
 					<div class="flex-grow">
-						<div class="font-heading text-24 md:text-20">${cartItem.product_title}</div>
-						<div class="font-matterlight text-24 md:text-20">${cartItem.variant_title}</div>
-						<div class="font-matterlight text-18 tracking-widest text-brown md:text-16">${Shopify.formatMoney(cartItem.price).replace('.00', '')}</div>
+						${cartItem.product_type !== "" ? `<div class="font-italic text-24 md:text-20 -mb-1">${cartItem.product_type} —</div>`: ""}
+						<a href="${cartItem.url}" class="font-matterlight text-24 tracking-[.05em] inline-block mb-1 md:text-20 hover:text-orange">${cartItem.product_title}</a>
+
+							${!cartItem.product_has_only_default_variant && cartItem.options_with_values.length > 0 ? cartItem.options_with_values.map(option => (
+								`<div class="flex items-center font-matter text-13">
+									<div>${option.name}:</div>
+									<div>${option.value}</div>
+								</div>`							
+							)).join('') : ""}
+								
+						<div class="font-matterlight text-18 tracking-widest text-brown mt-2 md:text-16">${Shopify.formatMoney(cartItem.price).replace('.00', '')}</div>
 					</div>
-					<div class="flex items-center">
-						<a href="#" class="font-matterlight text-13 tracking-[.081em] opacity-30" onclick="window.removeFromCart(${cartItem.variant_id}); return false;" style="cursor:pointer;">REMOVE</a>
+					<div class="flex items-center mt-4 md:flex-col md:items-start">
+						<div class="cart__drawer-item-qty">
+							<span onclick="window.cartItemUpdate(\'${cartItem.variant_id}\',${cartItem.quantity-1})">-</span>
+							<span>${cartItem.quantity}</span>
+							<span onclick="window.cartItemUpdate(\'${cartItem.variant_id}\',${cartItem.quantity+1})">+</span>
+						</div>
+						<a href="#" class="cart__drawer-item-remove" onclick="window.cartItemUpdate(\'${cartItem.variant_id}\', 0); return false;" style="cursor:pointer;">REMOVE</a>
 					</div>
 				</div>
 			<\/div>
@@ -84,10 +102,10 @@ if (document.querySelector(".cart__drawer") !== null) {
 			showCart()
 		})
 	}
-	//CART ITEM REMOTE
-	const removeFromCart = (id) => {
-		const removeItemData = `updates[${id}]=0`;
-		fetch(`/cart/update.js?${removeItemData}`, {
+	//CART ITEM UPDATE
+	const cartItemUpdate = (variantId, qty) => {
+		const itemUpdateData = `updates[${variantId}]=${qty}`;
+		fetch(`/cart/update.js?${itemUpdateData}`, {
 			headers: {
 				'Content-Type': 'application/json',
 				'X-Requested-With': 'xmlhttprequest'
@@ -102,7 +120,7 @@ if (document.querySelector(".cart__drawer") !== null) {
 	}
 	window.refreshCart = refreshCart;
 	window.addToCart = addToCart;
-	window.removeFromCart = removeFromCart;
+	window.cartItemUpdate = cartItemUpdate;
 	window.showCart = showCart;
 	window.closeCart = closeCart;
 }

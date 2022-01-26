@@ -61,10 +61,8 @@
           </div>
           <div class="sticky__scroller-wrap pb-20 col-span-3 md:col-span-1 md:p-5" data-top-spacing="150">
             <div class="sticky__scroller">  
-              {% if product.collections %}
-                  {% for collection in product.collections limit:1 %}
-                      <div class="font-italic text-24 -mb-1">{{ collection.title }} —</div>
-                  {% endfor %}
+              {% if product.type != blank %}
+                <div class="font-italic text-24 -mb-1">{{ product.type  }} —</div>
               {% endif %}
               <h1 class="font-matterlight text-24 tracking-[.05em] mb-5 md:mb-0">{{ product.title }}</h1>
               <p class="font-matter text-brown tracking-widest mb-5">{{ product.price | money_without_trailing_zeros }}</p>

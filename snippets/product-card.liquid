@@ -3,8 +3,8 @@
     <div class="item__card-hover glow-bubble"></div>
     <div class="item__card-hover-text">Shop Now</div>
     <div>
-        {% if category != blank %}
-            <p class="item__card-category block font-italic text-24 -mb-1 lg:text-20">{{ category }} —</p>
+        {% if prod.type != blank %}
+            <p class="item__card-category block font-italic text-24 -mb-1 lg:text-20">{{ prod.type }} —</p>
         {% endif %}
         <p class="item__card-title block font-matterlight text-24 lg:text-20">{{ prod.title }}</p>
     </div>

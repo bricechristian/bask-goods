@@ -1,7 +1,7 @@
 <section class="cart__drawer-wrap">
     <div class="cart__drawer-overlay" onclick="window.closeCart(); return false;"></div>
     <div class="cart__drawer">
-        <div class="flex items-center justify-between pb-9">
+        <div class="flex items-center justify-between pb-9 md:pb-3">
             <div class="font-italic text-[40px]">Cart</div>
             <?xml version="1.0" encoding="UTF-8"?>
                 <svg width="25px" height="24px" class="cart__drawer-close" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" onclick="window.closeCart(); return false;">
@@ -22,8 +22,9 @@
                     </g>
                 </svg>
         </div>
-        <div class="cart__drawer-items">
-        
+        <div class="cart__drawer-items"></div>
+        <div class="cart__drawer-footer pt-10 border-t border-brown md:pt-5">
+            <a id="checkout-button" class="button text-center block w-full" href="/checkout">Checkout — {{ cart.price | money_without_currency }}</a>
         </div>
     </div>
 </section>
