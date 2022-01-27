@@ -1634,6 +1634,22 @@ body.scrolled-past-hero .full__hero {
 .container-768 {
     max-width: 48rem;
   }
+.container-700{
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+@media (max-width: 767px){
+  .container-700{
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+.container-700 {
+    max-width: 43.75rem;
+  }
 .absolute-center{
   position: absolute;
   top: 50%;
@@ -2745,6 +2761,21 @@ body{
 .placeholder\:text-cream::placeholder{
   --tw-text-opacity: 1;
   color: rgb(251 241 220 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-black::-moz-placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-black:-ms-input-placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-black::placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .placeholder\:opacity-50::-moz-placeholder{

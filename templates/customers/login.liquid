@@ -1,57 +1,53 @@
 {% section 'header-wordmark-brown' %}
 
-<div class="hero access px-7 md:px-10 mt-14 mb-36">
-  <div class="py-24 md:max-w-5xl md:mx-auto bg-brand-1 text-brand-2">
-    <div class="max-w-xs mx-auto px-4">
-      <h1 class="w-72 mx-auto mb-5">
-        Welcome back
-      </h1>
-      <div class="mt-5" data-login-form>
-        {% form 'customer_login' %}
-          {{ form.errors | default_errors }}
-          <p class="success hidden" data-reset-success>Password recovery sent!</p>
-          <input type="email" name="customer[email]" placeholder="Email" autofocus>
+<div class="hero access bg-cream pt-40">
+  <div class="container-700 pt-20 pb-40 md:py-8 space-y-8 text-center">
+    <h1 class="mb-5 text-[50px] font-heading mb-8 lg:text-30">
+      Welcome back
+    </h1>
+    <div class="mt-5" data-login-form>
+      {% form 'customer_login', class: "form w-full flex flex-col mt-6" %}
+        {{ form.errors | default_errors }}
+        <p class="success hidden" data-reset-success>Password recovery sent!</p>
+        <input type="email" class="form__input text-13 tracking-[.081em] min-h-0 pl-0 mb-6 border-b border-black placeholder:text-black placeholder:opacity-50" name="customer[email]" placeholder="Email" autofocus>
+        {% if form.password_needed %}
+          <input type="password" name="customer[password]" class="form__input text-13 tracking-[.081em] min-h-0 pl-0 mb-6 border-b border-black placeholder:text-black placeholder:opacity-50" placeholder="Password">
+        {% endif %}
+        <button class="button">
+          Login
+        </button>
+        <div class="flex flex-wrap items-center justify-center space-x-4 mt-6">
           {% if form.password_needed %}
-            <input type="password" name="customer[password]" placeholder="Password">
+            <a href="#recover" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange" data-recover-toggle>Recover Password</a>
           {% endif %}
-          <button class="button">
-            Login
-          </button>
-          <div class="actions">
-            {% if form.password_needed %}
-              <h2>Forgot Password?</h2>
-              <a href="#recover" data-recover-toggle>Recover Password</a>
-            {% endif %}
-            <h2>New?</h2>
-            <a href="/account/register">Create Account</a>
-          </div>
-        {% endform %}
-      </div>
-      <div class="mt-5 hidden" data-recover-form>
-        {% form 'recover_customer_password' %}
-          {{ form.errors | default_errors }}
-          {% if form.posted_successfully? %}
-            <span class="hidden" data-form-state></span>
-          {% endif %}
-          <input type="email" name="email" placeholder="Email">
-          <button class="button">
-            Recover
-          </button>
-        {% endform %}
-        <div class="actions">
-          <button data-recover-toggle>Cancel</button>
-        </div>  
-      </div>
-      {% if shop.checkout.guest_login %}
-        <div class="mt-9">
-          <h2 class="h4 text-center -mb-3">Guest Login</h2>
-          {% form 'guest_login' %}
-            <button class="button">
-              Continue
-            </button>
-          {% endform %}
+          <a href="/account/register" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Create Account</a>
         </div>
-      {% endif %}
+      {% endform %}
     </div>
+    <div class="mt-5 hidden" data-recover-form>
+      {% form 'recover_customer_password' %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <span class="hidden" data-form-state></span>
+        {% endif %}
+        <input type="email" name="email" placeholder="Email">
+        <button class="button">
+          Recover
+        </button>
+      {% endform %}
+      <div class="actions">
+        <button data-recover-toggle>Cancel</button>
+      </div>  
+    </div>
+    {% if shop.checkout.guest_login %}
+      <div class="mt-9">
+        <h2 class="h4 text-center -mb-3">Guest Login</h2>
+        {% form 'guest_login' %}
+          <button class="button">
+            Continue
+          </button>
+        {% endform %}
+      </div>
+    {% endif %}
   </div>
 </div>
