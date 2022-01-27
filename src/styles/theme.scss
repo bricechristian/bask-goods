@@ -177,14 +177,26 @@
     }
   }
   //RICHTEXT
-  .richtext > p > a {
-    display: inline-block;
-    padding-bottom: 1px;
-    border-bottom: 1px solid;
-    &:hover {
-        opacity: .6;
+  .richtext {
+    h1 {
+      @apply font-heading normal-case text-38 leading-[1.265] md:text-30 md:leading-[1.325];
     }
-  } 
+    h2 {
+      @apply font-matterlight text-24 tracking-[.05em];
+    }
+    h3 {
+      @apply font-matter text-18;
+    }
+    a,
+    & > p > a {
+      display: inline-block;
+      padding-bottom: 1px;
+      border-bottom: 1px solid;
+      &:hover {
+          opacity: .6;
+      }
+    }     
+  }
   //GLOW BUBBLE
   .glow-bubble {
     filter: blur(10px);
