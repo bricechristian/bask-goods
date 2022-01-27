@@ -40,13 +40,15 @@
         }
     }
 
-    .toggle-trigger {
-        @apply flex justify-between items-center;
-        &:after {
-            content: "+";
-        }
-        &.active:after {
-            content: "-";
+    &__hero {
+        .toggle-trigger {
+            @apply flex justify-between items-center;
+            &:after {
+                content: "+";
+            }
+            &.active:after {
+                content: "-";
+            }
         }
     }
 

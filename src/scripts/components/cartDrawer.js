@@ -27,6 +27,7 @@ if (document.querySelector(".cart__drawer") !== null) {
 				$bag.textContent = cart.item_count;
 				$cartDrawerFooter.style.display = "block";
 				$checkoutButton.textContent = `Checkout — ${Shopify.formatMoney(cart.total_price)}`
+				$checkoutButton.removeAttribute("disabled")
 			} else {
 				$bag.textContent = "0";
 				$cartItems.innerHTML = "<div class='font-italic text-24'>Your cart is empty</div>";
@@ -88,6 +89,8 @@ if (document.querySelector(".cart__drawer") !== null) {
 	}
 	//CART ITEM ADD
 	const addToCart = (form_id) => {
+		$checkoutButton.setAttribute("disabled", true)
+		$checkoutButton.textContent = `Loading...`
 		fetch(`/cart/add.js`, {
 			body: JSON.stringify(serializeForm(document.getElementById(form_id))),
 			headers: {
@@ -104,6 +107,8 @@ if (document.querySelector(".cart__drawer") !== null) {
 	}
 	//CART ITEM UPDATE
 	const cartItemUpdate = (variantId, qty) => {
+		$checkoutButton.setAttribute("disabled", true)
+		$checkoutButton.textContent = `Loading...`
 		const itemUpdateData = `updates[${variantId}]=${qty}`;
 		fetch(`/cart/update.js?${itemUpdateData}`, {
 			headers: {
