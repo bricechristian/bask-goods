@@ -42,16 +42,16 @@ if (document.querySelector('.product__hero') !== null) {
                 if (variant.available || selectedVariantQty > 0) {
                     // Selected a valid variant that is available.
                     $addToCartButton.disabled = null;
-                    $buyNowButton.disabled = null;
-                    $addToCartButton.textContent = "Add to Cart";                 
+                    $buyNowButton.setAttribute("disabled", false);
+                    $addToCartButton.value = "Add to Cart";                 
                     $buyNowButton.value = "Buy it Now";                        
                     $buyNowButton.setAttribute("href", `${window.shopUrl}/cart/${selectedVariant}:1`)
                     // $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Bag').fadeTo(200, 1);
                 } else {
                     // Variant is sold out
                     $addToCartButton.disabled = true;
-                    $buyNowButton.disabled = true;
-                    $addToCartButton.textContent = "Out of Stock";                 
+                    $buyNowButton.setAttribute("disabled", true);
+                    $addToCartButton.value = "Out of Stock";                 
                     $buyNowButton.value = "Out of Stock";                 
                     // $('#add').val('Out of Stock').addClass('disabled').attr('disabled', 'disabled').fadeTo(200, 0.5);
                 }
@@ -67,8 +67,8 @@ if (document.querySelector('.product__hero') !== null) {
             } else {
                 // variant doesn't exist.
                 $addToCartButton.disabled = true;
-                $buyNowButton.disabled = true;  
-                $addToCartButton.textContent = "Out of Stock";    
+                $buyNowButton.setAttribute("disabled", false);
+                $addToCartButton.value = "Out of Stock";    
                 // $('#add').val('Out of Stock').addClass('disabled').attr('disabled', 'disabled').fadeTo(200, 0.5);
             }
 

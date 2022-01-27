@@ -49,6 +49,10 @@
       &__outline {
         @apply rounded-none appearance-none outline-none bg-cream text-orange border border-orange font-matterlight text-13 tracking-widest w-full p-3 min-h-[48px] cursor-pointer transition-smooth hover:bg-orange hover:text-cream md:text-16; 
       }
+      &[disabled="true"] {
+        opacity: .4;
+        pointer-events: none;
+      }
     }
 }
 

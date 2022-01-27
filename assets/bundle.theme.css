@@ -421,6 +421,10 @@ a {
     font-size: 1rem;
   }
 }
+.button[disabled=true] {
+    opacity: 0.4;
+    pointer-events: none;
+  }
 *, ::before, ::after{
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -1005,20 +1009,8 @@ body.scrolled-past-hero .full__hero {
 .cursor-pointer{
   cursor: pointer;
 }
-.scroll-m-8{
-  scroll-margin: 2rem;
-}
-.scroll-m-16{
-  scroll-margin: 4rem;
-}
 .scroll-mt-40{
   scroll-margin-top: 10rem;
-}
-.scroll-mt-32{
-  scroll-margin-top: 8rem;
-}
-.scroll-mt-64{
-  scroll-margin-top: 16rem;
 }
 .scroll-mt-48{
   scroll-margin-top: 12rem;
@@ -1143,6 +1135,11 @@ body.scrolled-past-hero .full__hero {
   margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(3rem * var(--tw-space-y-reverse));
 }
+.space-y-4 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
 .space-y-5 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1152,11 +1149,6 @@ body.scrolled-past-hero .full__hero {
   --tw-space-y-reverse: 0;
   margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(4rem * var(--tw-space-y-reverse));
-}
-.space-y-4 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 .truncate{
   overflow: hidden;
@@ -1406,9 +1398,6 @@ body.scrolled-past-hero .full__hero {
 }
 .pr-6{
   padding-right: 1.5rem;
-}
-.pb-3{
-  padding-bottom: 0.75rem;
 }
 .text-left{
   text-align: left;

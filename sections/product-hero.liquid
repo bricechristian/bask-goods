@@ -74,7 +74,7 @@
                   <select id="product-select" name="id" style="display:none;">
                       {% for variant in product.variants %}
                         {% if variant.available %}
-                          <option value="{{variant.id}}" data-qty="{% if variant.inventory_management != blank %}{{ variant.inventory_quantity }}{% else %}9999{% endif %}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+                          <option value="{{variant.id}}" data-qty="{% if variant.inventory_management != blank %}{{ variant.inventory_quantity }}{% else %}9999{% endif %}"{% if current_variant.title == variant.title %} selected="selected"{% endif %}>{{ variant.title }} for {{ variant.price | money_with_currency }}</option>
                         {% else %}
                           <option value="{{variant.id}}" disabled="disabled" data-qty="{{ variant.inventory_quantity }}"> {{ variant.title }} - sold out!</option>
                         {% endif %}
@@ -86,7 +86,7 @@
                     {% assign optionindex = forloop.index0 %}
                       {% if option.name contains 'Color' %}
                         <div class="border-t border-brown mb-4"></div>
-                        <div class="swatch__group-wrap mb-6 md:mb-0"{% unless is_available %} style="pointer-events:none;"{% endunless %} data-option="{{ optionindex }}">
+                        <div class="swatch__group-wrap mb-6 md:mb-0"} data-option="{{ optionindex }}">
                           <div class="swatch__group mr-6 md:mr-0 md:mb-6{% unless is_available %} disabled{% endunless %}">
                             <div class="flex items-end mb-2">
                               <div class="swatch__label font-matter text-13">Color: {% if optionindex == 0 %}{{ current_variant.title | split: ' / ' | first }}{% else %}{{ current_variant.title | split: ' / ' | last }}{% endif %}</div>
@@ -98,7 +98,7 @@
                                     {% assign swatch_color = tag | split: ': ' | last %}
                                   {% endif %}
                                 {% endfor %}                             
-                                <div class="swatch__wrap relative mr-3{% if current_variant.title contains value %} active{% endif %}">
+                                <div class="swatch__wrap relative mr-3{% if current_variant.title contains value %} active{% endif %}{% if variant.inventory_quantity == 0 %} disabled{% endif %}">
                                   <input type="radio" id="{{ value | handleize }}" name="Color" value="{{ value }}" data-title="{{ value }}" class="swatch__radio {{ value | handleize }} absolute left-0 -top-[3px] h-full w-full opacity-0" data-qty-{{ variant.option1 | handleize }}="{{ variant.inventory_quantity }}" data-option="{{ optionindex }}"{% if current_variant.title contains value %} checked{% endif %}>
                                   <span class="swatch {{ value | handleize }} inline-block rounded-full w-[18px] h-[18px]" style="background-color: {{ swatch_color }};"></span>
                                 </div>
@@ -108,14 +108,14 @@
                         </div>          
                       {% elsif option.name contains 'Size' %} 
                         <div class="border-t border-brown mb-4"></div> 
-                        <div class="size__group-wrap mb-2 input-row"{% unless is_available %} style="pointer-events:none;"{% endunless %} data-option="{{ optionindex }}">
+                        <div class="size__group-wrap mb-2" data-option="{{ optionindex }}">
                           <div{% unless is_available %} class="disabled"{% endunless %}>
                             <div class="flex items-center mb-2">
                               <div class="size__label font-matter text-13">Select a Size</div>
                             </div>
                             <div class="flex items-center flex-wrap md:flex-nowrap md:overflow-auto md:-ml-5 md:-mr-5 md:pl-5">
                               {% for value in option.values %}  
-                                <div class="size__button relative mr-3{% for option in current_variant.options %}{% if option == value %} active{% endif %}{% endfor %}">
+                                <div class="size__button relative mr-3{% for option in current_variant.options %}{% if option == value %} active{% endif %}{% endfor %}{% if variant.inventory_quantity == 0 %} disabled{% endif %}">
                                   <input type="radio" id="{{ value }}" name="Sizes" value="{{ value }}" data-title="{{ value }}" class="size__radio absolute left-0 -top-[3px] h-full w-full opacity-0"{% for variant in product.variants %}{% if variant.title contains value %} data-variant-id="{{ variant.id }}" data-qty="{{ variant.inventory_quantity }}"{% endif %}{% endfor %}{% for option in current_variant.options %}{% if option == value %} checked{% endif %}{% endfor %}>
                                   <span for="{{ value }}" class="radio-button-label form-label">{{ value }}</span>
                                 </div>
