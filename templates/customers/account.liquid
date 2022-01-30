@@ -1,14 +1,12 @@
 {% section 'header-wordmark-brown' %}
 
 <div class="hero account bg-cream pt-40">
-  <div class="container-975 pt-20 pb-40 md:py-8 space-y-8">
-    <a href="/account/logout" class="uppercase hover:underline">
-      <small>Logout</small>
-    </a>
-    <h1 class="h3 mt-5">Account</h1>
-    <p class="mt-3">Welcome back, {{ customer.first_name }}!</p>
-    <div class="orders flex flex-wrap mt-14">
-      <div class="w-full lg:w-3/4 pb-14 lg:pr-12">
+  <div class="container-1280 pt-20 pb-40 md:py-8 space-y-8 text-center">
+    <a href="/account/logout" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Logout</a>
+    <h1 class="mb-5 text-[50px] font-heading lg:text-30">Account</h1>
+    <p class="font-matterlight text-24 md:text-20">Welcome back, {{ customer.first_name }}!</p>
+    <div class="orders space-y-8">
+      <div class="">
         {% if customer.orders.size != 0 %}
           {% paginate customer.orders by 10 %}
             <div class="table-wrap">
@@ -45,18 +43,12 @@
           <p>You haven't placed any orders yet.</p>
         {% endif %}
       </div>
-      <div class="w-full lg:w-1/4">       
-        {% if is_member == true %}
-          <div class="uk-margin-medium-bottom">
-            <h2 class="uk-margin-bottom account-title">Membership</h2>
-            <p><a class="text-sm underline hover:no-underline" href="/apps/wine-club/account/customers/{{ customer.id }}">Manage your Membership</a></p>
-          </div>
-        {% endif %}
-        <h2 class="account-title">Addresses</h2>
+      <div class="">       
+        <h2 class="font-matter text-15 text-brown">Addresses</h2>
         <div class="mb-4">
           {{ customer.default_address | format_address }}
         </div>
-        <a href="/account/addresses" class="text-sm underline hover:no-underline">
+        <a href="/account/addresses" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">
           View Addresses ({{ customer.addresses_count }})
         </a>
       </div>

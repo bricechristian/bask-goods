@@ -14,3 +14,6 @@ import './components/cartDrawer';
 import './sections/faqs';
 import './sections/articles'; 
 import './sections/productRecommendations'; 
+import './sections/addresses'; 
+import './sections/login'; 
+import './sections/cart'; 

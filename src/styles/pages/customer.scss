@@ -1,0 +1,22 @@
+.customers {
+
+    &-account {
+        @apply bg-cream;
+    }
+
+    &-addresses {
+        .dropdown__alt {
+            @apply w-full items-center py-2 px-4 min-h-[59px] md:min-h-[50px];
+            label {
+                @apply hidden;
+            }
+            select {
+                @apply font-matterlight text-18 md:text-16 ml-0 md:max-w-[80vw];
+            }
+            &:after {
+                @apply top-6;
+            }
+        }
+    }
+
+}
