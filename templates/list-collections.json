@@ -1,13 +1,14 @@
 {
   "sections": {
+    "header": {
+      "type": "header-wordmark-brown"
+    },
     "main": {
-      "type": "main-list-collections",
-      "settings": {
-        "image_ratio": "square"
-      }
+      "type": "list-collections-main"
     }
   },
   "order": [
+    "header",
     "main"
   ]
 }
