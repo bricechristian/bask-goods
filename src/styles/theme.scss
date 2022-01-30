@@ -174,6 +174,16 @@
   .form {
     &__input {
       @apply text-brown rounded-none appearance-none outline-none bg-transparent border-0 font-matterlight text-18 min-h-[59px] w-full py-2 px-4 md:text-16 md:min-h-[50px]; 
+      &[type="search"]::-webkit-search-cancel-button{
+          cursor: pointer;
+          -webkit-appearance: none;
+          height: 20px;
+          width: 20px;
+          background-image: url("data:image/svg+xml,%3Csvg class='absolute-center right-0 cursor-pointer' width='10px' height='9px' viewBox='0 0 10 9' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg transform='translate(-1418.000000, -12.000000)'%3E%3Cpolygon id='✕' fill='%23000' fill-rule='nonzero' points='1427.20695 21 1427.93693 20.2700195 1424.14103 16.4741211 1427.93693 12.6782227 1427.20695 11.9545898 1423.41105 15.7504883 1419.61515 11.9545898 1418.89152 12.6782227 1422.68742 16.4741211 1418.89152 20.2700195 1419.61515 21 1423.41105 17.2041016'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          background-size: 20px;
+          background-repeat: no-repeat;
+          background-position: center;
+      }
     }
   }
   //RICHTEXT

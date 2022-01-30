@@ -102,6 +102,11 @@
       @screen md_min {
         @apply invisible;
       }
+      path {
+        @screen md {
+          fill: theme("colors.black") !important;
+        }
+      }
     }
   }
   &__logo-wordmark-brown {
@@ -113,6 +118,11 @@
     & + .header__logo {
       @screen md_min {
         @apply invisible;
+      }
+      path {
+        @screen md {
+          fill: theme("colors.black") !important;
+        }
       }
     }
   }
