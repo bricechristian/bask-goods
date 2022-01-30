@@ -30,19 +30,22 @@
               </div>
             </div>
 
-            {% if metafields.our_guarantee != blank %}
-              <div class="md:hidden border-b border-t border-brown pt-4 pb-2 mt-20">
-                  <div class="font-matter text-13 toggle-trigger relative cursor-pointer pb-2" data-container="info-guarantee">Our Guarantee</div>
-                  <div id="info-guarantee" class="text-17 leading-[1.59] toggle-container space-y-4">{{ metafields.our_guarantee }}</div>      
-              </div>
-            {% else %}
+              {% comment %} OUR GUARANTEE {% endcomment %}
+              {% if metafields.our_guarantee != blank %}
+                <div class="md:hidden border-b border-t border-brown pt-4 pb-2 mt-20">
+                    <div class="font-matter text-13 toggle-trigger relative cursor-pointer pb-2" data-container="info-guarantee">Our Guarantee</div>
+                    <div id="info-guarantee" class="text-17 leading-[1.59] toggle-container space-y-4">{{ metafields.our_guarantee }}</div>      
+                </div>
+              {% else %}
                 {% if section.settings.our_guarantee != blank %}
                   <div class="md:hidden border-b border-t border-brown pt-4 pb-2 mt-20">
                     <div class="font-matter text-13 toggle-trigger relative cursor-pointer pb-2" data-container="info-guarantee">Our Guarantee</div>
                     <div id="info-guarantee" class="text-17 leading-[1.59] toggle-container space-y-4">{{ section.settings.our_guarantee }}</div>      
-                </div>                  
+                  </div>                  
                 {% endif %}               
               {% endif %} 
+
+              {% comment %} SHIPPING & RETURNS {% endcomment %}
               {% if metafields.shipping_returns != blank %}
                 <div class="md:hidden border-b border-t border-brown pt-4 pb-2 -mt-[1px]">
                   <div class="font-matter text-13 toggle-trigger relative cursor-pointer pb-2" data-container="info-shipping">Shipping + Returns</div>
@@ -55,7 +58,13 @@
                     <div id="info-shipping" class="text-17 leading-[1.59] toggle-container space-y-4">{{ section.settings.shipping_returns }}</div>      
                   </div>                     
                 {% endif %}                   
-              {% endif %}                
+              {% endif %}          
+              
+              {% comment %} REVIEWS {% endcomment %}
+              <div class="md:hidden border-b border-t border-brown pt-4 pb-2 -mt-[1px]">
+                <div class="font-matter text-13 toggle-trigger relative pb-2 cursor-pointer" data-container="info-reviews">Reviews [###]</div>
+                <div id="info-reviews" class="text-17 leading-[1.59] toggle-container space-y-4">...</div>      
+              </div>                 
              
   
           </div>
@@ -136,7 +145,9 @@
                   <input type="submit" name="add" id="add" value="Add to Cart" class="button__outline mb-3" onclick="window.addToCart('add-to-cart'); return false;">
                   <div><a href="{{ shop.url }}/cart/{{ current_variant.id }}:1" id="buy-now" class="button w-full block text-center">Buy It Now</a></div>
 
-              {% endform %}      
+              {% endform %}  
+              
+              {% comment %} OUR GUARANTEE {% endcomment %}
               {% if metafields.our_guarantee != blank %}
                 <div class="md_min:hidden border-b border-t border-brown pt-4 pb-2 ">
                   <div class="font-matter text-13 toggle-trigger relative pb-2 cursor-pointer" data-container="mobile-info-guarantee">Our Guarantee</div>
@@ -150,6 +161,8 @@
                   </div>                     
                 {% endif %}               
               {% endif %} 
+
+              {% comment %} SHIPPING & RETURNS {% endcomment %}
               {% if metafields.shipping_returns != blank %}
                 <div class="md_min:hidden border-b border-t border-brown pt-4 pb-2 -mt-[1px]">
                   <div class="font-matter text-13 toggle-trigger relative pb-2 cursor-pointer" data-container="mobile-info-shipping">Shipping + Returns</div>
@@ -162,7 +175,13 @@
                     <div id="mobile-info-shipping" class="text-17 leading-[1.59] toggle-container space-y-4">{{ section.settings.shipping_returns }}</div>      
                   </div>                     
                 {% endif %}                   
-              {% endif %}             
+              {% endif %}   
+
+              {% comment %} REVIEWS {% endcomment %}
+              <div class="md_min:hidden border-b border-t border-brown pt-4 pb-2 -mt-[1px]">
+                <div class="font-matter text-13 toggle-trigger relative pb-2 cursor-pointer" data-container="mobile-info-reviews">Reviews [###]</div>
+                <div id="mobile-info-reviews" class="text-17 leading-[1.59] toggle-container space-y-4">...</div>      
+              </div>                     
                                 
             </div>
           </div>
