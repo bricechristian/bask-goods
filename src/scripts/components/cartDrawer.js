@@ -91,6 +91,7 @@ if (document.querySelector(".cart__drawer") !== null) {
 	const addToCart = (form_id) => {
 		$checkoutButton.setAttribute("disabled", true)
 		$checkoutButton.textContent = `Loading...`
+		showCart()
 		fetch(`/cart/add.js`, {
 			body: JSON.stringify(serializeForm(document.getElementById(form_id))),
 			headers: {
@@ -102,7 +103,6 @@ if (document.querySelector(".cart__drawer") !== null) {
 			return response.json();
 		}).then(() => {
 			refreshCart()
-			showCart()
 		})
 	}
 	//CART ITEM UPDATE
