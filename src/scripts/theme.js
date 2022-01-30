@@ -3,7 +3,7 @@ import '../styles/theme.scss';
 
 //JS
 import './polyfills/closest';
-import './utilities/mobileCheck';
+import './utilities/isTouchScreen';
 import './components/scrollMagic';
 import './components/stickyScroller';
 import './components/flickity';

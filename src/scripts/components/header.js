@@ -78,7 +78,9 @@ const closeDropdown = (a, b) => {
 //MAIN SHOP LINK
 if ($shopLink !== null && $headerShopCats !== null) {
     const handleShopLink = e => {
-        e.preventDefault()
+        if(window.isTouchScreen()){
+            e.preventDefault()
+        }
         if (!$headerShopCats.classList.contains("active")) {
             setTimeout(() => {
                 closeMenu()
@@ -152,7 +154,9 @@ if ($headerLinksWithSubmenu !== null) {
         const $subMenu = $link.nextElementSibling;
         let currentHeaderHeight;
         const handleSubMenuLinks = e => {
-            e.preventDefault();
+            if(window.isTouchScreen()){
+                e.preventDefault()
+            }
             currentHeaderHeight = $header.offsetHeight;
             $headerTopMenu.style.height = "auto";
             const subMenuHeight = $subMenu.offsetHeight;
