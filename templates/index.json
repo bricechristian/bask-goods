@@ -156,6 +156,9 @@
         "article_2": "journal\/journal-2",
         "article_3": "journal\/journal-3"
       }
+    },
+    "instagram": {
+      "type": "instagram"
     }
   },
   "order": [
@@ -166,6 +169,7 @@
     "philosophy",
     "featured",
     "bestsellers",
-    "journals"
+    "journals",
+    "instagram"
   ]
 }

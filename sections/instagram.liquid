@@ -1,0 +1,17 @@
+<div id="grams" class="py-16 bg-cream relative">
+    <div class="container">
+        <div class="grid grid-cols-5 gap-10">
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_1 | split: '~' | first }}" target="_blank" class="hover:opacity-60"><img src="data:image/jpg;base64,{{ shop.metafields.bask.instagram_post_1 | split: '~' | last }}"></a>
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_2 | split: '~' | first }}" target="_blank" class="hover:opacity-60"><img src="data:image/jpg;base64,{{ shop.metafields.bask.instagram_post_2 | split: '~' | last }}"></a>
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_3 | split: '~' | first }}" target="_blank" class="hover:opacity-60"><img src="data:image/jpg;base64,{{ shop.metafields.bask.instagram_post_3 | split: '~' | last }}"></a>
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_4 | split: '~' | first }}" target="_blank" class="hover:opacity-60"><img src="data:image/jpg;base64,{{ shop.metafields.bask.instagram_post_4 | split: '~' | last }}"></a>
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_5 | split: '~' | first }}" target="_blank" class="hover:opacity-60"><img src="data:image/jpg;base64,{{ shop.metafields.bask.instagram_post_5 | split: '~' | last }}"></a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Instagram"
+}
+{% endschema %}
