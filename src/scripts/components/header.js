@@ -290,6 +290,14 @@ const resizeWindow = () => {
             document.querySelector(".hero").style.paddingTop = headerHeight + "px"
         }
     }
+    if(document.querySelector(".announcement-bar") !== null){
+        const announcementBarHeight = document.querySelector(".announcement-bar").offsetHeight
+        $headerWrap.style.height = headerHeight + announcementBarHeight + 2 + "px";
+        $header.style.height = headerHeight + announcementBarHeight + 2 + "px";
+    } else {
+        $headerWrap.style.height = headerHeight + "px";
+        $header.style.height = headerHeight + "px";
+    }    
 }
 
 resizeWindow()

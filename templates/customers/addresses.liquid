@@ -124,17 +124,17 @@
         {% endform %}
       </div>
     </div>
-    <div class="flex flex-wrap -mx-6">
+    <div class="flex flex-wrap">
       {% for address in customer.addresses %}
         {% if address == customer.default_address %}
-          <div data-address class="w-full mt-14 px-6">
+          <div data-address class="w-full">
             <h2 class="account-title">Default Address</h2>
             {{ address | format_address }}
-            <div class="mt-6">
-              <button type="button" class="button float-left mr-2" data-address-toggle>Edit</button>
+            <div class="flex flex-wrap items-center justify-center space-x-4 mt-6">
+              <button type="button" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange" data-address-toggle>Edit</button>
               <form data-address-delete-form method="post" action="/account/addresses/{{ address.id }}">
-                <input type="hidden" name="_method" value="delete"/>
-                <button class="button">Delete</button>
+                <div><input type="hidden" name="_method" value="delete" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange" /></div>
+                <div><button class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Delete</button></div>
               </form>
             </div>
             <div data-address-form class="mt-14 hidden">

@@ -115,7 +115,10 @@
         "link_url": "\/",
         "link_new_tab": false
       }
-    }     
+    },
+    "instagram": {
+      "type": "instagram"
+    }
   },
-  "order": ["header", "hero", "objects", "process", "guarantee", "earth", "shop_all"]
+  "order": ["header", "hero", "objects", "process", "guarantee", "earth", "shop_all", "instagram"]
 }

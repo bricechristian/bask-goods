@@ -6,8 +6,10 @@
 
 @import "./components/dropdown.scss";
 @import "./components/accordion.scss";
+@import "./components/instagram.scss";
 @import "./components/header.scss";
 @import "./components/item-card.scss";
+@import "./components/shop-all.scss";
 @import "./components/home-quote.scss";
 @import "./components/sustainability-process.scss";
 @import "./components/about-quote.scss";
@@ -161,6 +163,9 @@
           transform: none;
         }
       }
+      .scale-in {
+        @apply delay scale-100;   
+      }      
     }
     &.fade-in,
     .fade-in {
@@ -170,6 +175,14 @@
         opacity: 1;
         @apply delay;
       }
+    }
+    &.scale-in,
+    .scale-in {
+      @apply scale-110;
+      transition: .9s;
+      &.in-view {
+        @apply delay scale-100;
+      }      
     }
   }
   body.scrolled-past-hero .full__hero {

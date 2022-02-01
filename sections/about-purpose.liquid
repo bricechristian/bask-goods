@@ -19,10 +19,10 @@
                 {% endif %}   
                 <div class="space-y-10 mb-48 sm:order-1 fade-in md_min:delay-900">
                     {% for block in section.blocks %}     
-                        <div class="grid grid-cols-3 gap-14 pt-5 border-t border-cream md:grid-cols-[40px_1fr]">
-                            <div class="flex items-center md:items-start">
+                        <div class="grid grid-cols-3 gap-14 pt-5 border-t border-cream items-start md:grid-cols-[40px_1fr] md:gap-5">
+                            <div class="mt-2 flex items-center md:items-start">
                                 {% if block.settings.icon != blank %}
-                                    <img src="{{ block.settings.icon }}" class="mr-5 max-w-[40px]" loading="lazy" width="40" height="40" alt="{{ block.settings.icon.alt }}" />             
+                                    <img src="{{ block.settings.icon }}" class="mr-5 max-w-[45px]" loading="lazy" width="40" height="40" alt="{{ block.settings.icon.alt }}" />             
                                 {% endif %}
                                 {% if block.settings.title != blank %}
                                     <p class="font-matter text-15 md:hidden">{{ block.settings.title }}</p>

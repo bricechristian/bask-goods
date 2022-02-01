@@ -94,6 +94,10 @@
     {{ 'bundle.theme.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
 
+    {% for link in linklists.main-menu.links %}
+      <link rel="prerender" href="{{ link.url }}">
+    {% endfor%}
+
   </head>
 
   <body class="{{ template | split: '.' | handleize }}">

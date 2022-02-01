@@ -1,4 +1,4 @@
-<section class="shop-all relative bg-cream{% if template == 'index' %} mt-[100vh] sm:mt-[75vh] py-24 md:py-10{% else %} py-20 md:py-6{% endif %}" data-viewport>
+<section class="shop-all relative bg-cream{% if template == 'index' %} mt-[100vh] sm:mt-[75vh] py-24 md:py-10{% else %} pt-20 pb-12 md:py-8{% endif %}" data-viewport>
     <div class="container">
         <div class="grid grid-cols-3 gap-24 pb-16 border-b border-brown lg:gap-10 md:grid-cols-1 md:pb-10">
             <div class="flex flex-col">
@@ -28,14 +28,14 @@
                 {% endif %}
             </div>
             <div class="col-span-2 -mr-10 md:-mx-5 fade-in delay-600">
-                <div class="carousel md:carousel__align-left-pl-5" data-flickity='{ "freeScroll": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "prevNextButtons": false, "pageDots": false }'>
+                <div class="carousel md:flex md:flex-nowrap md:overflow-auto md:pl-5" data-flickity='{ "freeScroll": true, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true, "prevNextButtons": false, "pageDots": false, "watchCSS": true }'>
                     {% for block in section.blocks %}
                         {% assign prod = all_products[block.settings.prod] %}
                         {% assign prod_category = prod.type %}
                         {% if block.settings.category != blank %}
                             {% assign prod_category = block.settings.category %}
                         {% endif %}
-                        <div class="w-3/5 mr-10 md:mr-5">{% render 'product-card', prod: prod, category: prod_category %}</div>
+                        <div class="w-3/5 mr-10 md:mr-5 md:min-w-[66vw]">{% render 'product-card', prod: prod, category: prod_category %}</div>
                     {% endfor %}
                     {% comment %} <div class="w-3/5 mr-8">{% render 'product-card' %}</div>
                     <div class="w-3/5 mr-8">{% render 'product-card' %}</div>

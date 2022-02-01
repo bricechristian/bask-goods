@@ -1,0 +1,15 @@
+.shop-all {
+    .carousel {
+        @screen md {
+            @apply flex flex-nowrap overflow-auto;
+        }   
+        &:after {
+            content: 'flickity';
+            display: none;
+            @screen md {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}

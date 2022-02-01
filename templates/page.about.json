@@ -105,8 +105,11 @@
           "link_url": "\/",
           "link_new_tab": false
         }
-      }           
+      },
+      "instagram": {
+        "type": "instagram"
+      }
     },
-    "order": ["header", "hero", "main", "quote", "purpose", "thoughtful_energy", "shop_all"]
+    "order": ["header", "hero", "main", "quote", "purpose", "thoughtful_energy", "shop_all", "instagram"]
   }
   
