@@ -102,11 +102,6 @@
       @screen md_min {
         @apply invisible;
       }
-      path {
-        @screen md {
-          fill: theme("colors.black") !important;
-        }
-      }
     }
   }
   &__logo-wordmark-brown {
@@ -178,6 +173,15 @@
         fill: theme("colors.black");
       }
     }
+    .header__logo-wordmark {
+      & + .header__logo {
+        path {
+          @screen md {
+            fill: theme("colors.black") !important;
+          }
+        }
+      }
+    }    
   }
   &.dropdown-open {
     background-color: theme("colors.cream") !important;

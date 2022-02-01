@@ -2137,11 +2137,6 @@ https://flickity.metafizzy.co
     visibility: hidden;
   }
 }
-@media (max-width: 767px) {
-  .header__logo-wordmark + .header__logo path {
-    fill: #000000 !important;
-  }
-}
 .header__logo-wordmark-brown {
     transition: 0.3s;
   }
@@ -2223,6 +2218,9 @@ https://flickity.metafizzy.co
 @media (max-width: 767px) {
   .header.active .header__logo path {
     fill: #000000;
+  }
+  .header.active .header__logo-wordmark + .header__logo path {
+    fill: #000000 !important;
   }
 }
 .header.dropdown-open {
