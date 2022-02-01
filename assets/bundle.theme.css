@@ -2016,18 +2016,18 @@ https://flickity.metafizzy.co
   display: none;
 }
 
-.instagram a{
+.instagram h2 > a{
   border-bottom-width: 0.0625rem;
   border-color: transparent;
   padding-bottom: 0.25rem;
     transition: 0.3s;
 }
 
-.header.dropdown-open .container-full .instagram a, .header.active .container-full .instagram a{
+.header.dropdown-open .container-full .instagram h2 > a, .header.active .container-full .instagram h2 > a{
   border-color: transparent;
 }
 
-.instagram a:hover{
+.instagram h2 > a:hover{
   --tw-border-opacity: 1;
   border-color: rgb(166 124 82 / var(--tw-border-opacity));
 }
