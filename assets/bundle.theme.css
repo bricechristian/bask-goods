@@ -1072,6 +1072,9 @@ body.scrolled-past-hero .full__hero {
 .min-h-\[400px\]{
   min-height: 25rem;
 }
+.min-h-screen{
+  min-height: 100vh;
+}
 .w-full{
   width: 100%;
 }
