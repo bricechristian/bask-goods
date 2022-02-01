@@ -1,115 +1,127 @@
 {
-    "sections": {
-      "header": {
-        "type": "header-wordmark"
-      },
-      "hero": {
-        "type": "hero",
-        "settings": {
-          "title": "Elevated [Standards]",
-          "image": "shopify://shop_images/about-hero.jpg",
-          "mobile_image": "shopify://shop_images/about-mobile-hero.jpg",
-          "small_image": "shopify://shop_images/elevated-standards.jpg"
-        }
-      },
-      "main": {
-        "type": "about-main",
-        "settings": {
-            "image": "shopify://shop_images/philosophy-2.jpg",
-            "image_2": "shopify://shop_images/objects-4.jpg"
-        }        
-      }, 
-      "quote": {
-        "type": "about-quote",
-        "settings": {
-          "image": "shopify://shop_images/about-quote-1.jpg",
-          "image_2": "shopify://shop_images/about-quote-2.jpg"
-        }             
-      },     
-      "purpose": {
-        "type": "about-purpose",
-        "blocks": {
-          "9a008297-f7e7-434c-8394-6e9423695b56": {
-            "type": "pillar",
-            "settings": {
-              "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/reduce.svg?v=1640632536",
-              "title": "Reduce",
-              "description": "We believe we don't need more items, we need fewer, yet high quality pieces."
-            }
-          },
-          "2c420c6c-5132-4f8d-8d27-923f410819d9": {
-            "type": "pillar",
-            "settings": {
-              "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/reuse.svg?v=1640632536",
-              "title": "Reuse",
-              "description": "Nothing we offer is meant to be disposed of after a short life."
-            }
-          },
-          "6a86941e-b5d7-4eb7-91db-0b716785e3d5": {
-            "type": "pillar",
-            "settings": {
-              "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/recycle.svg?v=1640632536",
-              "title": "Recycle",
-              "description": "We rely on either planet-friendly biodegradable materials, or those that can easily be repurposed, no confusion on our labels"
-            }
-          }
-        },
-        "block_order": [
-          "9a008297-f7e7-434c-8394-6e9423695b56",
-          "2c420c6c-5132-4f8d-8d27-923f410819d9",
-          "6a86941e-b5d7-4eb7-91db-0b716785e3d5"
-        ],        
-        "settings": {
-          "image": "shopify://shop_images/about-purpose-1.jpg"
-        }         
-      },     
-      "thoughtful_energy": {
-        "type": "about-thoughtful-energy",
-        "settings": {
-          "image": "shopify://shop_images/about-purpose-2.jpg"
-        }          
-      },     
-      "shop_all": {
-        "type": "shop-all",
-        "blocks": {
-          "37b6fc3d-d266-4cf0-b933-f040499f8091": {
-            "type": "product",
-            "settings": {
-              "prod": "black-feather",
-              "category": "Product Category"
-            }
-          },
-          "37569e1f-4595-4062-90e4-89d0524eb4a7": {
-            "type": "product",
-            "settings": {
-              "prod": "damp-smoke",
-              "category": ""
-            }
-          },
-          "66495402-fcfe-41dc-8395-f97eef942239": {
-            "type": "product",
-            "settings": {
-              "prod": "empty-water",
-              "category": ""
-            }
-          }
-        },
-        "block_order": [
-          "37b6fc3d-d266-4cf0-b933-f040499f8091",
-          "37569e1f-4595-4062-90e4-89d0524eb4a7",
-          "66495402-fcfe-41dc-8395-f97eef942239"
-        ],
-        "settings": {
-          "bodycopy": "Bask in our goods.",
-          "link_text": "Shop All",
-          "link_url": "\/",
-          "link_new_tab": false
-        }
-      },
-      "instagram": {
-        "type": "instagram"
+  "sections": {
+    "header": {
+      "type": "header-wordmark",
+      "settings": {
       }
     },
-    "order": ["header", "hero", "main", "quote", "purpose", "thoughtful_energy", "shop_all", "instagram"]
-  }
-  
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/about-hero.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/about-mobile-hero.jpg",
+        "small_image": "shopify:\/\/shop_images\/elevated-standards.jpg",
+        "title": "Elevated [Standards]"
+      }
+    },
+    "main": {
+      "type": "about-main",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/philosophy-2.jpg",
+        "image_2": "shopify:\/\/shop_images\/objects-4.jpg"
+      }
+    },
+    "quote": {
+      "type": "about-quote",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/about-quote-1.jpg",
+        "image_2": "shopify:\/\/shop_images\/about-quote-2.jpg"
+      }
+    },
+    "purpose": {
+      "type": "about-purpose",
+      "blocks": {
+        "9a008297-f7e7-434c-8394-6e9423695b56": {
+          "type": "pillar",
+          "settings": {
+            "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/reduce.svg?v=1640632536",
+            "title": "Reduce",
+            "description": "We believe we don't need more items, we need fewer, yet high quality pieces."
+          }
+        },
+        "2c420c6c-5132-4f8d-8d27-923f410819d9": {
+          "type": "pillar",
+          "settings": {
+            "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/reuse.svg?v=1640632536",
+            "title": "Reuse",
+            "description": "Nothing we offer is meant to be disposed of after a short life."
+          }
+        },
+        "6a86941e-b5d7-4eb7-91db-0b716785e3d5": {
+          "type": "pillar",
+          "settings": {
+            "icon": "https:\/\/cdn.shopify.com\/s\/files\/1\/0617\/0617\/4713\/files\/recycle.svg?v=1640632536",
+            "title": "Recycle",
+            "description": "We rely on either planet-friendly biodegradable materials, or those that can easily be repurposed, no confusion on our labels"
+          }
+        }
+      },
+      "block_order": [
+        "9a008297-f7e7-434c-8394-6e9423695b56",
+        "2c420c6c-5132-4f8d-8d27-923f410819d9",
+        "6a86941e-b5d7-4eb7-91db-0b716785e3d5"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/about-purpose-1.jpg"
+      }
+    },
+    "thoughtful_energy": {
+      "type": "about-thoughtful-energy",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/about-purpose-2.jpg"
+      }
+    },
+    "shop_all": {
+      "type": "shop-all",
+      "blocks": {
+        "37b6fc3d-d266-4cf0-b933-f040499f8091": {
+          "type": "product",
+          "settings": {
+            "prod": "black-feather",
+            "category": "Product Category"
+          }
+        },
+        "37569e1f-4595-4062-90e4-89d0524eb4a7": {
+          "type": "product",
+          "settings": {
+            "prod": "damp-smoke",
+            "category": ""
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942239": {
+          "type": "product",
+          "settings": {
+            "prod": "empty-water",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "37b6fc3d-d266-4cf0-b933-f040499f8091",
+        "37569e1f-4595-4062-90e4-89d0524eb4a7",
+        "66495402-fcfe-41dc-8395-f97eef942239"
+      ],
+      "settings": {
+        "bodycopy": "Bask in our goods.",
+        "link_text": "Shop All",
+        "link_url": "\/",
+        "link_new_tab": false
+      }
+    },
+    "instagram": {
+      "type": "instagram",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "header",
+    "hero",
+    "main",
+    "quote",
+    "purpose",
+    "thoughtful_energy",
+    "shop_all",
+    "instagram"
+  ]
+}
