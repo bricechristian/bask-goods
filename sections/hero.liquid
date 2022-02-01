@@ -1,4 +1,4 @@
-<section class="full__hero w-full h-screen min-h-[700px] py-40 flex items-center justify-center relative lg:min-h-[420px] sm:hidden" data-viewport>
+<section class="full__hero w-full h-screen min-h-[700px] py-40 flex items-center justify-center relative overflow-hidden lg:min-h-[420px] sm:hidden" data-viewport>
     <img src="{{ section.settings.image | img_url:'2400x' }}" class="absolute top-0 left-0 w-full h-full object-cover scale-in" loading="eager" alt="{{ section.settings.image.alt }}" />
     {% if section.settings.small_image != blank %}
         <div class="container relative absolute-center left-0 right-0 mx-auto">
@@ -9,7 +9,7 @@
         </div>
     {% endif %}
 </section>
-<section class="full__hero w-full h-[66vh] min-h-[400px] relative sm_min:hidden">
+<section class="full__hero w-full h-[66vh] min-h-[400px] relative overflow-hidden sm_min:hidden">
     <img src="{{ section.settings.mobile_image | img_url:'1200x' }}" class="absolute top-0 left-0 w-full h-full object-cover scale-in" loading="eager" alt="{{ section.settings.image.alt }}" data-viewport="-750" />
     {% if section.settings.small_image != blank %}
         <div class="container relative absolute-center left-0 right-0 mx-auto">
