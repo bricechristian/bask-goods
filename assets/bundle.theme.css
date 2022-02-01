@@ -2390,7 +2390,7 @@ body.menu-is-open main {
     flex-wrap: nowrap;
   }
   .shop-all .carousel{
-    overflow: auto;
+    overflow: scroll;
   }
 }
 .shop-all .carousel:after {

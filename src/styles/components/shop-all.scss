@@ -1,7 +1,7 @@
 .shop-all {
     .carousel {
         @screen md {
-            @apply flex flex-nowrap overflow-auto;
+            @apply flex flex-nowrap overflow-scroll;
         }   
         &:after {
             content: 'flickity';
