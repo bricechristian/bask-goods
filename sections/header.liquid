@@ -74,8 +74,8 @@
                                     <ul class="header__submenu md:hidden absolute left-0 grid grid-cols-5 gap-8 mt-6 pb-6">
                                         {% for child_link in link.links %}
                                             <li>
-                                                <a href="{{ child_link.url }}">
-                                                    <img src="https://via.placeholder.com/400x460" class="w-full mb-2" />
+                                                <a href="{{ child_link.url }}" class="block hover:opacity-60">
+                                                    <img src="{{ child_link.object.featured_image | img_url: '400x600', crop: 'center' }}" class="w-full mb-2 aspect-[3/4]" />
                                                     <div><span class="font-italic">{{ child_link.title }} </span>—</div>
                                                 </a> 
                                             </li>    

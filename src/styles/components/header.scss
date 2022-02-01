@@ -280,7 +280,7 @@
       }
     }
     &.active {
-      @apply visible md:max-h-[9999px];
+      @apply visible md:max-h-[9999px] z-10;
       li {
         @screen md_min {
           transition-delay: 0.3s;

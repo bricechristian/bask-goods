@@ -1024,6 +1024,12 @@ body.scrolled-past-hero .full__hero {
 .hidden{
   display: none;
 }
+.aspect-\[1\/2\]{
+  aspect-ratio: 1 / 2;
+}
+.aspect-\[3\/4\]{
+  aspect-ratio: 3 / 4;
+}
 .h-full{
   height: 100%;
 }
@@ -2305,6 +2311,7 @@ https://flickity.metafizzy.co
   }
 }
 .header__submenu.active{
+  z-index: 10;
     opacity: 1;
     visibility: visible;
 }
@@ -3312,6 +3319,9 @@ body{
   .md\:mt-0{
     margin-top: 0;
   }
+  .md\:mb-0{
+    margin-bottom: 0;
+  }
   .md\:mb-5{
     margin-bottom: 1.25rem;
   }
@@ -3329,9 +3339,6 @@ body{
   }
   .md\:-ml-5{
     margin-left: -1.25rem;
-  }
-  .md\:mb-0{
-    margin-bottom: 0;
   }
   .md\:-mt-8{
     margin-top: -2rem;
@@ -3477,6 +3484,16 @@ body{
   .md\:gap-4{
     gap: 1rem;
   }
+  .md\:space-y-2 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+  }
+  .md\:space-y-4 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  }
   .md\:space-x-8 > :not([hidden]) ~ :not([hidden]){
     --tw-space-x-reverse: 0;
     margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -3491,16 +3508,6 @@ body{
     --tw-space-y-reverse: 0;
     margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-  }
-  .md\:space-y-2 > :not([hidden]) ~ :not([hidden]){
-    --tw-space-y-reverse: 0;
-    margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
-  }
-  .md\:space-y-4 > :not([hidden]) ~ :not([hidden]){
-    --tw-space-y-reverse: 0;
-    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
   }
   .md\:overflow-auto{
     overflow: auto;
