@@ -102,6 +102,8 @@
 
   <body class="{{ template | split: '.' | handleize }}">
 
+    {% include 'header-mobile-menu' %}
+
     <main>
 
       {{ content_for_layout }}

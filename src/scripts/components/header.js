@@ -3,6 +3,7 @@ import disableScroll from 'disable-scroll';
 
 const $headerWrap = document.querySelector('.header-wrap')
 const $header = document.querySelector('header')
+const $mobileMenu = document.querySelector('.header__mobile-menu');
 const $nav = document.querySelector('nav')
 const $hamburger = document.getElementById('hamburger');
 const $hamburgerClose = document.getElementById('hamburger-close');
@@ -21,7 +22,7 @@ const $headerSearch = $header.querySelector('.header__search');
 const $headerMenu = $header.querySelector('.header__menu');
 const $headerTopMenu = $header.querySelector('.header__menu-top');
 const $headerMenuLinks = $headerMenu.querySelectorAll("a.header__link");
-const $headerSubMenus = $header.querySelectorAll('.header__submenu');
+const $headerSubMenus = document.querySelectorAll('.header__submenu');
 const $headerLinksWithSubmenu = $header.querySelectorAll('a.has-submenu');
 
 const openDropdown = (a, b) => {
@@ -83,7 +84,7 @@ if ($shopLink !== null && $headerShopCats !== null) {
         }
         if (!$headerShopCats.classList.contains("active")) {
             setTimeout(() => {
-                closeMenu()
+                // closeMenu()
                 openDropdown($shopLink, $headerShopCats)
             }, 51);
         }        
@@ -91,9 +92,11 @@ if ($shopLink !== null && $headerShopCats !== null) {
     ['mouseover', 'click'].forEach( evt => {
         $shopLink.addEventListener(evt, handleShopLink, false)
     });      
-    $header.addEventListener("mouseleave", () => {
-        closeDropdown($shopLink, $headerShopCats)
-    }, false)
+    if(!window.isTouchScreen()){
+        $header.addEventListener("mouseleave", () => {
+            closeDropdown($shopLink, $headerShopCats)
+        }, false)
+    }
 }
 
 //HEADER LINKS
@@ -209,13 +212,16 @@ if ($searchLinks !== null && $headerSearch !== null) {
                     fakeInput.remove()
                 }, 300)            
                 openDropdown($searchLink, $headerSearch)
+                $mobileMenu.style.display = "none"
             }            
         }
         ['mouseover', 'click'].forEach( evt => {
             $searchLink.addEventListener(evt, handleSearchLinks, false)
-        });  
+        }); 
         $header.addEventListener("mouseleave", () => {
-            closeDropdown($searchLink, $headerSearch)
+            if(!document.querySelector("body").classList.contains("menu-is-open")){
+                closeDropdown($searchLink, $headerSearch)
+            }
         }, false)
     });
 }
@@ -223,6 +229,7 @@ if ($searchLinks !== null && $headerSearch !== null) {
 // HAMBURGER
 const openMenu = () => {
     $hamburger.classList.remove("active")
+    $mobileMenu.style.display = "block"
     openDropdown($hamburgerClose, $headerMenu)
     if ($shopLink !== null) {
         $shopLink.classList.remove("active")
@@ -230,6 +237,7 @@ const openMenu = () => {
 }
 const closeMenu = () => {
     $hamburger.classList.add("active")
+    $mobileMenu.style.display = "block"
     $headerMenuLinks.forEach($link => {
         $link.classList.remove("active")
     });
@@ -256,12 +264,9 @@ const closeMenu = () => {
     if(document.querySelector("body").classList.contains('menu-is-open')){
         document.querySelector("body").classList.remove("menu-is-open")
     }
-
-
 }
 $hamburger.addEventListener("click", () => {
     openMenu();
-    disableScroll.on();
     $headerWrap.style.position = "fixed";
     document.querySelector("body").classList.add("menu-is-open")
 })
@@ -271,13 +276,15 @@ $hamburgerClose.addEventListener("click", () => {
     });    
     closeMenu()
     $headerWrap.style.position = "absolute";
-    disableScroll.off()
 })
-$header.addEventListener("mouseleave", closeMenu)
-$headerOverlay.addEventListener("mouseenter", closeMenu)
+if(!window.isTouchScreen()){
+    $header.addEventListener("mouseleave", closeMenu)
+    $headerOverlay.addEventListener("mouseenter", closeMenu)
+}
 
 const resizeWindow = () => {
-    disableScroll.off()
+    // closeMenu()
+    // closeDropdown()
     headerHeight = $headerMain.offsetHeight;
     document.querySelectorAll('.header__menu .toggle-trigger').forEach($trigger => {
         $trigger.classList.remove("active")
@@ -294,9 +301,11 @@ const resizeWindow = () => {
         const announcementBarHeight = document.querySelector(".announcement-bar").offsetHeight
         $headerWrap.style.height = headerHeight + announcementBarHeight + 2 + "px";
         $header.style.height = headerHeight + announcementBarHeight + 2 + "px";
+        $mobileMenu.style.marginTop = headerHeight + announcementBarHeight + "px";
     } else {
         $headerWrap.style.height = headerHeight + "px";
         $header.style.height = headerHeight + "px";
+        $mobileMenu.style.marginTop = headerHeight + "px";
     }    
 }
 

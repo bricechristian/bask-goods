@@ -64,7 +64,7 @@
                     </div>
                 </div>      
             {% endif %}
-            <div class="header__menu -mt-8 w-full absolute left-0 md:overflow-auto md:max-h-[85vh]">
+            <div class="header__menu -mt-8 w-full absolute left-0 md:hidden">
                 <div class="container-full flex">
                     <ul class="header__menu-top flex flex-wrap gap-x-16 py-6 mt-8 border-t border-t-black w-full md:mt-6 md:flex-col md:border-0">
                         {% for link in linklists.main-menu.links %}
@@ -97,7 +97,7 @@
                 </div>
             </div>
         {% endif %}
-        <div class="header__search -mt-8 pb-6 w-full absolute left-0">
+        <div class="header__search -mt-8 pb-6 w-full absolute left-0 md:mt-0">
             <div class="container-full flex">
                 <form action="{{ routes.search_url }}" method="get" class="form w-full" role="search" autocomplete="off">
                     <input type="search" name="q" value="" class="form__input font-heading normal-case text-24 pt-6 mt-4 border-t border-black w-full md:border-0 md:pt-0" maxlength="256" autocomplete="off" placeholder="Search..." required="">

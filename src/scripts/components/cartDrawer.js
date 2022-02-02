@@ -71,6 +71,33 @@ if (document.querySelector(".cart__drawer") !== null) {
 	}
 	//OPEN CART
 	const showCart = () => {
+		if(document.querySelector("body").classList.contains("menu-is-open")){
+			document.querySelector("body").classList.remove("menu-is-open")
+			document.getElementById("hamburger-close").classList.remove("active")
+			document.getElementById("hamburger").classList.add("active")
+			const $header = document.querySelector('header')
+			const $headerWrap = document.querySelector('.header-wrap')
+			let headerHeight = document.querySelector('.header__main').offsetHeight;
+			document.querySelectorAll(".header__submenu").forEach(el => {
+				if(el.classList.contains("active")){
+					el.classList.remove("active")
+					el.style.height = 0
+				}
+			});
+			document.querySelectorAll(".has-submenu").forEach(el => {
+				if(el.classList.contains("active")){
+					el.classList.remove("active")
+				}
+			});			
+			if(document.querySelector(".announcement-bar") !== null){
+				const announcementBarHeight = document.querySelector(".announcement-bar").offsetHeight
+				$headerWrap.style.height = headerHeight + announcementBarHeight + 2 + "px";
+				$header.style.height = headerHeight + announcementBarHeight + 2 + "px";
+			} else {
+				$headerWrap.style.height = headerHeight + "px";
+				$header.style.height = headerHeight + "px";
+			}  			
+		}
 		setTimeout(() => {
 			if (document.querySelector(".header__overlay").classList.contains("active")) {
 				document.querySelector(".header__overlay").classList.remove("active")
