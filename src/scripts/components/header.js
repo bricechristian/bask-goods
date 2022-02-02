@@ -283,8 +283,12 @@ if(!window.isTouchScreen()){
 }
 
 const resizeWindow = () => {
-    // closeMenu()
-    // closeDropdown()
+    setTimeout(() => {
+        if(document.querySelector("body").contains("menu-is-open")){
+            closeMenu()
+            closeDropdown()
+        }
+    }, 300);
     headerHeight = $headerMain.offsetHeight;
     document.querySelectorAll('.header__menu .toggle-trigger').forEach($trigger => {
         $trigger.classList.remove("active")
