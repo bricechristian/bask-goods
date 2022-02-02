@@ -322,6 +322,9 @@
         display: none; /* for Chrome, Safari, and Opera */
       }
     }
+    @screen md_min {
+      display: none !important;
+    }
   }
   .bag-count {
     background: url(./bag-cream.svg) 50% 70% / 93% no-repeat;
