@@ -21,6 +21,7 @@
     "headspace": "^0.1.1",
     "is-mobile": "^3.0.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "normalize-wheel": "^1.0.1",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "postcss-pxtorem": "^6.0.0",
@@ -33,7 +34,8 @@
     "terser-webpack-plugin": "^5.3.0",
     "vanilla-js-dropdown": "^2.2.0",
     "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "wheel": "^1.0.0"
   },
   "scripts": {
     "start": "webpack --mode=development --watch --progress",

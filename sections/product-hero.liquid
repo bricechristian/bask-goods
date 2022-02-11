@@ -16,15 +16,15 @@
                 <div class="sticky top-[60px]">
                   <div class="product__nav-gallery grid gap-8">
                     {% for image in product.images %}
-                        <a href="#product-image-{{ forloop.index }}" class="product__nav-gallery-item"><img src="{{ image.src | img_url: '300x300', crop: 'center' }}" width="300" height="300" alt="{{ image.alt }}" loading="lazy"></a>
+                        <a href="#{{ image.id }}" class="product__nav-gallery-item"><img src="{{ image.src | img_url: '300x300', crop: 'center' }}" width="300" height="300" alt="{{ image.alt }}" loading="lazy"></a>
                     {% endfor %}
                   </div>
                 </div>                
               </div>
               <div class="md:col-span-1">
-                <div class="product__main-gallery carousel grid gap-8 md:-mt-[80px]" data-flickity='{ "watchCSS": true, "imagesLoaded": true, "prevNextButtons": false, "pageDots": true }'>
+                <div class="product__main-gallery carousel grid gap-8 md:-mt-[80px]">
                   {% for image in product.images %}
-                      <img id="product-image-{{ forloop.index }}" src="{{ image.src | img_url: '1200x1200', crop: 'center' }}" class="fade-in scroll-mt-48 md:h-[85vw] md:object-cover sm:aspect-[3/4] sm:h-auto" width="1200" height="1200" alt="{{ image.alt }}" loading="lazy" data-viewport>
+                      <img id="{{ image.id}}" src="{{ image.src | img_url: '1200x1200', crop: 'center' }}" class="fade-in scroll-mt-48 md:h-[85vw] md:object-cover sm:aspect-[3/4] sm:h-auto" width="1200" height="1200" alt="{{ image.alt }}" loading="lazy" data-viewport>
                   {% endfor %}
                 </div>
               </div>

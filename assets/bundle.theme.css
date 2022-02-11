@@ -799,6 +799,9 @@ body.scrolled-past-hero .full__hero {
 .-bottom-2{
   bottom: -0.5rem;
 }
+.-bottom-\[3px\]{
+  bottom: -0.1875rem;
+}
 .top-\[60px\]{
   top: 3.75rem;
 }
@@ -1677,13 +1680,13 @@ body.scrolled-past-hero .full__hero {
   --tw-text-opacity: 1;
   color: rgb(251 241 220 / var(--tw-text-opacity));
 }
-.text-black{
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
 .text-\[\#1A1107\]{
   --tw-text-opacity: 1;
   color: rgb(26 17 7 / var(--tw-text-opacity));
+}
+.text-black{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .underline{
   -webkit-text-decoration-line: underline;
@@ -1941,6 +1944,24 @@ https://flickity.metafizzy.co
 
 .flickity-page-dots .dot.is-selected {
   opacity: 1;
+}
+
+body:not(.touchscreen) #cursor {
+    filter: blur(0.625rem);
+    border-radius: 624.9375rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(221 155 0 / var(--tw-bg-opacity));
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 99999999999;
+    height: 3rem;
+    width: 3rem;
+  pointer-events: none;
+  transform: translate(calc(-50% + 1.5rem), -50%);
+  }
+body:not(.touchscreen) #cursor.hover {
+  transform: translate(calc(-50% + 1.5rem), -50%) scale(0.8);
 }
 
 .dropdown__alt{
@@ -2207,10 +2228,6 @@ https://flickity.metafizzy.co
   transition-delay: 0.15s;
   opacity: 0 !important;
 }
-.header.dropdown-open .header__logo-wordmark path,
-.header.dropdown-open .header__logo-wordmark-brown path {
-  fill: #000000 !important;
-}
 @media (max-width: 767px) {
   .header.dropdown-open {
     min-height: 100%;
@@ -2407,7 +2424,7 @@ body.menu-is-open .header__mobile-menu {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -1rem;
+    margin-top: 1rem;
     display: flex;
     height: 80%;
     width: 90%;
@@ -2426,22 +2443,34 @@ body.menu-is-open .header__mobile-menu {
   }
 .item__card-hover {
   filter: blur(3.75rem);
-  background-color: rgba(221, 155, 0, 0.5);
+  background-color: rgba(221, 155, 0, 0.8);
 }
 .item__card:hover .item__card-hover, .item__card:hover .item__card-hover-text{
     opacity: 1;
     visibility: visible;
 }
 
+@media (min-width: 768px) {
+  .shop-all .carousel{
+    overflow-x: auto;
+  }
+  .shop-all .carousel{
+    white-space: nowrap;
+  }
+  .shop-all .carousel {
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  .shop-all .carousel::-webkit-scrollbar {
+    display: none;
+  }
+}
 @media (max-width: 767px) {
   .shop-all .carousel{
     display: flex;
   }
   .shop-all .carousel{
     flex-wrap: nowrap;
-  }
-  .shop-all .carousel{
-    overflow: scroll;
   }
 }
 .shop-all .carousel:after {
@@ -2459,6 +2488,12 @@ body.menu-is-open .header__mobile-menu {
   content: "“";
   margin-left: -1.5rem;
   padding-right: 0.75rem;
+}
+@media (max-width: 767px) {
+  .home__quote-text:before {
+    padding-right: 0.375rem;
+    margin-left: -0.75rem;
+  }
 }
 .home__quote-text:after {
   content: "“";
@@ -3137,6 +3172,11 @@ body{
   font-family: GT Super Super Text Book, sans-serif;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+  /* for Chrome, Safari, and Opera */
+}
+
 .placeholder\:text-brown::-moz-placeholder{
   --tw-text-opacity: 1;
   color: rgb(166 124 82 / var(--tw-text-opacity));
@@ -3165,6 +3205,21 @@ body{
 .placeholder\:text-cream::placeholder{
   --tw-text-opacity: 1;
   color: rgb(251 241 220 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-black::-moz-placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-black:-ms-input-placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-black::placeholder{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .placeholder\:opacity-50::-moz-placeholder{
@@ -3644,6 +3699,9 @@ body{
   .md\:pr-12{
     padding-right: 3rem;
   }
+  .md\:pl-6{
+    padding-left: 1.5rem;
+  }
   .md\:pb-10{
     padding-bottom: 2.5rem;
   }
@@ -3677,9 +3735,6 @@ body{
   .md\:pb-16{
     padding-bottom: 4rem;
   }
-  .md\:pl-6{
-    padding-left: 1.5rem;
-  }
   .md\:pb-0{
     padding-bottom: 0;
   }
@@ -3691,6 +3746,9 @@ body{
   }
   .md\:pb-2{
     padding-bottom: 0.5rem;
+  }
+  .md\:pt-16{
+    padding-top: 4rem;
   }
   .md\:pb-\[72px\]{
     padding-bottom: 4.5rem;

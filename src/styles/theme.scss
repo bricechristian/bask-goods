@@ -4,6 +4,7 @@
 
 @import "~flickity/css/flickity";
 
+@import "./components/cursor.scss";
 @import "./components/dropdown.scss";
 @import "./components/accordion.scss";
 @import "./components/instagram.scss";
@@ -300,4 +301,8 @@ body.frozen {
 
 body {
   @apply font-body;
+}
+
+*::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }

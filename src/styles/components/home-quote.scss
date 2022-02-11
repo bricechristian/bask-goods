@@ -4,6 +4,10 @@
            content: "“";
            margin-left: -24px;
            padding-right: 12px;
+           @screen md {
+               padding-right: 6px;
+               margin-left: -12px;
+           }
        } 
        &:after {
            content: "“";

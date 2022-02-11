@@ -1,7 +1,23 @@
-import { triggerEvent } from "../utilities/triggerEvents";
-import { wrapEl } from "../utilities/wrapEl";
+import {
+    triggerEvent
+} from "../utilities/triggerEvents";
+import {
+    wrapEl
+} from "../utilities/wrapEl";
+import {
+    indexInParent
+} from "../utilities/indexInParent";
+import Flickity from "flickity-imagesloaded";
 
 if (document.querySelector('.product__hero') !== null) {
+
+    //SETS UP FLICKITY SLIDER FOR IMAGE GALLERY ON MOBILE
+    const mainGallery = new Flickity('.product__main-gallery', {
+        watchCSS: true,
+        imagesLoaded: true,
+        prevNextButtons: false,
+        pageDots: true
+    });
 
     const $form = document.getElementById("add-to-cart");
     const prodHandle = $form.getAttribute("data-product-handle")
@@ -38,21 +54,43 @@ if (document.querySelector('.product__hero') !== null) {
 
                 let variantImageId = variant.image_id;
 
+                //CHANGES IMAGE ON THUMBNAIL CLICK
+                const productHeroImages = document.querySelectorAll(".product__main-gallery img");
+                productHeroImages.forEach(img => {
+                    document.querySelectorAll(".product__nav-gallery a").forEach(item => {
+                        if (item.classList.contains("active")) {
+                            item.classList.remove("active")
+                        }
+                    });
+                })
+                const selectedImageIndex = indexInParent(document.querySelector(`.product__nav-gallery-item[href="#${variantImageId}"]`));
+                document.querySelector(`.product__nav-gallery a[href="#${variantImageId}"]`).classList.add("active")
+                if (window.innerWidth > 767) {
+                    if(selectedImageIndex === 0){
+                        window.scrollTo(0,0) 
+                    } else {
+                        window.scrollTo(0, document.getElementById(variantImageId).offsetTop - (document.querySelector(".header").offsetHeight / 2));
+                    }
+                }
+
+                //CHANGES FLICKITY IMAGE
+                mainGallery.select(selectedImageIndex);
+
 
                 if (variant.available || selectedVariantQty > 0) {
                     // Selected a valid variant that is available.
                     $addToCartButton.disabled = null;
                     $buyNowButton.setAttribute("disabled", false);
-                    $addToCartButton.value = "Add to Cart";                 
-                    $buyNowButton.value = "Buy it Now";                        
+                    $addToCartButton.value = "Add to Cart";
+                    $buyNowButton.value = "Buy it Now";
                     $buyNowButton.setAttribute("href", `${window.shopUrl}/cart/${selectedVariant}:1`)
                     // $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Bag').fadeTo(200, 1);
                 } else {
                     // Variant is sold out
                     $addToCartButton.disabled = true;
                     $buyNowButton.setAttribute("disabled", true);
-                    $addToCartButton.value = "Out of Stock";                 
-                    $buyNowButton.value = "Out of Stock";                 
+                    $addToCartButton.value = "Out of Stock";
+                    $buyNowButton.value = "Out of Stock";
                     // $('#add').val('Out of Stock').addClass('disabled').attr('disabled', 'disabled').fadeTo(200, 0.5);
                 }
 
@@ -68,34 +106,34 @@ if (document.querySelector('.product__hero') !== null) {
                 // variant doesn't exist.
                 $addToCartButton.disabled = true;
                 $buyNowButton.setAttribute("disabled", false);
-                $addToCartButton.value = "Out of Stock";    
+                $addToCartButton.value = "Out of Stock";
                 // $('#add').val('Out of Stock').addClass('disabled').attr('disabled', 'disabled').fadeTo(200, 0.5);
             }
 
-            //DEFAULT SELECTOR
-            if(document.querySelector(".single-option-selector") !== null){
-                if(document.querySelector(".single-option-selector option").value === "Default Title"){
-                    // DEFAULT SELECTOR
+            //VARIANT DROPDOWN SELECTORS
+            if (document.querySelector(".single-option-selector") !== null) {
+                if (document.querySelector(".single-option-selector option").value === "Default Title") {
+                    // DEFAULT VARIANT SELECTOR
                     const $defaultSelectorOption = document.querySelector(".single-option-selector option[value='Default Title']");
                     const $defaultSelector = $defaultSelectorOption.closest(".selector-wrapper");
                     $defaultSelector.style.display = "none"
                 } else {
-                    // OTHER SELECTOR
+                    // OTHER VARIANT SELECTORS EXCLUDING COLOR & SIZES (THOSE ARE HANDLED BELOW AS BUTTONS)
                     document.querySelectorAll(".selector-wrapper").forEach($selectorWrap => {
                         const variantSelectorIndex = $selectorWrap.querySelector("select").getAttribute("id").split("option-")[1]
                         const variantSelectorLabel = selector.product.options[variantSelectorIndex].name;
-                        if(!loaded && variantSelectorLabel !== "Size" && variantSelectorLabel !== "Color"){
-                            $selectorWrap.classList.add("dropdown__alt")       
+                        if (!loaded && variantSelectorLabel !== "Size" && variantSelectorLabel !== "Color") {
+                            $selectorWrap.classList.add("dropdown__alt")
                             let variantSelectorLabelHTML = document.createRange().createContextualFragment(`
                                 <div class="font-matter text-13">Select a ${selector.product.options[variantSelectorIndex].name}:</div>
-                            `);                
+                            `);
                             $selectorWrap.prepend(variantSelectorLabelHTML)
                             wrapEl($selectorWrap, document.createElement('div'));
                         }
                     });
                     loaded = true;
                 }
-            }            
+            }
 
         }
         // ]]>
@@ -106,7 +144,7 @@ if (document.querySelector('.product__hero') !== null) {
         });
 
         //SWATCH BUTTONS
-        if(document.querySelectorAll(".swatch__group-wrap") !== null){
+        if (document.querySelectorAll(".swatch__group-wrap") !== null) {
             const $swatchGroups = document.querySelectorAll(".swatch__group-wrap");
             $swatchGroups.forEach($group => {
                 const $swatches = $group.querySelectorAll(".swatch__radio");
@@ -117,7 +155,7 @@ if (document.querySelector('.product__hero') !== null) {
                 $swatchSelector.previousSibling.style.display = "none";
                 const removeSwatchActiveClasses = () => {
                     $swatchWraps.forEach($wrap => {
-                        if($wrap.classList.contains("active")){
+                        if ($wrap.classList.contains("active")) {
                             $wrap.classList.remove("active")
                         }
                     });
@@ -137,7 +175,7 @@ if (document.querySelector('.product__hero') !== null) {
         }
 
         //SIZE BUTTONS
-        if(document.querySelectorAll(".size__group-wrap") !== null){
+        if (document.querySelectorAll(".size__group-wrap") !== null) {
             const $sizeGroups = document.querySelectorAll(".size__group-wrap");
             $sizeGroups.forEach($group => {
                 const $sizes = $group.querySelectorAll(".size__radio");
@@ -148,7 +186,7 @@ if (document.querySelector('.product__hero') !== null) {
                 $sizeSelector.previousSibling.style.display = "none";
                 const removeSizeActiveClasses = () => {
                     $sizeButtons.forEach($button => {
-                        if($button.classList.contains("active")){
+                        if ($button.classList.contains("active")) {
                             $button.classList.remove("active")
                         }
                     });

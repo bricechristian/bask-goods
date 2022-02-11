@@ -1,7 +1,15 @@
 .shop-all {
     .carousel {
+        @screen md_min {
+            @apply whitespace-nowrap overflow-x-auto;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar; 
+            &::-webkit-scrollbar {
+                display: none; 
+            }            
+        }
         @screen md {
-            @apply flex flex-nowrap overflow-scroll;
+            @apply flex flex-nowrap;
         }   
         &:after {
             content: 'flickity';
