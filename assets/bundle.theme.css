@@ -2451,18 +2451,24 @@ body.menu-is-open .header__mobile-menu {
 }
 
 @media (min-width: 768px) {
-  .shop-all .carousel{
-    overflow-x: auto;
-  }
-  .shop-all .carousel{
-    white-space: nowrap;
-  }
   .shop-all .carousel {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
-  .shop-all .carousel::-webkit-scrollbar {
-    display: none;
+  .shop-all .carousel.flickity-enabled{
+    display: block;
+  }
+  .shop-all .carousel.flickity-enabled{
+    overflow-x: auto;
+  }
+  .shop-all .carousel.flickity-enabled{
+    white-space: nowrap;
+  }
+  .shop-all .carousel.flickity-enabled .flickity-viewport{
+    cursor: default;
+  }
+  .shop-all .carousel.flickity-enabled .flickity-viewport{
+    overflow-x: auto;
   }
 }
 @media (max-width: 767px) {

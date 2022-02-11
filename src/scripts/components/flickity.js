@@ -30,18 +30,4 @@ if(document.querySelector(".shop-all .carousel") !== null){
         contain: false,
         watchCSS: true
     });
-    // console.log(shopAllCarousel.element)
-    var wheeldelta = {
-        x: 0,
-        y: 0
-      };
-    wheel.addWheelListener(shopAllCarousel.element, event => {
-        const wheelNormalized = normalizeWheel(event);
-        console.log(wheelNormalized)
-        if(Math.abs(event.deltaX) > 5 && Math.abs(event.deltaY) < 5){
-            shopAllCarousel.applyForce(-wheelNormalized.pixelX / 4);
-            shopAllCarousel.startAnimation();
-            shopAllCarousel.dragEnd();
-        }
-    });
 }

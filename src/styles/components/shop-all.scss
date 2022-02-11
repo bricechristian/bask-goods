@@ -1,12 +1,17 @@
 .shop-all {
     .carousel {
         @screen md_min {
-            @apply whitespace-nowrap overflow-x-auto;
             -webkit-overflow-scrolling: touch;
             -ms-overflow-style: -ms-autohiding-scrollbar; 
-            &::-webkit-scrollbar {
-                display: none; 
-            }            
+            // &::-webkit-scrollbar {
+            //     display: none; 
+            // }            
+            &.flickity-enabled {
+                @apply block whitespace-nowrap overflow-x-auto;
+                .flickity-viewport {
+                    @apply overflow-x-auto cursor-default;
+                }
+            }
         }
         @screen md {
             @apply flex flex-nowrap;
