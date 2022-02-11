@@ -13,6 +13,7 @@
             "type": "column",
             "settings": {
               "title": "Shop",
+              "url": "shopify:\/\/collections",
               "menu": "footer"
             }
           },
@@ -20,6 +21,7 @@
             "type": "column",
             "settings": {
               "title": "About Us",
+              "url": "shopify:\/\/pages\/about-us",
               "menu": "footer-about"
             }
           },
@@ -27,6 +29,7 @@
             "type": "column",
             "settings": {
               "title": "Stay Connected",
+              "url": "",
               "menu": "footer-connected"
             }
           }
