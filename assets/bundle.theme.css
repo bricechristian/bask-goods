@@ -2228,6 +2228,9 @@ body:not(.touchscreen) #cursor.hover {
   transition-delay: 0.15s;
   opacity: 0 !important;
 }
+.header.dropdown-open .header__logo-wordmark path {
+  fill: #A67C52 !important;
+}
 @media (max-width: 767px) {
   .header.dropdown-open {
     min-height: 100%;

@@ -194,10 +194,9 @@
       transition-delay: 0.15s;
       opacity: 0 !important;
     }
-    // .header__logo-wordmark path,
-    // .header__logo-wordmark-brown path {
-    //   fill: theme("colors.black") !important;
-    // }
+    .header__logo-wordmark path {
+      fill: theme("colors.brown") !important;
+    }
     @screen md {
       min-height: 100%;
       height: 100% !important;
