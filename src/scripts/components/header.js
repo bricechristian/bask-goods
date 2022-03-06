@@ -284,7 +284,7 @@ if(!window.isTouchScreen()){
 
 const resizeWindow = () => {
     setTimeout(() => {
-        if(document.querySelector("body").contains("menu-is-open")){
+        if(document.querySelector("body").classList.contains("menu-is-open")){
             closeMenu()
             closeDropdown()
         }
