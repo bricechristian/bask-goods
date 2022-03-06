@@ -18,12 +18,17 @@
       "type": "about-main",
       "settings": {
         "image": "shopify:\/\/shop_images\/philosophy-2.jpg",
-        "image_2": "shopify:\/\/shop_images\/objects-4.jpg"
+        "image_2": "shopify:\/\/shop_images\/philosophy-1.jpg",
+        "title": "About Us",
+        "bodycopy": "<p>To us, Bask is an entity more than a lovechild. It was born of both a love of all things sleek and beautiful, as well as nature's earthly gifts, but we no longer see those things as mutually exclusive. To us, truly gorgeous living is not serendipitous. It's not bestowed upon the rich and the beautiful, the ones with good taste, or those with access to excess. It comes from respecting our planet, and making conscientious choices with every single thing that we do, consume, make, or share.<\/p>",
+        "bodycopy_2": "<p>We center around objects. Both form and function are in the foreground. They can take up space, they can lay to waste, but that's where we made the shift. We are a marketplace for gratifyingly lovely, yet serviceable items crafted with intention.<\/p>",
+        "headline_2": "The beauty in small, daily items is not mundane. Everything we use on a regular basis should align with a doctrine of ethos that honors our planet and its limited resources. It’s ok to start small."
       }
     },
     "quote": {
       "type": "about-quote",
       "settings": {
+        "title": "The only way to move forward on planet Earth is to do so sustainably; we truly believe this, and so lays the foundation for our entire concept.",
         "image": "shopify:\/\/shop_images\/about-quote-1.jpg",
         "image_2": "shopify:\/\/shop_images\/about-quote-2.jpg"
       }
@@ -62,12 +67,14 @@
         "6a86941e-b5d7-4eb7-91db-0b716785e3d5"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/about-purpose-1.jpg"
+        "image": "shopify:\/\/shop_images\/about-purpose-1.jpg",
+        "text": "Each item's loving purpose is both with the users' and our environment's best interest in mind."
       }
     },
     "thoughtful_energy": {
       "type": "about-thoughtful-energy",
       "settings": {
+        "text": "We pour thoughtful energy into every corner of our experience to make prudent shopping easier. Striking and timeless, just like Mother Nature herself.",
         "image": "shopify:\/\/shop_images\/about-purpose-2.jpg"
       }
     },
@@ -111,6 +118,7 @@
     "instagram": {
       "type": "instagram",
       "settings": {
+        "title": "<p>Follow along <a href='https:\/\/instagram.com\/baskgoods' target='_blank'>@baskgoods<\/a><\/p>"
       }
     }
   },
