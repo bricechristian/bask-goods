@@ -1,5 +1,6 @@
 {
   "current": {
+    "announcement_bar_speed": 16,
     "sections": {
       "header": {
         "type": "header",
