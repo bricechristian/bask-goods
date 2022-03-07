@@ -1,6 +1,6 @@
 <a href="{{ article.url }}" class="item__card">
     <div class="relative">
-        <img src="{{ article.featured_image | img_url: '1200x800', crop:'center'  }}" loading="lazy" class="w-full mb-6">
+        <img src="{{ article.image.src | img_url: '1200x800', crop:'center'  }}" loading="lazy" class="w-full mb-6">
         <p class="font-matter text-brown text-13 mb-2">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
         <div class="item__card-hover glow-bubble"></div>
         <div class="item__card-hover-text">Read More</div>
