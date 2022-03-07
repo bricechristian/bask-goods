@@ -24,7 +24,7 @@
               <div class="md:col-span-1">
                 <div class="product__main-gallery carousel grid gap-8 md:-mt-[80px]">
                   {% for image in product.images %}
-                      <img id="{{ image.id}}" src="{{ image.src | img_url: '1200x1200', crop: 'center' }}" class="fade-in scroll-mt-48 md:h-[85vw] md:object-cover sm:aspect-[3/4] sm:h-auto" width="1200" height="1200" alt="{{ image.alt }}" loading="lazy" data-viewport>
+                      <img id="{{ image.id}}" src="{{ image.src | img_url: '1200x1500', crop: 'center' }}" class="fade-in scroll-mt-48 md:h-[85vw] md:object-cover sm:aspect-[3/4] sm:h-auto" width="1200" height="1200" alt="{{ image.alt }}" loading="lazy" data-viewport>
                   {% endfor %}
                 </div>
               </div>
