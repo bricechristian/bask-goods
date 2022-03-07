@@ -63,18 +63,20 @@ if (document.querySelector('.product__hero') !== null) {
                         }
                     });
                 })
-                const selectedImageIndex = indexInParent(document.querySelector(`.product__nav-gallery-item[href="#${variantImageId}"]`));
-                document.querySelector(`.product__nav-gallery a[href="#${variantImageId}"]`).classList.add("active")
-                if (window.innerWidth > 767) {
-                    if(selectedImageIndex === 0){
-                        window.scrollTo(0,0) 
-                    } else {
-                        window.scrollTo(0, document.getElementById(variantImageId).offsetTop - (document.querySelector(".header").offsetHeight / 2));
+                if(document.querySelector(`.product__nav-gallery-item[href="#${variantImageId}"]`) !== null){
+                    const selectedImageIndex = indexInParent(document.querySelector(`.product__nav-gallery-item[href="#${variantImageId}"]`));
+                    document.querySelector(`.product__nav-gallery a[href="#${variantImageId}"]`).classList.add("active")
+                    if (window.innerWidth > 767) {
+                        if(selectedImageIndex === 0){
+                            window.scrollTo(0,0) 
+                        } else {
+                            window.scrollTo(0, document.getElementById(variantImageId).offsetTop - (document.querySelector(".header").offsetHeight / 2));
+                        }
                     }
+    
+                    //CHANGES FLICKITY IMAGE
+                    mainGallery.select(selectedImageIndex);
                 }
-
-                //CHANGES FLICKITY IMAGE
-                mainGallery.select(selectedImageIndex);
 
 
                 if (variant.available || selectedVariantQty > 0) {
