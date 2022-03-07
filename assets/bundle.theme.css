@@ -2029,6 +2029,15 @@ body:not(.touchscreen) #cursor.hover {
   border-color: rgb(166 124 82 / var(--tw-border-opacity));
 }
 
+.shopify-section.hero {
+  padding-top: 10.125rem;
+}
+@media (max-width: 767px) {
+  .shopify-section.hero {
+    padding-top: 7.125rem;
+  }
+}
+
 .header {
   transform: translateY(0);
     transition: 0.3s;
@@ -3767,6 +3776,9 @@ body{
   }
   .md\:pt-5{
     padding-top: 1.25rem;
+  }
+  .md\:pt-\[114px\]{
+    padding-top: 7.125rem;
   }
   .md\:text-left{
     text-align: left;
