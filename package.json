@@ -25,6 +25,7 @@
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "postcss-pxtorem": "^6.0.0",
+    "pre-commit": "^1.2.2",
     "sass": "^1.45.0",
     "sass-loader": "^12.4.0",
     "scrollmagic": "^2.0.8",
@@ -35,11 +36,17 @@
     "vanilla-js-dropdown": "^2.2.0",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
+    "webpack-shell-plugin-next": "^2.2.2",
     "wheel": "^1.0.0"
   },
+  "pre-commit": [
+    "build",
+    "add-all"
+  ],
   "scripts": {
     "start": "webpack --mode=development --watch --progress",
-    "build": "webpack --mode=production --progress"
+    "build": "webpack --mode=production --progress",
+    "add-all": "git add ."
   },
   "dependencies": {}
 }

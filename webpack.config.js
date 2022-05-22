@@ -3,6 +3,8 @@ const path = require('path');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production';
+const devtool = mode === 'development' ? 'eval-cheap-source-map' : false;
 
 module.exports = {
   entry: {
@@ -67,3 +69,17 @@ module.exports = {
     ]
   }
 };
+
+if (mode === 'development') {
+  module.exports.plugins.push(
+    new WebpackShellPluginNext({
+      onBuildStart:{
+        scripts: ['echo Webpack build in progress...🛠'],
+      }, 
+      onBuildEnd:{
+        scripts: ['echo Build Complete 📦','shopify theme serve'],
+        parallel: true
+      }
+    })
+  )
+}
