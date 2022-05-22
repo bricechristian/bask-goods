@@ -35,8 +35,6 @@
         theme.allCountryOptionTags = {{ all_country_option_tags | json }};
       </script>
     {% endif %}
-    <script src="{{ 'bundle.theme.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
 
     {{ content_for_header }}
     
@@ -121,6 +119,9 @@
     <script>
       window.shopUrl = '{{ shop.url }}';
     </script>
+
+    <script src="{{ 'bundle.theme.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
 
   </body>
 </html>
