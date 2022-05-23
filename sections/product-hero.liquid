@@ -132,14 +132,17 @@
                             </div>
                           </div>
                         </div>             
-                        <a href="#" class="font-matter text-13 opacity-30 mb-6 hover:opacity-100">Size Guide</a>                          
+                        {% comment %} <a href="#" class="font-matter text-13 opacity-30 mb-6 hover:opacity-100">Size Guide</a>                           {% endcomment %}
                       {% endif %}
 
                     {% endfor %}
                   {% endunless %}
 
                   <div class="text-17 leading-[1.59] space-y-8 mb-10 md:order-8 md:mt-6 md:mb-4">{{ product.description }}</div>
-                  <div class="mb-10 md:order-9"><a href="#" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Share</a></div>
+                  <div class="mb-10 md:order-9">
+                    {% assign url = shop.url | append: request.path %}
+                    {% render 'share', url: url, title: product.title, excerpt: product.excerpt %}
+                  </div>
 
                   <input type="number" class="" name="quantity" placeholder="1" id="quantity" style="display:none;">
                   <input type="submit" name="add" id="add" value="Add to Cart" class="button__outline mb-3" onclick="window.addToCart('add-to-cart'); return false;">

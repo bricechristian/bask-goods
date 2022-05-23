@@ -9,7 +9,16 @@
                     <p class="text-12 mt-2">{{ section.settings.headline }}</p>
                 {% endif %}
                 {% form 'customer', class: 'form w-full flex flex-col mt-6' %}
+                    <input type="hidden" name="return_to" value="{{ request.path }}#newsletter-success" /> 
                     <input type="hidden" name="contact[tags]" value="newsletter">
+
+                    {% if form.errors %}
+                        <div class="scroll-bottom border p-3 border-cream text-center text-12 mb-4">{{ form.errors | default_errors }}</div>   
+                    {% endif %}  
+                    <p id="newsletter-success" class="border p-3 border-cream text-center text-12 mb-4" style="display:none;">{{ section.settings.success }}</p>
+                    {% if form.email != blank %}
+                        <p id="newsletter-subscribed" class="scroll-bottom border p-3 border-cream text-center text-12 mb-4">You're already on the list!</p>
+                    {% endif %}
 
                     <div class="grid grid-cols-2 gap-6">
                         <input
@@ -45,13 +54,7 @@
                     >          
                     <div class="inline-block">
                         <input type="submit" class="font-matterlight text-13 tracking-[.081em] opacity-50 transition-smooth cursor-pointer hover:opacity-100" name="commit" value="Subscribe" />
-                    </div>
-                    {% if form.errors %}
-                        <p class="text-12">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</p>
-                    {% endif %}                                
-                    {% if form.posted_successfully? %}
-                      <p class="text-12">{{ section.settings.success }}</p>
-                    {% endif %}
+                    </div>                         
                   {% endform %}                
             </div>
             <div class="col-span-2 pl-[5%] md:col-span-3 md:pl-0">
@@ -82,6 +85,17 @@
         </div>
     </div>
 </footer> 
+
+
+<script type="text/javascript">
+    if (window.location.hash === "#newsletter-success") {
+        document.getElementById("newsletter-success").style.display = "block";
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+    if(document.querySelector(".scroll-bottom") !== null){
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+  </script>
 
 {% schema %}
 {

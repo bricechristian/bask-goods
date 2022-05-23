@@ -12,7 +12,7 @@ import './components/accordion';
 import './components/header';
 import './components/productSelector';
 import './components/cartDrawer';
-// import './sections/instagram';
+import './components/share';
 import './sections/faqs';
 import './sections/articles'; 
 import './sections/productRecommendations'; 

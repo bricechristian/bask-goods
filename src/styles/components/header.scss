@@ -98,8 +98,12 @@
   &__logo-wordmark {
     @apply transition-smooth;
     path {
-      @apply transition-smooth;
+      @apply md:stroke-[.6px] transition-smooth;
       fill: theme("colors.cream");
+      @screen md {
+        @apply stroke-[.6px];
+        stroke: theme("colors.cream");
+      }
     }
   }
   &__logo-wordmark {
@@ -122,6 +126,7 @@
       path {
         @screen md {
           fill: theme("colors.black") !important;
+          stroke: theme("colors.black") !important;
         }
       }
     }
@@ -176,6 +181,7 @@
     .header__logo path {
       @screen md {
         fill: theme("colors.black");
+        stroke: theme("colors.black");
       }
     }
     .header__logo-wordmark {
@@ -183,6 +189,7 @@
         path {
           @screen md {
             fill: theme("colors.black") !important;
+            stroke: theme("colors.black") !important;
           }
         }
       }
@@ -203,6 +210,7 @@
       position: fixed;
       .header__logo path {
         fill: theme("colors.black");
+        stroke: theme("colors.black");
       }
       .header__main:after {
         content: "";
