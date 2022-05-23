@@ -50,9 +50,9 @@
                 content: "-";
             }
         }
-        // div#info-reviews.active {
-        //     height: auto !important;
-        // }
+        .toggle-container.active {
+            height: auto !important;
+        }
     }
 
     .sticky__scroller-wrap,

@@ -21,18 +21,20 @@ if (document.querySelector('.product__hero') !== null) {
     });
 
     // REVIEWS INSIDE ACCORDION ADJUST HEIGHT USING MUTATION OBSERVER
-    // Our mutation observer, which we attach to blocker later
     waitForElm('.spr-form').then((elm) => {
-        var observer = new MutationObserver( function( mutations ){
-            mutations.forEach( function( mutation ){
-                // Was it the style attribute that changed? (Maybe a classname or other attribute change could do this too? You might want to remove the attribute condition) Is display set to 'none'?
-                if( mutation.attributeName === 'style'){
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach(function(mutation) {
+                if(mutation.attributeName === 'style'){
+                    console.log("style change");
                     document.getElementById("info-reviews").style.height = document.getElementById("shopify-product-reviews").clientHeight + 40 + "px";
                 }
-            } );
-        } );
-        // Attach the mutation observer to blocker, and only when attribute values change
-        observer.observe( document.querySelector(".spr-form"), { attributes: true } );
+            });    
+        });
+        const observerConfig = {
+            attributes: true, 
+            attributeFilter: ["style"]
+        };
+        observer.observe(document.querySelector('.spr-form'), observerConfig);
     })
     
     const $form = document.getElementById("add-to-cart");

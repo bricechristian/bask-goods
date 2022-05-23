@@ -26,8 +26,8 @@ linkToggles.forEach(toggle => {
       container.style.height = '0px';
 
       toggle.classList.remove('active');
+      container.classList.remove('active');
       container.addEventListener('transitionend', function () {
-        container.classList.remove('active');
       }, {
         once: true
       });
