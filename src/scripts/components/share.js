@@ -13,10 +13,14 @@ if (document.querySelectorAll(".share-trigger") !== null) {
         document.querySelector(".share-trigger").nextElementSibling.classList.remove("active")
         isShareTriggerActive = false;
     }
-    ['click','mouseenter'].forEach( evt => 
-        document.querySelector(".share-trigger").addEventListener(evt, toggleShareIcons, false)
-    );
-    document.querySelector(".share-container").addEventListener("mouseleave", closeShareIcons, false)
+    if(window.isTouchScreen()){
+        document.querySelector(".share-trigger").addEventListener("click", toggleShareIcons, false)
+    } else {
+        ['click','mouseenter'].forEach( evt => 
+            document.querySelector(".share-trigger").addEventListener(evt, toggleShareIcons, false)
+        );
+        document.querySelector(".share-container").addEventListener("mouseleave", closeShareIcons, false)
+    }
     // COPY SHARE
     document.querySelectorAll(".navigator-share").forEach(($link) => {
         let timer;
