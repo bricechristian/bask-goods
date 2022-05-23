@@ -7,6 +7,7 @@ import {
 import {
     indexInParent
 } from "../utilities/indexInParent";
+import { waitForElm } from "../utilities/waitForElm";
 import Flickity from "flickity-imagesloaded";
 
 if (document.querySelector('.product__hero') !== null) {
@@ -19,6 +20,21 @@ if (document.querySelector('.product__hero') !== null) {
         pageDots: true
     });
 
+    // REVIEWS INSIDE ACCORDION ADJUST HEIGHT USING MUTATION OBSERVER
+    // Our mutation observer, which we attach to blocker later
+    waitForElm('.spr-form').then((elm) => {
+        var observer = new MutationObserver( function( mutations ){
+            mutations.forEach( function( mutation ){
+                // Was it the style attribute that changed? (Maybe a classname or other attribute change could do this too? You might want to remove the attribute condition) Is display set to 'none'?
+                if( mutation.attributeName === 'style'){
+                    document.getElementById("info-reviews").style.height = document.getElementById("shopify-product-reviews").clientHeight + 40 + "px";
+                }
+            } );
+        } );
+        // Attach the mutation observer to blocker, and only when attribute values change
+        observer.observe( document.querySelector(".spr-form"), { attributes: true } );
+    })
+    
     const $form = document.getElementById("add-to-cart");
     const prodHandle = $form.getAttribute("data-product-handle")
 
