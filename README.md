@@ -12,7 +12,7 @@ The compiled files css/js will go to the directory "/assets"
 ## Getting Started
 
 1. Install dependencies
-`npm install` or `yarn`
+`yarn`
 
 2. Open 2 Terminals in VSCode (or whatever your preferred text editor).
 
@@ -24,4 +24,4 @@ The compiled files css/js will go to the directory "/assets"
 
 6. Edit SCSS files within `src/styles/`
 
-7. If you're uncomfortable running webpack to edit css or js files, feel free to edit/add vanilla css to `assets/custom.css` and edit/add js to `assets/custom.js`. If doing this you can skip step 3 since webpack isn't watching/bundling these files.
+7. If you're uncomfortable running webpack to edit css or js files, feel free to edit/add vanilla css to `assets/custom.css` and edit/add js to `assets/custom.js` (jQuery has not been added/used on the theme at the time of initial development). If doing this you can skip step 3 since webpack isn't watching/bundling these files.

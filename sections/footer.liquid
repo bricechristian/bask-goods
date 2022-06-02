@@ -67,7 +67,7 @@
                                 <li class="font-matter text-13 tracking-[.1em] mb-6">{{ block.settings.title }}</li>
                             {% endif %}
                             {% for link in linklists[block.settings.menu].links %}
-                                <li{% unless forloop.last %} class="mb-2"{% endunless %}><a href="{{ link.url }}" class="font-matterlight text-13 tracking-[.081em] transition-smooth hover:text-orange">{{ link.title }}</a></li>
+                                <li{% unless forloop.last %} class="mb-2"{% endunless %}><a href="{{ link.url }}" class="font-matterlight text-13 tracking-[.081em] transition-smooth hover:text-orange"{% if linklists[block.settings.menu].handle == 'footer-connected' %} target="_blank"{% endif %}>{{ link.title }}</a></li>
                             {% endfor %}
                         </ul>                     
                     {% endfor %}
