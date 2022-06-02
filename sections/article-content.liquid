@@ -24,7 +24,10 @@
         </div>
         <div class="flex justify-between pt-14 md:pt-8">
             <p class="font-matter tracking-wider text-13 leading-tight text-brown">Written by {{ article.author | split: " " | first }}</p>
-            <a href="#" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Share</a>
+            {% comment %} <a href="#" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Share</a> {% endcomment %}
+            {% assign url = shop.url | append: request.path %}
+            {% assign share_excerpt = article.excerpt | strip_html %}
+            {% render 'share', reverse: true, url: url, title: article.title, excerpt: share_excerpt %}
         </div>
     </div>
 </section>

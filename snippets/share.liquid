@@ -1,6 +1,6 @@
-<div class="share-container flex items-center gap-4">
+<div class="share-container flex{% if reverse %} flex-row-reverse{% endif %} items-center gap-4">
     <span class="share-trigger inline-block font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown cursor-pointer">Share</span>
-    <div class="share-wrap flex items-center gap-4 ml-2 relative bottom-[.33rem]">
+    <div class="share-wrap flex items-center gap-4 ml-2 relative{% unless reverse %} bottom-[.33rem]{% endunless %}">
         {% comment %} COPY/SHARE {% endcomment %}
         <div class="share-copy inline-flex items-end relative">
             <a href="{{ url }}" data-title="{{ title }}" data-excerpt="{{ excerpt }}" class="navigator-share font-matter tracking-wider text-13 leading-tight text-brown flex items-center gap-3">

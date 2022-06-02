@@ -39,5 +39,90 @@
         "default": 16
       }
     ]
-  }  
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Shop Menu Slot Image #1",
+        "info": "Sets/overrides shop menu item image: Type in the corresponding title below for the desired Shop menu title you'd like to set/override the image for."
+      },            
+      {
+        "type": "text",
+        "id": "header_shop_title_1",
+        "label": "Title"
+      },
+      {
+          "type": "image_picker",
+          "id": "header_shop_image_1",
+          "label": "Image",
+          "info": "Recommended Image Dimensions: 600x900"
+      },   
+      {
+        "type": "header",
+        "content": "Shop Menu Slot Image #2",
+        "info": "Sets/overrides shop menu item image: Type in the corresponding title below for the desired Shop menu title you'd like to set/override the image for."
+      },            
+      {
+        "type": "text",
+        "id": "header_shop_title_2",
+        "label": "Title"
+      },
+      {
+          "type": "image_picker",
+          "id": "header_shop_image_2",
+          "label": "Image",
+          "info": "Recommended Image Dimensions: 600x900"
+      },   
+      {
+        "type": "header",
+        "content": "Shop Menu Slot Image #3",
+        "info": "Sets/overrides shop menu item image: Type in the corresponding title below for the desired Shop menu title you'd like to set/override the image for."
+      },            
+      {
+        "type": "text",
+        "id": "header_shop_title_3",
+        "label": "Title"
+      },
+      {
+          "type": "image_picker",
+          "id": "header_shop_image_3",
+          "label": "Image",
+          "info": "Recommended Image Dimensions: 600x900"
+      },   
+      {
+        "type": "header",
+        "content": "Shop Menu Slot Image #4",
+        "info": "Sets/overrides shop menu item image: Type in the corresponding title below for the desired Shop menu title you'd like to set/override the image for."
+      },            
+      {
+        "type": "text",
+        "id": "header_shop_title_4",
+        "label": "Title"
+      },
+      {
+          "type": "image_picker",
+          "id": "header_shop_image_4",
+          "label": "Image",
+          "info": "Recommended Image Dimensions: 600x900"
+      },   
+      {
+        "type": "header",
+        "content": "Shop Menu Slot Image #5",
+        "info": "Sets/overrides shop menu item image: Type in the corresponding title below for the desired Shop menu title you'd like to set/override the image for."
+      },            
+      {
+        "type": "text",
+        "id": "header_shop_title_5",
+        "label": "Title"
+      },
+      {
+          "type": "image_picker",
+          "id": "header_shop_image_5",
+          "label": "Image",
+          "info": "Recommended Image Dimensions: 600x900"
+      }
+    ]
+  } 
 ]

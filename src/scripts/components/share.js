@@ -1,4 +1,4 @@
-if (document.querySelectorAll(".share-trigger") !== null) {
+if (document.querySelector(".share-trigger") !== null) {
     //TRIGGER
     let isShareTriggerActive = false;
     const toggleShareIcons = () => {

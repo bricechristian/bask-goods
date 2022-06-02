@@ -75,7 +75,42 @@
                                         {% for child_link in link.links %}
                                             <li>
                                                 <a href="{{ child_link.url }}" class="block hover:opacity-60">
-                                                    <img src="{{ child_link.object.featured_image | img_url: '400x600', crop: 'center' }}" class="w-full mb-2 aspect-[3/4]" />
+                                                    {% assign menu_image = child_link.object.featured_image %}
+                                                    {% case forloop.index %}
+                                                        {% when 1 %}
+                                                        {% if settings.header_shop_title_1 == child_link.title %}
+                                                            {% if settings.header_shop_image_1 %}
+                                                                {% assign menu_image = settings.header_shop_image_1 %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                        {% when 2 %}
+                                                        {% if settings.header_shop_title_2 == child_link.title %}
+                                                            {% if settings.header_shop_image_2 %}
+                                                                {% assign menu_image = settings.header_shop_image_2 %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                        {% when 3 %}
+                                                        {% if settings.header_shop_title_3 == child_link.title %}
+                                                            {% if settings.header_shop_image_3 %}
+                                                                {% assign menu_image = settings.header_shop_image_3 %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                        {% when 1 %}
+                                                        {% if settings.header_shop_title_4 == child_link.title %}
+                                                            {% if settings.header_shop_image_4 %}
+                                                                {% assign menu_image = settings.header_shop_image_4 %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                        {% when 1 %}
+                                                        {% if settings.header_shop_title_5 == child_link.title %}
+                                                            {% if settings.header_shop_image_5 %}
+                                                                {% assign menu_image = settings.header_shop_image_5 %}
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    {% endcase %}
+                                                    {% if menu_image %}
+                                                        {{ menu_image | image_url: width: 600, crop: 'center' | image_tag: alt: menu_image.alt, loading: 'lazy', class: 'w-full object-cover mb-2 aspect-[3/4]' }}
+                                                    {% endif %}
                                                     <div><span class="font-italic">{{ child_link.title }} </span>—</div>
                                                 </a> 
                                             </li>    
@@ -113,7 +148,7 @@
 
 {% schema %}
 { 
-  "name": "Header",
-  "class": "header-wrap"
+    "name": "Header",
+    "class": "header-wrap"
 }
 {% endschema %}
