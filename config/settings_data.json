@@ -1,11 +1,14 @@
 {
   "current": {
-    "announcement_bar_speed": 16,
     "favicon": "shopify:\/\/shop_images\/fav.png",
+    "announcement_bar_speed": 16,
     "header_shop_title_1": "Accessories",
     "header_shop_image_1": "shopify:\/\/shop_images\/quote-1.jpg",
     "header_shop_title_2": "Shoes",
     "header_shop_image_2": "shopify:\/\/shop_images\/quote-2.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/fav.png",
+    "checkout_accent_color": "#a67c52",
+    "checkout_button_color": "#dd9b00",
     "sections": {
       "header": {
         "type": "header",
