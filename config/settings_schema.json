@@ -13,7 +13,8 @@
       {
         "type": "image_picker",
         "id": "favicon",
-        "label": "Favicon"
+        "label": "Favicon",
+        "info": "Recommended Image Dimensions: 128x128 (.png)"
       }
     ]
   },

@@ -189,6 +189,21 @@
       }      
     }
   }
+  // EDITOR SCROLLMAGIC
+  [data-shopify-editor-section] {
+    .fade-in {
+      opacity: 1 !important;
+      transition-delay: 0s !important;
+      &.highlighted {
+        transform: none !important;
+        transition-delay: 0s !important;
+      }
+    }
+    .scale-in {
+      transform: scale(1) !important;
+      transition-delay: 0s !important;
+    } 
+  }
   body.scrolled-past-hero .full__hero {
     display: none !important;
   }
