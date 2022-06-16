@@ -4,6 +4,7 @@ import '../styles/theme.scss';
 //JS
 import './polyfills/closest';
 import './utilities/isTouchScreen';
+import './utilities/preventIOSInputZoom';
 import './components/cursor';
 import './components/scrollMagic';
 import './components/stickyScroller';
