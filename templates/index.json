@@ -8,8 +8,8 @@
     "hero": {
       "type": "home-hero",
       "settings": {
-        "image": "shopify:\/\/shop_images\/home-hero.jpg",
-        "mobile_image": "shopify:\/\/shop_images\/mobile-hero.jpg"
+        "image": "shopify:\/\/shop_images\/IMG_9787_5a3177d5-6dc2-4f89-a714-df3bac3a27b1.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/IMG_9787.jpg"
       }
     },
     "shop_all": {
@@ -55,8 +55,8 @@
         "quote": "Quote about the importance of sustainability goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel.",
         "title": "Jenan",
         "role": "CEO of BASK",
-        "image": "shopify:\/\/shop_images\/quote-1.jpg",
-        "image_2": "shopify:\/\/shop_images\/quote-2.jpg",
+        "image": "shopify:\/\/shop_images\/RNI-Films-IMG-C4320A31-6CB9-463C-BD95-0897884EF4AB.jpg",
+        "image_2": "shopify:\/\/shop_images\/RNI-Films-IMG-837D01EC-F61F-4C78-A695-9AD94E6A8565.jpg",
         "image_3": "shopify:\/\/shop_images\/quote-3.jpg"
       }
     },
