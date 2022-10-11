@@ -94,7 +94,7 @@
         "quote": "Quote about the importance of sustainability goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel.",
         "title": "Our Philosophy",
         "bodycopy": "<p> The only way to move forward on planet Earth is to do so sustainably; we truly believe this, and so lays the foundation for our entire concept.<\/p><p>Each item’s loving purpose is both with the users’ and our environment’s best interest in mind.<\/p>",
-        "image": "shopify:\/\/shop_images\/philosophy-1.jpg",
+        "image": "shopify:\/\/shop_images\/sustainabilitity-mobile-hero.jpg",
         "image_2": "shopify:\/\/shop_images\/philosophy-2.jpg",
         "link_text": "Learn About Us",
         "link_url": "\/",
@@ -162,7 +162,7 @@
     "instagram": {
       "type": "instagram",
       "settings": {
-        "title": "<p>Follow along <a href='https:\/\/instagram.com\/baskgoods' target='_blank'>@baskgoods<\/a><\/p>"
+        "title": "<p>Follow along <a href=\"https:\/\/instagram.com\/baskgoods\" target=\"_blank\">@baskingoods<\/a><\/p>"
       }
     }
   },
