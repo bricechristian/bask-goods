@@ -1,13 +1,19 @@
 {
   "sections": {
     "header": {
-      "type": "header-wordmark-brown"
+      "type": "header-wordmark-brown",
+      "settings": {
+      }
     },
     "hero": {
-      "type": "blog-hero"
+      "type": "blog-hero",
+      "settings": {
+      }
     },
     "posts": {
-      "type": "blog-posts"
+      "type": "blog-posts",
+      "settings": {
+      }
     },
     "bestsellers": {
       "type": "home-bestsellers",
@@ -15,7 +21,7 @@
         "37b6fc3d-d266-4cf0-b933-f040499f8094": {
           "type": "product",
           "settings": {
-            "prod": "black-feather",
+            "prod": "chakra-healing-necklace",
             "category": "Product Category"
           }
         },

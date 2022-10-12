@@ -16,7 +16,7 @@
         "37b6fc3d-d266-4cf0-b933-f040499f8094": {
           "type": "product",
           "settings": {
-            "prod": "black-feather",
+            "prod": "chakra-healing-necklace",
             "category": "Product Category"
           }
         },
@@ -43,7 +43,7 @@
       "settings": {
         "title": "You May Also Like"
       }
-    }    
+    }
   },
   "order": [
     "header",

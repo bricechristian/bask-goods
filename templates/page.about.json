@@ -21,8 +21,7 @@
         "image_2": "shopify:\/\/shop_images\/philosophy-1.jpg",
         "title": "About Us",
         "bodycopy": "<p>To us, Bask is an entity more than a lovechild. It was born of both a love of all things sleek and beautiful, as well as nature's earthly gifts, but we no longer see those things as mutually exclusive. To us, truly gorgeous living is not serendipitous. It's not bestowed upon the rich and the beautiful, the ones with good taste, or those with access to excess. It comes from respecting our planet, and making conscientious choices with every single thing that we do, consume, make, or share.<\/p>",
-        "bodycopy_2": "<p>We center around objects. Both form and function are in the foreground. They can take up space, they can lay to waste, but that's where we made the shift. We are a marketplace for gratifyingly lovely, yet serviceable items crafted with intention.<\/p>",
-        "headline_2": "The beauty in small, daily items is not mundane. Everything we use on a regular basis should align with a doctrine of ethos that honors our planet and its limited resources. It’s ok to start small."
+        "bodycopy_2": "<p>We center around objects. Both form and function are in the foreground. They can take up space, they can lay to waste, but that's where we made the shift. We are a marketplace for gratifyingly lovely, yet serviceable items crafted with intention.<\/p>"
       }
     },
     "quote": {
@@ -84,7 +83,7 @@
         "37b6fc3d-d266-4cf0-b933-f040499f8091": {
           "type": "product",
           "settings": {
-            "prod": "black-feather",
+            "prod": "chakra-healing-necklace",
             "category": "Product Category"
           }
         },
