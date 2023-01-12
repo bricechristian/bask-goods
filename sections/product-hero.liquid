@@ -82,7 +82,7 @@
                   <div class="font-italic text-24 -mb-1">{{ product.type  }} —</div>
                 {% endif %}
                 <h1 class="font-matterlight text-24 tracking-[.05em] mb-5 md:mb-0">{{ product.title }}</h1>
-                <p class="font-matter text-brown tracking-widest mb-5">{{ product.price | money_without_trailing_zeros }}</p>
+                <p id="price" class="font-matter text-brown tracking-widest mb-5">{{ current_variant.price | money_without_trailing_zeros }}</p>
                 {% if product.has_only_default_variant %}
                   <div class="border-t border-brown mb-4"></div>
                 {% endif %}

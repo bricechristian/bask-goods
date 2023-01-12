@@ -96,6 +96,7 @@ if (document.querySelector('.product__hero') !== null) {
                     mainGallery.select(selectedImageIndex);
                 }
 
+                document.getElementById("price").textContent = Shopify.formatMoney(variant.price, "").replace(".00", "");
 
                 if (variant.available || selectedVariantQty > 0) {
                     // Selected a valid variant that is available.
