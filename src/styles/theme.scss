@@ -209,6 +209,21 @@
   }
   //FORM
   .form {
+    &__radio {
+      @apply text-brown font-matterlight tracking-widest text-18  w-full py-2 md:text-16 md:min-h-[30px]; 
+      label {
+        @apply cursor-pointer;
+      }
+      input[type="radio"] {
+        @apply rounded-full appearance-none outline-none bg-transparent border w-3 h-3;
+        &:checked {
+          @apply bg-brown;
+        }
+      }
+      span {
+        @apply ml-3;
+      }
+    }
     &__input {
       @apply text-brown rounded-none appearance-none outline-none bg-transparent border-0 font-matterlight text-18 min-h-[59px] w-full py-2 px-4 md:text-16 md:min-h-[50px]; 
       &[type="search"]::-webkit-search-cancel-button{
