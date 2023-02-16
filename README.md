@@ -1,5 +1,7 @@
 # Bask Goods Shopify Theme w/ Webpack
 
+Test PW: "bask"
+
 It uses:
 - SCSS + [Tailwind](https://tailwindcss.com/)
 - Vanilla Javascript with webpack + babel
